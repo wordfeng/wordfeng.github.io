@@ -21,18 +21,18 @@
     
     
     <meta name="keywords" content="">
-    <meta name="description" content="@TOC 数组array 模块可以表示整数、浮点数、字符的数组。 初始化array(typecode,__initializer=…)typecode表示数组的类型,文章末尾有一个参数表包含所有支持类型以及内存占用情况initializer为初始化参数,是一个list、或者iterable、或是 bytes-like object1234567import array&quot;&quot;&quot;array_name =">
+    <meta name="description" content="@TOC[目录] 数组array 模块可以表示整数、浮点数、字符的数组。 初始化array(typecode,__initializer=…)typecode表示数组的类型,文章末尾有一个参数表包含所有支持类型以及内存占用情况initializer为初始化参数,是一个list、或者iterable、或是 bytes-like object1234567import array&quot;&quot;&quot;array_na">
 <meta name="keywords" content="程序员">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python array 模块">
 <meta property="og:url" content="https://blog.ojbkfeng.com/2019/01/14/python-array-module/index.html">
 <meta property="og:site_name" content="while(live){coding}">
-<meta property="og:description" content="@TOC 数组array 模块可以表示整数、浮点数、字符的数组。 初始化array(typecode,__initializer=…)typecode表示数组的类型,文章末尾有一个参数表包含所有支持类型以及内存占用情况initializer为初始化参数,是一个list、或者iterable、或是 bytes-like object1234567import array&quot;&quot;&quot;array_name =">
+<meta property="og:description" content="@TOC[目录] 数组array 模块可以表示整数、浮点数、字符的数组。 初始化array(typecode,__initializer=…)typecode表示数组的类型,文章末尾有一个参数表包含所有支持类型以及内存占用情况initializer为初始化参数,是一个list、或者iterable、或是 bytes-like object1234567import array&quot;&quot;&quot;array_na">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-14T08:10:03.059Z">
+<meta property="og:updated_time" content="2019-01-14T08:12:39.406Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python array 模块">
-<meta name="twitter:description" content="@TOC 数组array 模块可以表示整数、浮点数、字符的数组。 初始化array(typecode,__initializer=…)typecode表示数组的类型,文章末尾有一个参数表包含所有支持类型以及内存占用情况initializer为初始化参数,是一个list、或者iterable、或是 bytes-like object1234567import array&quot;&quot;&quot;array_name =">
+<meta name="twitter:description" content="@TOC[目录] 数组array 模块可以表示整数、浮点数、字符的数组。 初始化array(typecode,__initializer=…)typecode表示数组的类型,文章末尾有一个参数表包含所有支持类型以及内存占用情况initializer为初始化参数,是一个list、或者iterable、或是 bytes-like object1234567import array&quot;&quot;&quot;array_na">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
@@ -131,7 +131,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -193,7 +193,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>@TOC</p>
+            <p>@TOC[目录]</p>
 <h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>array 模块可以表示整数、浮点数、字符的数组。</p>
 <h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>array(typecode,__initializer=…)<br>typecode表示数组的类型,文章末尾有一个参数表包含所有支持类型以及内存占用情况<br>initializer为初始化参数,是一个list、或者iterable、或是 <a href="https://docs.python.org/3.6/glossary.html#term-bytes-like-object" target="_blank" rel="noopener">bytes-like object</a><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> array</span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">array_name = array.array(typecode, [initializers])</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line">arr=array.array(<span class="string">'i'</span>,[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">arr1=array.array(<span class="string">'i'</span>,[x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>)])</span><br></pre></td></tr></table></figure></p>
 <h3 id="支持的操作"><a href="#支持的操作" class="headerlink" title="支持的操作"></a>支持的操作</h3><p>(官方文档)Array objects support the ordinary sequence operations of indexing(索引), slicing(切片), concatenation(拼接), and multiplication(乘法).</p>
@@ -353,7 +353,7 @@
     <div class="content">
         
 <span class="post-time">
-    最終更新：<time datetime="2019-01-14T08:10:03.059Z" itemprop="dateUpdated">2019-01-14 16:10:03</time>
+    Last updated: <time datetime="2019-01-14T08:12:39.406Z" itemprop="dateUpdated">2019-01-14 16:12:39</time>
 </span><br>
 
 
@@ -498,7 +498,7 @@
 
         <p>
             
-            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
