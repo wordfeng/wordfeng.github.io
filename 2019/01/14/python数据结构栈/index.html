@@ -21,20 +21,20 @@
     
     
     <meta name="keywords" content="">
-    <meta name="description" content="1.什么是栈？栈：FILO（First In Last Out）的一种数据结构。详细介绍见维基百科定义                                                                                                           栈拥有的操作1.pushpush操作是将元素扔进栈顶。 2.poppop操作将删除并">
+    <meta name="description" content="1.什么是栈？栈：FILO（First In Last Out）的一种数据结构。详细介绍见维基百科定义                                                                                             栈手绘图              栈拥有的操作1.pushpush操作是将元素扔进栈顶。 2.poppop操作">
 <meta name="keywords" content="程序员">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python数据结构：栈及其应用">
 <meta property="og:url" content="https://blog.ojbkfeng.com/2019/01/14/python数据结构栈/index.html">
 <meta property="og:site_name" content="while(live){coding}">
-<meta property="og:description" content="1.什么是栈？栈：FILO（First In Last Out）的一种数据结构。详细介绍见维基百科定义                                                                                                           栈拥有的操作1.pushpush操作是将元素扔进栈顶。 2.poppop操作将删除并">
+<meta property="og:description" content="1.什么是栈？栈：FILO（First In Last Out）的一种数据结构。详细介绍见维基百科定义                                                                                             栈手绘图              栈拥有的操作1.pushpush操作是将元素扔进栈顶。 2.poppop操作">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2019010417033777.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjEzMjc2Mw==,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-01-15T03:49:41.954Z">
+<meta property="og:image" content="https://blog.ojbkfeng.com/source/img/栈.jpg">
+<meta property="og:updated_time" content="2019-01-15T03:56:59.297Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python数据结构：栈及其应用">
-<meta name="twitter:description" content="1.什么是栈？栈：FILO（First In Last Out）的一种数据结构。详细介绍见维基百科定义                                                                                                           栈拥有的操作1.pushpush操作是将元素扔进栈顶。 2.poppop操作将删除并">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/2019010417033777.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjEzMjc2Mw==,size_16,color_FFFFFF,t_70">
+<meta name="twitter:description" content="1.什么是栈？栈：FILO（First In Last Out）的一种数据结构。详细介绍见维基百科定义                                                                                             栈手绘图              栈拥有的操作1.pushpush操作是将元素扔进栈顶。 2.poppop操作">
+<meta name="twitter:image" content="https://blog.ojbkfeng.com/source/img/栈.jpg">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="/css/style.css?v=1.7.2">
@@ -99,20 +99,6 @@
               <a href="https://github.com/wordfeng" target="_blank">
                 <i class="icon icon-lg icon-github"></i>
                 Github
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="http://www.weibo.com/" target="_blank">
-                <i class="icon icon-lg icon-weibo"></i>
-                Weibo
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/custom">
-                <i class="icon icon-lg icon-link"></i>
-                测试
               </a>
             </li>
         
@@ -198,9 +184,9 @@
             <h1 id="1-什么是栈？"><a href="#1-什么是栈？" class="headerlink" title="1.什么是栈？"></a>1.什么是栈？</h1><p>栈：FILO（First In Last Out）的一种数据结构。<br>详细介绍见<a href="https://zh.wikipedia.org/wiki/%E5%A0%86%E6%A0%88" target="_blank" rel="noopener">维基百科定义</a><br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://img-blog.csdnimg.cn/2019010417033777.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjEzMjc2Mw==,size_16,color_FFFFFF,t_70" alt="" title="">
+                    <img src="/source/img/栈.jpg" alt="栈手绘图" title="">
                 </div>
-                <div class="image-caption"></div>
+                <div class="image-caption">栈手绘图</div>
             </figure></p>
 <h2 id="栈拥有的操作"><a href="#栈拥有的操作" class="headerlink" title="栈拥有的操作"></a>栈拥有的操作</h2><h3 id="1-push"><a href="#1-push" class="headerlink" title="1.push"></a>1.push</h3><p>push操作是将元素扔进栈顶。</p>
 <h3 id="2-pop"><a href="#2-pop" class="headerlink" title="2.pop"></a>2.pop</h3><p>pop操作将删除并返回栈顶的元素。</p>
@@ -208,9 +194,69 @@
 <h3 id="4-top"><a href="#4-top" class="headerlink" title="4.top"></a>4.top</h3><p>如果栈顶有元素，则返回栈顶元素，如果栈顶没有元素，则返回error，或null。</p>
 <h1 id="2-方法一：基于list类的栈"><a href="#2-方法一：基于list类的栈" class="headerlink" title="2.方法一：基于list类的栈"></a>2.方法一：基于list类的栈</h1><p>基于list实现的栈要依赖Python的内置类list，依靠list本身的操作，加以限制操作的方式实现，这种实现方式最简单。</p>
 <h2 id="详细实现"><a href="#详细实现" class="headerlink" title="详细实现"></a>详细实现</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ArrayStack</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self._data=[]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(_data)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isEmpty</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self._data)==<span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pop</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.isEmpty():</span><br><span class="line">            <span class="keyword">raise</span> Exception(<span class="string">'stack is empty'</span>)</span><br><span class="line">        <span class="keyword">return</span> self._data.pop()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span><span class="params">(self,element)</span>:</span></span><br><span class="line">        self._data.append(element)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">top</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self._data.isEmpty():</span><br><span class="line">            <span class="keyword">raise</span> Exception(<span class="string">'stack is empty'</span>)</span><br><span class="line">        <span class="keyword">return</span> self._data[<span class="number">-1</span>]</span><br></pre></td></tr></table></figure>
-<h2 id="方法一时间复杂度分析"><a href="#方法一时间复杂度分析" class="headerlink" title="方法一时间复杂度分析"></a>方法一时间复杂度分析</h2><p>使用list方法实现的时间复杂度都是常量级别的，时间复杂度上很大程度借了Python实内置函数现方式的光。<br>|操作|时间复杂度  |<br>|:—:|:—:|<br>| push |  O（1）|<br>| pop|  O（1）|<br>| top|  O（1）|<br>| isEmpty|  O（1）|<br>| len|  O（1）|</p>
+<h2 id="方法一时间复杂度分析"><a href="#方法一时间复杂度分析" class="headerlink" title="方法一时间复杂度分析"></a>方法一时间复杂度分析</h2><p>使用list方法实现的时间复杂度都是常量级别的，时间复杂度上很大程度借了Python实内置函数现方式的光。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">操作</th>
+<th style="text-align:center">时间复杂度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">push</td>
+<td style="text-align:center">O（1）</td>
+</tr>
+<tr>
+<td style="text-align:center">pop</td>
+<td style="text-align:center">O（1）</td>
+</tr>
+<tr>
+<td style="text-align:center">top</td>
+<td style="text-align:center">O（1）</td>
+</tr>
+<tr>
+<td style="text-align:center">isEmpty</td>
+<td style="text-align:center">O（1）</td>
+</tr>
+<tr>
+<td style="text-align:center">len</td>
+<td style="text-align:center">O（1）</td>
+</tr>
+</tbody>
+</table>
 <h1 id="3-方法二：单链表实现栈"><a href="#3-方法二：单链表实现栈" class="headerlink" title="3.方法二：单链表实现栈"></a>3.方法二：单链表实现栈</h1><h2 id="详细实现-1"><a href="#详细实现-1" class="headerlink" title="详细实现"></a>详细实现</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stack</span>:</span></span><br><span class="line">    <span class="comment">#Stack类</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">_Node</span>:</span></span><br><span class="line">        <span class="comment">#节点类</span></span><br><span class="line">        __slots__=<span class="string">'_element'</span>,<span class="string">'_next'</span></span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,element,next)</span>:</span></span><br><span class="line">            self._element=element</span><br><span class="line">            self._next =next</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self._head=<span class="keyword">None</span></span><br><span class="line">        self._size=<span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._size</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isEmpty</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._size==<span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span><span class="params">(self,element)</span>:</span></span><br><span class="line">        self._head=self._Node(element,self._head)</span><br><span class="line">        self._size+=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pop</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.isEmpty():</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        elem=self._head._element</span><br><span class="line">        self._head=self._head._next</span><br><span class="line">        self._size-=<span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> elem</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">top</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.isEmpty():</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">return</span> self._head._element</span><br></pre></td></tr></table></figure>
-<h2 id="方法二时间复杂度分析"><a href="#方法二时间复杂度分析" class="headerlink" title="方法二时间复杂度分析"></a>方法二时间复杂度分析</h2><p>由于每次入栈出栈，都有一个_size累加累减，所以len的时间复杂度还是1。<br>|操作|时间复杂度  |<br>|:—:|:—:|<br>| push |  O（1）|<br>| pop|  O（1）|<br>| top|  O（1）|<br>| isEmpty|  O（1）|<br>| len|  O（1）|</p>
+<h2 id="方法二时间复杂度分析"><a href="#方法二时间复杂度分析" class="headerlink" title="方法二时间复杂度分析"></a>方法二时间复杂度分析</h2><p>由于每次入栈出栈，都有一个_size累加累减，所以len的时间复杂度还是1。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">操作</th>
+<th style="text-align:center">时间复杂度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">push</td>
+<td style="text-align:center">O（1）</td>
+</tr>
+<tr>
+<td style="text-align:center">pop</td>
+<td style="text-align:center">O（1）</td>
+</tr>
+<tr>
+<td style="text-align:center">top</td>
+<td style="text-align:center">O（1）</td>
+</tr>
+<tr>
+<td style="text-align:center">isEmpty</td>
+<td style="text-align:center">O（1）</td>
+</tr>
+<tr>
+<td style="text-align:center">len</td>
+<td style="text-align:center">O（1）</td>
+</tr>
+</tbody>
+</table>
 <h1 id="4-栈的应用"><a href="#4-栈的应用" class="headerlink" title="4.栈的应用"></a>4.栈的应用</h1><blockquote>
 <p>栈的应用范围还是很广的，比如我们常用的Ctrl + Z（撤销）就是基于栈的，每次返回上一次的操作，还有浏览器，文件管理器等等，总是记录上一次访问也面的地址，收到返回请求的时候直接返回栈顶的地址就行了，多次请求就不断地从栈顶返回就可以了。</p>
 </blockquote>
@@ -224,7 +270,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-01-15T03:49:41.954Z" itemprop="dateUpdated">2019-01-15 11:49:41</time>
+    最后更新时间：<time datetime="2019-01-15T03:56:59.297Z" itemprop="dateUpdated">2019-01-15 11:56:59</time>
 </span><br>
 
 
