@@ -21,19 +21,19 @@
     
     
     <meta name="keywords" content="栈">
-    <meta name="description" content="1.什么是栈？栈：FILO（First In Last Out）的一种数据结构。详细介绍见维基百科定义                                                                                             栈手绘图              栈拥有的操作1.pushpush操作是将元素扔进栈顶。 2.poppop操作">
+    <meta name="description" content="1.什么是栈？栈：FILO（First In Last Out）的一种数据结构。详细介绍见维基百科定义 栈拥有的操作1.pushpush操作是将元素扔进栈顶。 2.poppop操作将删除并返回栈顶的元素。 3.isEmpty如果栈里没有元素则返回True，如果有元素则返回False 4.top如果栈顶有元素，则返回栈顶元素，如果栈顶没有元素，则返回error，或null。 2.方法一：基于list">
 <meta name="keywords" content="栈">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python数据结构：栈及其应用">
 <meta property="og:url" content="https://blog.ojbkfeng.com/2019/01/14/python数据结构栈/index.html">
 <meta property="og:site_name" content="while(live){coding}">
-<meta property="og:description" content="1.什么是栈？栈：FILO（First In Last Out）的一种数据结构。详细介绍见维基百科定义                                                                                             栈手绘图              栈拥有的操作1.pushpush操作是将元素扔进栈顶。 2.poppop操作">
+<meta property="og:description" content="1.什么是栈？栈：FILO（First In Last Out）的一种数据结构。详细介绍见维基百科定义 栈拥有的操作1.pushpush操作是将元素扔进栈顶。 2.poppop操作将删除并返回栈顶的元素。 3.isEmpty如果栈里没有元素则返回True，如果有元素则返回False 4.top如果栈顶有元素，则返回栈顶元素，如果栈顶没有元素，则返回error，或null。 2.方法一：基于list">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://blog.ojbkfeng.com/img/栈.jpg">
 <meta property="og:updated_time" content="2019-01-17T04:14:44.692Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python数据结构：栈及其应用">
-<meta name="twitter:description" content="1.什么是栈？栈：FILO（First In Last Out）的一种数据结构。详细介绍见维基百科定义                                                                                             栈手绘图              栈拥有的操作1.pushpush操作是将元素扔进栈顶。 2.poppop操作">
+<meta name="twitter:description" content="1.什么是栈？栈：FILO（First In Last Out）的一种数据结构。详细介绍见维基百科定义 栈拥有的操作1.pushpush操作是将元素扔进栈顶。 2.poppop操作将删除并返回栈顶的元素。 3.isEmpty如果栈里没有元素则返回True，如果有元素则返回False 4.top如果栈顶有元素，则返回栈顶元素，如果栈顶没有元素，则返回error，或null。 2.方法一：基于list">
 <meta name="twitter:image" content="https://blog.ojbkfeng.com/img/栈.jpg">
     
     <link rel="shortcut icon" href="../../../../favicon.ico">
@@ -185,13 +185,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="1-什么是栈？"><a href="#1-什么是栈？" class="headerlink" title="1.什么是栈？"></a>1.什么是栈？</h1><p>栈：FILO（First In Last Out）的一种数据结构。<br>详细介绍见<a href="https://zh.wikipedia.org/wiki/%E5%A0%86%E6%A0%88" target="_blank" rel="noopener">维基百科定义</a><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/栈.jpg" alt="栈手绘图" title="">
-                </div>
-                <div class="image-caption">栈手绘图</div>
-            </figure></p>
+            <h1 id="1-什么是栈？"><a href="#1-什么是栈？" class="headerlink" title="1.什么是栈？"></a>1.什么是栈？</h1><p>栈：FILO（First In Last Out）的一种数据结构。<br>详细介绍见<a href="https://zh.wikipedia.org/wiki/%E5%A0%86%E6%A0%88" target="_blank" rel="noopener">维基百科定义</a><br><img src="/img/栈.jpg" alt="栈手绘图"></p>
 <h2 id="栈拥有的操作"><a href="#栈拥有的操作" class="headerlink" title="栈拥有的操作"></a>栈拥有的操作</h2><h3 id="1-push"><a href="#1-push" class="headerlink" title="1.push"></a>1.push</h3><p>push操作是将元素扔进栈顶。</p>
 <h3 id="2-pop"><a href="#2-pop" class="headerlink" title="2.pop"></a>2.pop</h3><p>pop操作将删除并返回栈顶的元素。</p>
 <h3 id="3-isEmpty"><a href="#3-isEmpty" class="headerlink" title="3.isEmpty"></a>3.isEmpty</h3><p>如果栈里没有元素则返回True，如果有元素则返回False</p>
