@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>markdown从基础到癫疯 | while(live){coding} | 一个有味道的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="markdown基础">
+    <meta name="description" content="1.标题# 空格 标题 一级标题二级标题………. 六级标题# 一级标题 ## 二级标题 .......... ###### 六级标题 2.字体2.1加粗需要加粗的字前后分别用两个*包含起来 **加粗** 加粗 2.2斜体加粗跟加粗类似，前后用三个*包含起来 ***斜体加粗内容*** 斜体加粗字 2.3斜体斜体前后分别用一个*包含加来 *斜体* 斜体 2.4删除线前后分别两个~ ~~删除线~~ 删除">
+<meta name="keywords" content="markdown基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="markdown从基础到癫疯">
+<meta property="og:url" content="https://blog.ojbkfeng.com/2019/01/17/markdown语法/index.html">
+<meta property="og:site_name" content="while(live){coding}">
+<meta property="og:description" content="1.标题# 空格 标题 一级标题二级标题………. 六级标题# 一级标题 ## 二级标题 .......... ###### 六级标题 2.字体2.1加粗需要加粗的字前后分别用两个*包含起来 **加粗** 加粗 2.2斜体加粗跟加粗类似，前后用三个*包含起来 ***斜体加粗内容*** 斜体加粗字 2.3斜体斜体前后分别用一个*包含加来 *斜体* 斜体 2.4删除线前后分别两个~ ~~删除线~~ 删除">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://img02.sogoucdn.com/app/a/100520021/AB4384FE85BE242D5AF8607534289248">
+<meta property="og:updated_time" content="2019-01-17T10:54:44.275Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="markdown从基础到癫疯">
+<meta name="twitter:description" content="1.标题# 空格 标题 一级标题二级标题………. 六级标题# 一级标题 ## 二级标题 .......... ###### 六级标题 2.字体2.1加粗需要加粗的字前后分别用两个*包含起来 **加粗** 加粗 2.2斜体加粗跟加粗类似，前后用三个*包含起来 ***斜体加粗内容*** 斜体加粗字 2.3斜体斜体前后分别用一个*包含加来 *斜体* 斜体 2.4删除线前后分别两个~ ~~删除线~~ 删除">
+<meta name="twitter:image" content="http://img02.sogoucdn.com/app/a/100520021/AB4384FE85BE242D5AF8607534289248">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(../../../../img/brand.jpg)">
+      <div class="brand">
+        <a href="../../../../index.html" class="avatar waves-effect waves-circle waves-light">
+          <img src="../../../../img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Xiao YuFeng</h5>
+          <a href="mailto:yf0nuttiness@qq.com" title="yf0nuttiness@qq.com" class="mail">yf0nuttiness@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../index.html">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../archives">
+                <i class="icon icon-lg icon-archives"></i>
+                所有内容
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wordfeng" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">markdown从基础到癫疯</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">markdown从基础到癫疯</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-01-17T09:04:56.047Z" itemprop="datePublished" class="page-time">
+  2019-01-17
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../categories/markdown/">markdown</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-标题"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.标题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一级标题"><span class="post-toc-number">2.</span> <span class="post-toc-text">一级标题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二级标题"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">二级标题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#六级标题"><span class="post-toc-number">2.1.0.0.0.1.</span> <span class="post-toc-text">六级标题</span></a></li></ol></li></ol></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-字体"><span class="post-toc-number">3.</span> <span class="post-toc-text">2.字体</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1加粗"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">2.1加粗</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2斜体加粗"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">2.2斜体加粗</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3斜体"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">2.3斜体</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4删除线"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">2.4删除线</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-引用"><span class="post-toc-number">4.</span> <span class="post-toc-text">3.引用</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4-分割线"><span class="post-toc-number">5.</span> <span class="post-toc-text">4.分割线</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#5-图片"><span class="post-toc-number">6.</span> <span class="post-toc-text">5.图片</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#6-超链接"><span class="post-toc-number">7.</span> <span class="post-toc-text">6.超链接</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#7-列表"><span class="post-toc-number">8.</span> <span class="post-toc-text">7.列表</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#无序列表"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">无序列表</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#有序列表"><span class="post-toc-number">8.2.</span> <span class="post-toc-text">有序列表</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#8-表格"><span class="post-toc-number">9.</span> <span class="post-toc-text">8.表格</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#9-代码块"><span class="post-toc-number">10.</span> <span class="post-toc-text">9.代码块</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#单行代码"><span class="post-toc-number">10.1.</span> <span class="post-toc-text">单行代码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#多行代码"><span class="post-toc-number">10.2.</span> <span class="post-toc-text">多行代码</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#10-流程图"><span class="post-toc-number">11.</span> <span class="post-toc-text">10.流程图</span></a></li>
+        </nav>
+    </aside>
+
+
+<article id="post-markdown语法" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">markdown从基础到癫疯</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-01-17 17:04:56" datetime="2019-01-17T09:04:56.047Z" itemprop="datePublished">2019-01-17</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../categories/markdown/">markdown</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="1-标题"><a href="#1-标题" class="headerlink" title="1.标题"></a>1.标题</h1><pre><code># 空格 标题
+</code></pre><h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><p>……….</p>
+<h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><pre><code># 一级标题
+## 二级标题
+..........
+###### 六级标题
+</code></pre><h1 id="2-字体"><a href="#2-字体" class="headerlink" title="2.字体"></a>2.字体</h1><h2 id="2-1加粗"><a href="#2-1加粗" class="headerlink" title="2.1加粗"></a>2.1加粗</h2><pre><code>需要加粗的字前后分别用两个*包含起来
+**加粗**
+</code></pre><p><strong>加粗</strong></p>
+<h2 id="2-2斜体加粗"><a href="#2-2斜体加粗" class="headerlink" title="2.2斜体加粗"></a>2.2斜体加粗</h2><pre><code>跟加粗类似，前后用三个*包含起来
+***斜体加粗内容***
+</code></pre><p><strong><em>斜体加粗字</em></strong></p>
+<h2 id="2-3斜体"><a href="#2-3斜体" class="headerlink" title="2.3斜体"></a>2.3斜体</h2><pre><code>斜体前后分别用一个*包含加来
+*斜体*
+</code></pre><p><em>斜体</em></p>
+<h2 id="2-4删除线"><a href="#2-4删除线" class="headerlink" title="2.4删除线"></a>2.4删除线</h2><pre><code>前后分别两个~
+~~删除线~~
+</code></pre><p><del>删除线</del></p>
+<h1 id="3-引用"><a href="#3-引用" class="headerlink" title="3.引用"></a>3.引用</h1><pre><code>使用&gt;符号表示在&gt;后面书写内容，可以使用连续的&gt;添加多级引用，感觉没什么卵用
+&gt;我是引用
+&gt;&gt;我是嵌套引用
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;我是引引引引引引引引引用
+</code></pre><blockquote>
+<p>我是引用</p>
+<blockquote>
+<p>我是嵌套引用</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>我是引引引引引引引引引用</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<h1 id="4-分割线"><a href="#4-分割线" class="headerlink" title="4.分割线"></a>4.分割线</h1><pre><code>用三个以上下列符号就行了，不建议使用三个组，如***有可能跟加粗斜体冲突
+---
+----
+***
+*****
+</code></pre><h1 id="5-图片"><a href="#5-图片" class="headerlink" title="5.图片"></a>5.图片</h1><pre><code>![图片下显示的字](图片地址)
+示例：
+![sogou上的表情包](http://img02.sogoucdn.com/app/a/100520021/AB4384FE85BE242D5AF8607534289248)
+效果如下：
+</code></pre><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img02.sogoucdn.com/app/a/100520021/AB4384FE85BE242D5AF8607534289248" alt="sogou上的表情包" title="">
+                </div>
+                <div class="image-caption">sogou上的表情包</div>
+            </figure>
+<h1 id="6-超链接"><a href="#6-超链接" class="headerlink" title="6.超链接"></a>6.超链接</h1><pre><code>[超链接名](超链接地址)
+跟图片的区别就是少了个！
+[lz的主页](https://blog.ojbkfeng.cn)
+</code></pre><p><a href="https://blog.ojbkfeng.cn" target="_blank" rel="noopener">lz的主页</a></p>
+<h1 id="7-列表"><a href="#7-列表" class="headerlink" title="7.列表"></a>7.列表</h1><h2 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h2><pre><code>用下面任意一种就行,可以嵌套，可以跟有序列表混合嵌套。
+- 列表内容
+  - 嵌套列表
++ 列表内容
+* 列表内容
+</code></pre><ul>
+<li>列表内容<ul>
+<li>嵌套列表</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>列表内容</li>
+</ul>
+<ul>
+<li><p>列表内容</p>
+<h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h2><p>  直接用数字序列替代前面的符号即可。</p>
+<h1 id="8-表格"><a href="#8-表格" class="headerlink" title="8.表格"></a>8.表格</h1><p>  |姓名|技能|排行|<br>  |:–|:–:|–:|  这一行分别是左对齐，居中，右对齐<br>  |张三|吃屎|老三|<br>  |张二|喝尿|老二|<br>  |张大|张三张二会的他都会|老三|</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">姓名</th>
+<th style="text-align:center">技能</th>
+<th style="text-align:right">排行</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">张三</td>
+<td style="text-align:center">吃屎</td>
+<td style="text-align:right">老三</td>
+</tr>
+<tr>
+<td style="text-align:left">张二</td>
+<td style="text-align:center">喝尿</td>
+<td style="text-align:right">老二</td>
+</tr>
+<tr>
+<td style="text-align:left">张大</td>
+<td style="text-align:center">张三张二会的他都会</td>
+<td style="text-align:right">老三</td>
+</tr>
+</tbody>
+</table>
+<h1 id="9-代码块"><a href="#9-代码块" class="headerlink" title="9.代码块"></a>9.代码块</h1><h2 id="单行代码"><a href="#单行代码" class="headerlink" title="单行代码"></a>单行代码</h2><pre><code>前后一个`反引号。
+`list = [x for i in range(1,100000,2)]`
+</code></pre><p><code>list = [x for i in range(1,100000,2)]</code></p>
+<h2 id="多行代码"><a href="#多行代码" class="headerlink" title="多行代码"></a>多行代码</h2><pre><code>前后用三个反引号`，前面三个反引号后面要加代码名，比如c 比如python
+</code></pre><p><del>反引号反引号反引号</del>python<br>l = [x for i in range(1,100000,2)]<br>print(l)<br><del>反引号反引号反引号</del><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">l = [x <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">100000</span>,<span class="number">2</span>)]</span><br><span class="line">print(l)</span><br></pre></td></tr></table></figure></p>
+<h1 id="10-流程图"><a href="#10-流程图" class="headerlink" title="10.流程图"></a>10.流程图</h1><p>我这个是GitHub存储的，GitHub不支持流程图，模板用的hexo，默认也不支持流程图，但是hexo可以用插件强行支持。<br><code>npm install --save hexo-filter-flowchart</code><br>    <del>反引号反引号反引号</del>(由于渲染问题，我就用这个代替三个`了)flow<br>    —-定义部分格式： 变量名=&gt;模块名: 内容—-<br>    st=&gt;start: 开始<br>    op=&gt;operation: My Operation<br>    cond=&gt;condition: Yes or No?<br>    e=&gt;end<br>    —-流程控制部分格式：变量-&gt;变量—-<br>    st-&gt;op-&gt;cond<br>    cond(yes)-&gt;e —cond(yes)表示判断为yes执行的路线<br>    cond(no)-&gt;op<br>    <del>反引号反引号反引号</del></p>
+<div id="flowchart-0" class="flow-chart"></div>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">操作模块</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">start</td>
+<td style="text-align:center">开始</td>
+</tr>
+<tr>
+<td style="text-align:center">end</td>
+<td style="text-align:center">结束</td>
+</tr>
+<tr>
+<td style="text-align:center">opration</td>
+<td style="text-align:center">普通操作块</td>
+</tr>
+<tr>
+<td style="text-align:center">condition</td>
+<td style="text-align:center">判断块</td>
+</tr>
+<tr>
+<td style="text-align:center">subroutine</td>
+<td style="text-align:center">子任务块</td>
+</tr>
+<tr>
+<td style="text-align:center">inputoutput</td>
+<td style="text-align:center">输入输出块</td>
+</tr>
+</tbody>
+</table>
+<p><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: 开始
+op=>operation: Operation
+cond=>condition: Yes or No?
+e=>end
+st->op->cond
+cond(yes)->e
+cond(no)->op</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-01-17T10:54:44.275Z" itemprop="dateUpdated">2019-01-17 18:54:44</time>
+</span><br>
+
+
+        
+        各位大爷们，评论在下最方，打赏点下面。转载请注明GitHub项目地址：https://github.com/wordfeng/wordfeng.github.io
+        
+    </div>
+    
+    <footer>
+        <a href="https://blog.ojbkfeng.com">
+            <img src="../../../../img/avatar.jpg" alt="Xiao YuFeng">
+            Xiao YuFeng
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/markdown基础/">markdown基础</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.ojbkfeng.com/2019/01/17/markdown语法/&title=《markdown从基础到癫疯》 — while(live){coding}&pic=https://blog.ojbkfeng.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.ojbkfeng.com/2019/01/17/markdown语法/&title=《markdown从基础到癫疯》 — while(live){coding}&source=描述" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.ojbkfeng.com/2019/01/17/markdown语法/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《markdown从基础到癫疯》 — while(live){coding}&url=https://blog.ojbkfeng.com/2019/01/17/markdown语法/&via=https://blog.ojbkfeng.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.ojbkfeng.com/2019/01/17/markdown语法/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="../mysqlclient/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Python mysqlclient模块连接MySQL</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="../Ubuntu_pip_updata/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Ubuntu 16.04更新pip版本后无法使用</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail'];<!-- 初始参数 'nick','mail','link' -->
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "cKe3yufiuoLVX7aeynK3jRP5-gzGzoHsz",
+            appKey: "4zBdRSwA5vUeliupdmxraDPT",
+            avatar: "mm",
+            placeholder: "可以在上面留下你的昵称和邮箱哦，支持markdown语法评论。",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="../../../../img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="../../../../img/wechat.jpg" data-alipay="../../../../img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Xiao YuFeng &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.ojbkfeng.com/2019/01/17/markdown语法/&title=《markdown从基础到癫疯》 — while(live){coding}&pic=https://blog.ojbkfeng.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.ojbkfeng.com/2019/01/17/markdown语法/&title=《markdown从基础到癫疯》 — while(live){coding}&source=描述" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.ojbkfeng.com/2019/01/17/markdown语法/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《markdown从基础到癫疯》 — while(live){coding}&url=https://blog.ojbkfeng.com/2019/01/17/markdown语法/&via=https://blog.ojbkfeng.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.ojbkfeng.com/2019/01/17/markdown语法/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://blog.ojbkfeng.com/2019/01/17/markdown语法/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="../../../../js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="../../../../js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼快回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '嘿嘿嘿嘿(¯﹃¯)!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
