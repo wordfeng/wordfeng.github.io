@@ -331,7 +331,7 @@
     <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
     <!-- Valine Comments script -->
     <script>
-        var GUEST_INFO = ['nick','mail','link'];
+        var GUEST_INFO = ['nick','mail'];<!-- 初始参数 'nick','mail','link' -->
         var guest_info = 'nick,mail,link'.split(',').filter(function(item){
           return GUEST_INFO.indexOf(item) > -1
         });
@@ -342,7 +342,7 @@
             appId: "cKe3yufiuoLVX7aeynK3jRP5-gzGzoHsz",
             appKey: "4zBdRSwA5vUeliupdmxraDPT",
             avatar: "mm",
-            placeholder: "支持markdown语法的评论系统。",
+            placeholder: "可以在上方输入你的昵称和邮箱哦，支持markdown语法评论。",
             guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
             pageSize: "10"
         })
