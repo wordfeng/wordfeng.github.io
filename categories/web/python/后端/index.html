@@ -14,7 +14,7 @@
     
     
     
-    <title>类别: 后端 | while(live){coding} | 一个有味道的博客</title>
+    <title>categories: 后端 | while(live){coding} | 一个有味道的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
@@ -110,7 +110,17 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">类别: 后端</div>
+        <div class="flex-col header-title ellipsis">categories: 后端</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
         
         
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
@@ -122,7 +132,7 @@
 <header class="content-header categories-header">
 
     <div class="container fade-scale">
-        <h1 class="title">类别: 后端</h1>
+        <h1 class="title">categories: 后端</h1>
         <h5 class="subtitle">
             
         </h5>
@@ -147,15 +157,15 @@
 
         
 
-            <a href="../" style="-webkit-order:3;order:3" class="tags-list-item waves-effect waves-button waves-light active">python</a>
+            <a href="../../../数据结构/" style="-webkit-order:3;order:3" class="tags-list-item waves-effect waves-button waves-light">数据结构</a>
 
         
 
-            <a href="" style="-webkit-order:4;order:4" class="tags-list-item waves-effect waves-button waves-light active">后端</a>
+            <a href="../" style="-webkit-order:4;order:4" class="tags-list-item waves-effect waves-button waves-light active">python</a>
 
         
 
-            <a href="../../../数据结构/" style="-webkit-order:5;order:5" class="tags-list-item waves-effect waves-button waves-light">数据结构</a>
+            <a href="" style="-webkit-order:5;order:5" class="tags-list-item waves-effect waves-button waves-light active">后端</a>
 
         
     </nav>
@@ -300,6 +310,26 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 </script>
 
 <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 
 
 

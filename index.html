@@ -112,6 +112,16 @@
         </a>
         <div class="flex-col header-title ellipsis">while(live){coding}</div>
         
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
         
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
             <i class="icon icon-lg icon-share-alt"></i>
@@ -171,8 +181,7 @@
 
 click [required: &gt;=5.1, installed: 7.0]
 itsdangerous [required: &gt;=0.24, installed: 1.1.0]
-Jinja2 [required: &gt;=2.10, installed: 2.10]
-MarkupSafe [required: &gt;=0.23,...
+Jinja2 [required: &gt;=2.10,...
     
 
         <a href="2019/01/15/Flask1/" class="post-more waves-effect waves-button">
@@ -226,10 +235,7 @@ MarkupSafe [required: &gt;=0.23,...
                 
                 options
             
-
-                
-                    
-           ...
+...
     
 
         <a href="2019/01/15/pipenv/" class="post-more waves-effect waves-button">
@@ -280,10 +286,7 @@ MarkupSafe [required: &gt;=0.23,...
                     
                     
                 
-                栈手绘图
-            
-栈拥有的操作1.pushpush操作是将元素扔进栈顶。
-2.poppo...
+                栈手绘...
     
 
         <a href="2019/01/14/python数据结构栈/" class="post-more waves-effect waves-button">
@@ -330,7 +333,7 @@ MarkupSafe [required: &gt;=0.23,...
 
     
         数组array 模块可以表示整数、浮点数、字符的数组。
-初始化array(typecode,__initializer=…)typecode表示数组的类型,文章末尾有一个参数表包含所有支持类型以及内存占用情况initializer为初始化参数,是一个list、或者iterable、或是 bytes-like object1234567import array"""array_name = a...
+初始化array(typecode,__initializer=…)typecode表示数组的类型,文章末尾有一个参数表包含所有支持类型以及内存占用情况initializer为初始化参数,是一个list、或者iterable、或是 byt...
     
 
         <a href="2019/01/14/python-array-module/" class="post-more waves-effect waves-button">
@@ -441,6 +444,26 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 </script>
 
 <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 
 
 
