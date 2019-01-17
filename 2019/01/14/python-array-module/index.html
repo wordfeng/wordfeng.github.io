@@ -456,6 +456,23 @@
 
 
 
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            owner: 'wordfeng',
+            repo: 'https://wordfeng.github.io.git',
+            oauth: {
+                client_id: 'ba6b919982fd490f316b',
+                client_secret: '9d434e673bbbc1c31f537e471bf23f1acf8f893b',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
 
 
 
