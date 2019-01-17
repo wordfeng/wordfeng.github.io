@@ -374,14 +374,13 @@
     
 
 
-
-
-
 <section class="comments" id="comments">
-    <!-- UY BEGIN -->
-    <div id="uyan_frame"></div>
-    <script src="http://v2.uyan.cc/code/uyan.js?uid=true"></script>
-    <!-- UY END -->
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'true';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </section>
 
 
@@ -392,6 +391,36 @@
 
 
 
+
+
+
+
+    <section class="comments" id="comments">
+        <div id="hypercomments_widget"></div>
+        <script type="text/javascript">
+            var hyper_id = 'true';
+            _hcwp = window._hcwp || [];
+            _hcwp.push({
+                widget: "Stream",
+                widget_id: hyper_id
+            });
+            (function () {
+                if ("HC_LOAD_INIT" in window) return;
+                HC_LOAD_INIT = true;
+                var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(
+                    0, 2).toLowerCase();
+                var hcc = document.createElement("script");
+                hcc.type = "text/javascript";
+                hcc.async = true;
+                hcc.src = ("https:" == document.location.protocol ? "https" : "http") +
+                    "://w.hypercomments.com/widget/hc/" + hyper_id + "/" + lang + "/widget.js";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hcc, s.nextSibling);
+            })();
+
+        </script>
+        <a href="http://hypercomments.com" rel="nofollow" class="hc-link" title="comments widget">comments powered by HyperComments</a>
+    </section>
 
 
 
