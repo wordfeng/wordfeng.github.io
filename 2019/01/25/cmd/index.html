@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>cmd常用命令 | while(live){coding} | 一个有味道的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="cmd">
+    <meta name="description" content="官方文档    符号 描述     没有括号或大括号的文本 必须显示输入的   &amp;lt;尖括号内的文字&amp;gt; 必须为其提供值的占位符   [方括号内的文字] 可选项目   {文字里面的大括号} 必要的参数; 选一个   垂直条（\ ） 互斥元素的分隔符; 选一个   省略号（…） 可以重复的项目    帮助命令+ /?显示帮助文档例如：taskkill /?arp /?help + 命令 显示帮">
+<meta name="keywords" content="cmd">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cmd常用命令">
+<meta property="og:url" content="https://blog.ojbkfeng.com/2019/01/25/cmd/index.html">
+<meta property="og:site_name" content="while(live){coding}">
+<meta property="og:description" content="官方文档    符号 描述     没有括号或大括号的文本 必须显示输入的   &amp;lt;尖括号内的文字&amp;gt; 必须为其提供值的占位符   [方括号内的文字] 可选项目   {文字里面的大括号} 必要的参数; 选一个   垂直条（\ ） 互斥元素的分隔符; 选一个   省略号（…） 可以重复的项目    帮助命令+ /?显示帮助文档例如：taskkill /?arp /?help + 命令 显示帮">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-25T15:35:01.663Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="cmd常用命令">
+<meta name="twitter:description" content="官方文档    符号 描述     没有括号或大括号的文本 必须显示输入的   &amp;lt;尖括号内的文字&amp;gt; 必须为其提供值的占位符   [方括号内的文字] 可选项目   {文字里面的大括号} 必要的参数; 选一个   垂直条（\ ） 互斥元素的分隔符; 选一个   省略号（…） 可以重复的项目    帮助命令+ /?显示帮助文档例如：taskkill /?arp /?help + 命令 显示帮">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(../../../../img/brand.jpg)">
+      <div class="brand">
+        <a href="../../../../index.html" class="avatar waves-effect waves-circle waves-light">
+          <img src="../../../../img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Xiao YuFeng</h5>
+          <a href="mailto:yf0nuttiness@qq.com" title="yf0nuttiness@qq.com" class="mail">yf0nuttiness@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../index.html">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../archives">
+                <i class="icon icon-lg icon-archives"></i>
+                所有内容
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wordfeng" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">cmd常用命令</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">cmd常用命令</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-01-25T14:16:19.906Z" itemprop="datePublished" class="page-time">
+  2019-01-25
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../categories/终端/">终端</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#帮助"><span class="post-toc-number">1.</span> <span class="post-toc-text">帮助</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#taskkill"><span class="post-toc-number">2.</span> <span class="post-toc-text">taskkill</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#关闭PID号为3716和123的进程"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">关闭PID号为3716和123的进程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#关闭所有记事本"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">关闭所有记事本</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#where（超实用）"><span class="post-toc-number">3.</span> <span class="post-toc-text">where（超实用）</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#whoami"><span class="post-toc-number">4.</span> <span class="post-toc-text">whoami</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#cls（清空面板）"><span class="post-toc-number">5.</span> <span class="post-toc-text">cls（清空面板）</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#defrag（磁盘整理）"><span class="post-toc-number">6.</span> <span class="post-toc-text">defrag（磁盘整理）</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#echo（显示内容，便于debug）"><span class="post-toc-number">7.</span> <span class="post-toc-text">echo（显示内容，便于debug）</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#find"><span class="post-toc-number">8.</span> <span class="post-toc-text">find</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#findstr"><span class="post-toc-number">9.</span> <span class="post-toc-text">findstr</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ipconfig"><span class="post-toc-number">10.</span> <span class="post-toc-text">ipconfig</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#netstat"><span class="post-toc-number">11.</span> <span class="post-toc-text">netstat</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#查找5000端口进程"><span class="post-toc-number">11.1.</span> <span class="post-toc-text">查找5000端口进程</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#perfmon（性能监控）"><span class="post-toc-number">12.</span> <span class="post-toc-text">perfmon（性能监控）</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#set（操作环境变量）"><span class="post-toc-number">13.</span> <span class="post-toc-text">set（操作环境变量）</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#tasklist（任务列表）"><span class="post-toc-number">14.</span> <span class="post-toc-text">tasklist（任务列表）</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ftp"><span class="post-toc-number">15.</span> <span class="post-toc-text">ftp</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#title-命令窗的标题"><span class="post-toc-number">16.</span> <span class="post-toc-text">title 命令窗的标题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#tree（显示文件结构）"><span class="post-toc-number">17.</span> <span class="post-toc-text">tree（显示文件结构）</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-cmd" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">cmd常用命令</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-01-25 22:16:19" datetime="2019-01-25T14:16:19.906Z" itemprop="datePublished">2019-01-25</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../categories/终端/">终端</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p><a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/commands-by-server-role" target="_blank" rel="noopener">官方文档</a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">没有括号或大括号的文本</td>
+<td style="text-align:center">必须显示输入的</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;尖括号内的文字&gt;</td>
+<td style="text-align:center">必须为其提供值的占位符</td>
+</tr>
+<tr>
+<td style="text-align:center">[方括号内的文字]</td>
+<td style="text-align:center">可选项目</td>
+</tr>
+<tr>
+<td style="text-align:center">{文字里面的大括号}</td>
+<td style="text-align:center">必要的参数; 选一个</td>
+</tr>
+<tr>
+<td style="text-align:center">垂直条（\</td>
+<td style="text-align:center">）</td>
+<td>互斥元素的分隔符; 选一个</td>
+</tr>
+<tr>
+<td style="text-align:center">省略号（…）</td>
+<td style="text-align:center">可以重复的项目</td>
+</tr>
+</tbody>
+</table>
+<h1 id="帮助"><a href="#帮助" class="headerlink" title="帮助"></a>帮助</h1><p>命令+ /?显示帮助文档<br>例如：<code>taskkill /?</code><br><code>arp /?</code><br>help + 命令 显示帮助（不推荐使用）<br>速度很慢，查找内容超级多。<br>但是用来查看echo的帮助还是可以的，help echo，如果用echo /?的话是什么效果你可以试试。</p>
+<h1 id="taskkill"><a href="#taskkill" class="headerlink" title="taskkill"></a>taskkill</h1><p>使用该工具按照进程 ID (PID) 或映像名称终止任务。</p>
+<h2 id="关闭PID号为3716和123的进程"><a href="#关闭PID号为3716和123的进程" class="headerlink" title="关闭PID号为3716和123的进程"></a>关闭PID号为3716和123的进程</h2><p>/F：强制<br><code>taskkill /pid 3716 /pid 123 /F</code></p>
+<h2 id="关闭所有记事本"><a href="#关闭所有记事本" class="headerlink" title="关闭所有记事本"></a>关闭所有记事本</h2><p><code>taskkill /IM notepad.exe</code></p>
+<h1 id="where（超实用）"><a href="#where（超实用）" class="headerlink" title="where（超实用）"></a>where（超实用）</h1><p>显示符合搜索模式的文件位置。在默认情况下，搜索是在当前目录和 PATH环境变量指定的路径中执行的。<br><code>where gcc 显示gcc解释器的地址</code><br><code>where /r c:\ test 查找c盘里的名字是test的文件</code></p>
+<h1 id="whoami"><a href="#whoami" class="headerlink" title="whoami"></a>whoami</h1><p>whoami 显示当前用户<br>whoami /all 显示当前用户所有信息</p>
+<h1 id="cls（清空面板）"><a href="#cls（清空面板）" class="headerlink" title="cls（清空面板）"></a>cls（清空面板）</h1><h1 id="defrag（磁盘整理）"><a href="#defrag（磁盘整理）" class="headerlink" title="defrag（磁盘整理）"></a>defrag（磁盘整理）</h1><p>整理C盘并且显示进度和详细信息<br><code>defrag C: /U /V</code></p>
+<h1 id="echo（显示内容，便于debug）"><a href="#echo（显示内容，便于debug）" class="headerlink" title="echo（显示内容，便于debug）"></a>echo（显示内容，便于debug）</h1><p>打印path信息：<code>echo %PATH%</code></p>
+<h1 id="find"><a href="#find" class="headerlink" title="find"></a>find</h1><p>搜索文件或文件中的文本字符串，并显示包含指定字符串的文本行。<br>  /V         显示所有未包含指定字符串的行。<br>  /C         仅显示包含字符串的行数。<br>  /N         显示行号。<br>  /I         搜索字符串时忽略大小写。<br>  /OFF[LINE] 不要跳过具有脱机属性集的文件。<br>  “string” 指定要搜索的文本字符串。<br>  [drive:][path]filename<br>             指定要搜索的文件。</p>
+<h1 id="findstr"><a href="#findstr" class="headerlink" title="findstr"></a>findstr</h1><p>在文件中寻找字符串。<br>通常与其他命令搭配使用例如netstat -ano|findstr 5000查找端口号5000的进程<br>详情见 <code>findstr /?</code></p>
+<h1 id="ipconfig"><a href="#ipconfig" class="headerlink" title="ipconfig"></a>ipconfig</h1><pre><code>&gt; ipconfig                       ... 显示信息
+&gt; ipconfig /all                  ... 显示详细信息
+&gt; ipconfig /renew                ... 更新所有适配器
+</code></pre><h1 id="netstat"><a href="#netstat" class="headerlink" title="netstat"></a>netstat</h1><p>显示协议统计信息和当前 TCP/IP 网络连接。<br>常用组合：netstat -nb 显示所有活动连接(网络连接)。<br>netstat -o 显示路由表</p>
+<h2 id="查找5000端口进程"><a href="#查找5000端口进程" class="headerlink" title="查找5000端口进程"></a>查找5000端口进程</h2><p><code>netstat -ano|findstr 5000</code></p>
+<h1 id="perfmon（性能监控）"><a href="#perfmon（性能监控）" class="headerlink" title="perfmon（性能监控）"></a>perfmon（性能监控）</h1><p>perfmon /RES ：显示资源监控，包括TCP连接、网络活动(网络IO)、网络活动的进程。</p>
+<h1 id="set（操作环境变量）"><a href="#set（操作环境变量）" class="headerlink" title="set（操作环境变量）"></a>set（操作环境变量）</h1><p>显示、设置或删除 cmd.exe 环境变量。<br>SET [variable=[string]]<br>  variable  指定环境变量名。<br>  string    指定要指派给变量的一系列字符串。</p>
+<h1 id="tasklist（任务列表）"><a href="#tasklist（任务列表）" class="headerlink" title="tasklist（任务列表）"></a>tasklist（任务列表）</h1><h1 id="ftp"><a href="#ftp" class="headerlink" title="ftp"></a>ftp</h1><p>将文件传送到运行 FTP 服务器服务(经常称为后台程序)的计算机以及将文件从该计算机<br>传出。可以交互使用 Ftp。</p>
+<h1 id="title-命令窗的标题"><a href="#title-命令窗的标题" class="headerlink" title="title 命令窗的标题"></a>title 命令窗的标题</h1><p>title wtf？？</p>
+<h1 id="tree（显示文件结构）"><a href="#tree（显示文件结构）" class="headerlink" title="tree（显示文件结构）"></a>tree（显示文件结构）</h1><p>TREE [drive:][path] [/F] [/A]<br>   /F   显示每个文件夹中文件的名称。<br>   /A   使用 ASCII 字符，而不使用扩展字符。<br>例如：显示磁盘所有文件，|more是懒加载。<br>tree c:\ /f | more</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-01-25T15:35:01.663Z" itemprop="dateUpdated">2019-01-25 23:35:01</time>
+</span><br>
+
+
+        
+        各位大爷们，评论在下最方，打赏点下面。转载请注明GitHub项目地址：https://github.com/wordfeng/wordfeng.github.io
+        
+    </div>
+    
+    <footer>
+        <a href="https://blog.ojbkfeng.com">
+            <img src="../../../../img/avatar.jpg" alt="Xiao YuFeng">
+            Xiao YuFeng
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/cmd/">cmd</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.ojbkfeng.com/2019/01/25/cmd/&title=《cmd常用命令》 — while(live){coding}&pic=https://blog.ojbkfeng.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.ojbkfeng.com/2019/01/25/cmd/&title=《cmd常用命令》 — while(live){coding}&source=描述" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.ojbkfeng.com/2019/01/25/cmd/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《cmd常用命令》 — while(live){coding}&url=https://blog.ojbkfeng.com/2019/01/25/cmd/&via=https://blog.ojbkfeng.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.ojbkfeng.com/2019/01/25/cmd/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="../../17/mysqlclient/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Python mysqlclient模块连接MySQL</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail'];<!-- 初始参数 'nick','mail','link' -->
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "cKe3yufiuoLVX7aeynK3jRP5-gzGzoHsz",
+            appKey: "4zBdRSwA5vUeliupdmxraDPT",
+            avatar: "mm",
+            placeholder: "可以在上面留下你的昵称和邮箱哦，支持markdown语法评论。",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="../../../../img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="../../../../img/wechat.jpg" data-alipay="../../../../img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Xiao YuFeng &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.ojbkfeng.com/2019/01/25/cmd/&title=《cmd常用命令》 — while(live){coding}&pic=https://blog.ojbkfeng.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.ojbkfeng.com/2019/01/25/cmd/&title=《cmd常用命令》 — while(live){coding}&source=描述" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.ojbkfeng.com/2019/01/25/cmd/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《cmd常用命令》 — while(live){coding}&url=https://blog.ojbkfeng.com/2019/01/25/cmd/&via=https://blog.ojbkfeng.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.ojbkfeng.com/2019/01/25/cmd/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://blog.ojbkfeng.com/2019/01/25/cmd/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="../../../../js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="../../../../js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼快回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '嘿嘿嘿嘿(¯﹃¯)!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
