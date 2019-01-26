@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>正则表达式 | while(live){coding} | 一个有味道的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="正则表达式">
+    <meta name="description" content="特殊字符表Python re模块    特殊字符 意义 示例     . 默认情况下匹配除了换行符以外的任何字符，在DOTALL模式下，可以匹配任意字符 a.c   ^ (Caret)插入符，匹配起始位置的字符串，在MULTILINE模式下，可以在换行后继续匹配。 ^Hello   $ 匹配结束的字符串，也可用MULTILINE模式 abc.$匹配abc1\n   * 匹配*前的字符0个或n个 a">
+<meta name="keywords" content="正则表达式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则表达式">
+<meta property="og:url" content="https://blog.ojbkfeng.com/2019/01/26/正则表达式/index.html">
+<meta property="og:site_name" content="while(live){coding}">
+<meta property="og:description" content="特殊字符表Python re模块    特殊字符 意义 示例     . 默认情况下匹配除了换行符以外的任何字符，在DOTALL模式下，可以匹配任意字符 a.c   ^ (Caret)插入符，匹配起始位置的字符串，在MULTILINE模式下，可以在换行后继续匹配。 ^Hello   $ 匹配结束的字符串，也可用MULTILINE模式 abc.$匹配abc1\n   * 匹配*前的字符0个或n个 a">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-26T06:10:28.834Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="正则表达式">
+<meta name="twitter:description" content="特殊字符表Python re模块    特殊字符 意义 示例     . 默认情况下匹配除了换行符以外的任何字符，在DOTALL模式下，可以匹配任意字符 a.c   ^ (Caret)插入符，匹配起始位置的字符串，在MULTILINE模式下，可以在换行后继续匹配。 ^Hello   $ 匹配结束的字符串，也可用MULTILINE模式 abc.$匹配abc1\n   * 匹配*前的字符0个或n个 a">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(../../../../img/brand.jpg)">
+      <div class="brand">
+        <a href="../../../../index.html" class="avatar waves-effect waves-circle waves-light">
+          <img src="../../../../img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Xiao YuFeng</h5>
+          <a href="mailto:yf0nuttiness@qq.com" title="yf0nuttiness@qq.com" class="mail">yf0nuttiness@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../index.html">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../archives">
+                <i class="icon icon-lg icon-archives"></i>
+                所有内容
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wordfeng" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">正则表达式</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">正则表达式</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-01-26T04:45:50.932Z" itemprop="datePublished" class="page-time">
+  2019-01-26
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../categories/正则表达式/">正则表达式</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#特殊字符表"><span class="post-toc-number">1.</span> <span class="post-toc-text">特殊字符表</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#贪婪模式"><span class="post-toc-number">2.</span> <span class="post-toc-text">贪婪模式</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-正则表达式" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">正则表达式</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-01-26 12:45:50" datetime="2019-01-26T04:45:50.932Z" itemprop="datePublished">2019-01-26</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../categories/正则表达式/">正则表达式</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="特殊字符表"><a href="#特殊字符表" class="headerlink" title="特殊字符表"></a>特殊字符表</h1><p><a href="https://docs.python.org/3.6/library/re.html" target="_blank" rel="noopener">Python re模块</a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">特殊字符</th>
+<th style="text-align:left">意义</th>
+<th style="text-align:left">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">.</td>
+<td style="text-align:left">默认情况下匹配除了<strong>换行符</strong>以外的任何字符，在DOTALL模式下，可以匹配任意字符</td>
+<td style="text-align:left">a.c</td>
+</tr>
+<tr>
+<td style="text-align:left">^</td>
+<td style="text-align:left">(Caret)插入符，匹配起始位置的字符串，在MULTILINE模式下，可以在换行后继续匹配。</td>
+<td style="text-align:left">^Hello</td>
+</tr>
+<tr>
+<td style="text-align:left">$</td>
+<td style="text-align:left">匹配结束的字符串，也可用MULTILINE模式</td>
+<td style="text-align:left">abc.$匹配<code>abc1\n</code></td>
+</tr>
+<tr>
+<td style="text-align:left">*</td>
+<td style="text-align:left">匹配*前的字符0个或n个</td>
+<td style="text-align:left"><code>ab*</code>匹配’a’、’ab’、’a’或含有n个b的abbbb</td>
+</tr>
+<tr>
+<td style="text-align:left">+</td>
+<td style="text-align:left">匹配一个或多个前面的字符。</td>
+<td style="text-align:left">a+匹配ab和aaab，但与a*和a?不同的是, 模式a+不会匹配开始处没有’a’的字符串.</td>
+</tr>
+<tr>
+<td style="text-align:left">?</td>
+<td style="text-align:left">使得到的RE匹配前面RE的0或1次重​​复。</td>
+<td style="text-align:left"><code>ab?</code>将匹配’a’或’ab’。</td>
+</tr>
+<tr>
+<td style="text-align:left">{m}</td>
+<td style="text-align:left">次数限定符，匹配出现对应次数的字符串。</td>
+<td style="text-align:left"><code>a{2}</code>匹配aa</td>
+</tr>
+<tr>
+<td style="text-align:left">{m,n}</td>
+<td style="text-align:left">次数区间限定符，同上。左右都闭区间。</td>
+<td style="text-align:left"><code>a{1,2}</code>匹配<code>ab</code>中的‘a’，然而匹配<code>aaaab</code>就只能匹配到前面两个a。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>\</code></td>
+<td style="text-align:left">转义字符，用来匹配特殊字符。</td>
+<td style="text-align:left"><code>\.</code></td>
+</tr>
+<tr>
+<td style="text-align:left">[ ]</td>
+<td style="text-align:left">①表示一组字符；② ‘(‘, ‘+’, ‘*’, 或 ‘)’之类的特殊字符在[]里就失去意义了，只能表示字面意思。③<code>^</code>的意义改变成除……以外的其他字符</td>
+<td style="text-align:left">①[0-9A-Za-z]表示匹配所有的字符和数字；②[abc]匹配’a’,’b’或’c’  ③ [^^]表示除了^以外的所有字符,[^a]除a以外</td>
+</tr>
+<tr>
+<td style="text-align:left">`A</td>
+<td style="text-align:left">B`</td>
+<td style="text-align:left">将一个或多个可选字符分隔开</td>
+<td>`gray</td>
+<td>grey<code>匹配gray或grey,也可以写成</code>gr(a</td>
+<td>e)y`</td>
+</tr>
+<tr>
+<td style="text-align:left">(…)</td>
+<td style="text-align:left">确定求值顺序，<code>(?...)</code>特殊模式，不区分大小写和多行</td>
+<td style="text-align:left"><code>(abc)+</code>匹配abcabc666中的所有abc但不匹配ab或者bc等</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>\A</code></td>
+<td style="text-align:left">只匹配开头的字符串</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>\b</code></td>
+<td style="text-align:left">在字符串的开头或结尾匹配空字符串</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>\B</code></td>
+<td style="text-align:left">匹配一个不再字符串开头或结尾的空字符串</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>\d</code></td>
+<td style="text-align:left">匹配一个数字</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>\D</code></td>
+<td style="text-align:left">匹配一个非数字</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>\w</code></td>
+<td style="text-align:left">匹配Unicode字符,任何语言的字符，包括数字下划线</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>\W</code></td>
+<td style="text-align:left">匹配不是单词字符的字符，相当于<code>[^A-Za-z0-9_]</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>\s</code></td>
+<td style="text-align:left">对于Unicode字符，匹配空格，包括<code>[ \t\n\r\f\v]</code>，对于8-bit字符串考虑有空格的字符</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>\S</code></td>
+<td style="text-align:left">匹配不是空格的字符</td>
+</tr>
+</tbody>
+</table>
+<h1 id="贪婪模式"><a href="#贪婪模式" class="headerlink" title="贪婪模式"></a>贪婪模式</h1><p><code>*, +, ?, {min,max}</code>默认情况下都是贪婪的(尽可能多匹配), 例如：<code>&lt;.*&gt;</code>匹配<code>&lt;a&gt; b &lt;c&gt;</code>会将整个字符串全部匹配。添加限定符<code>？</code>后将解除这个模式<code>&lt;.*?&gt;</code>将只匹配到<code>&lt;a&gt;</code>。<code>a{3,5}?</code>将只匹配<code>aaaaaa</code>中的前3个。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-01-26T06:10:28.834Z" itemprop="dateUpdated">2019-01-26 14:10:28</time>
+</span><br>
+
+
+        
+        各位大爷们，评论在下最方，打赏点下面。转载请注明GitHub项目地址：https://github.com/wordfeng/wordfeng.github.io
+        
+    </div>
+    
+    <footer>
+        <a href="https://blog.ojbkfeng.com">
+            <img src="../../../../img/avatar.jpg" alt="Xiao YuFeng">
+            Xiao YuFeng
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/正则表达式/">正则表达式</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.ojbkfeng.com/2019/01/26/正则表达式/&title=《正则表达式》 — while(live){coding}&pic=https://blog.ojbkfeng.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.ojbkfeng.com/2019/01/26/正则表达式/&title=《正则表达式》 — while(live){coding}&source=描述" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.ojbkfeng.com/2019/01/26/正则表达式/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《正则表达式》 — while(live){coding}&url=https://blog.ojbkfeng.com/2019/01/26/正则表达式/&via=https://blog.ojbkfeng.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.ojbkfeng.com/2019/01/26/正则表达式/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="../../25/cmd/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">cmd常用命令</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail'];<!-- 初始参数 'nick','mail','link' -->
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "cKe3yufiuoLVX7aeynK3jRP5-gzGzoHsz",
+            appKey: "4zBdRSwA5vUeliupdmxraDPT",
+            avatar: "mm",
+            placeholder: "可以在上面留下你的昵称和邮箱哦，支持markdown语法评论。",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="../../../../img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="../../../../img/wechat.jpg" data-alipay="../../../../img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Xiao YuFeng &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.ojbkfeng.com/2019/01/26/正则表达式/&title=《正则表达式》 — while(live){coding}&pic=https://blog.ojbkfeng.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.ojbkfeng.com/2019/01/26/正则表达式/&title=《正则表达式》 — while(live){coding}&source=描述" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.ojbkfeng.com/2019/01/26/正则表达式/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《正则表达式》 — while(live){coding}&url=https://blog.ojbkfeng.com/2019/01/26/正则表达式/&via=https://blog.ojbkfeng.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.ojbkfeng.com/2019/01/26/正则表达式/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://blog.ojbkfeng.com/2019/01/26/正则表达式/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="../../../../js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="../../../../js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼快回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '嘿嘿嘿嘿(¯﹃¯)!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
