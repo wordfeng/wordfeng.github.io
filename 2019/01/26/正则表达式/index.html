@@ -21,18 +21,18 @@
     
     
     <meta name="keywords" content="正则表达式">
-    <meta name="description" content="特殊字符表Python re模块    特殊字符 意义 示例     . 默认情况下匹配除了换行符以外的任何字符，在DOTALL模式下，可以匹配任意字符 a.c   ^ (Caret)插入符，匹配起始位置的字符串，在MULTILINE模式下，可以在换行后继续匹配。 ^Hello   $ 匹配结束的字符串，也可用MULTILINE模式 abc.$匹配abc1\n   * 匹配*前的字符0个或n个 a">
+    <meta name="description" content="特殊字符表Python re模块由于渲染问题下面表格的|使用I代替。    特殊字符 意义 示例     . 默认情况下匹配除了换行符以外的任何字符，在DOTALL模式下，可以匹配任意字符 a.c   ^ (Caret)插入符，匹配起始位置的字符串，在MULTILINE模式下，可以在换行后继续匹配。 ^Hello   $ 匹配结束的字符串，也可用MULTILINE模式 abc.$匹配abc1\n">
 <meta name="keywords" content="正则表达式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="正则表达式">
 <meta property="og:url" content="https://blog.ojbkfeng.com/2019/01/26/正则表达式/index.html">
 <meta property="og:site_name" content="while(live){coding}">
-<meta property="og:description" content="特殊字符表Python re模块    特殊字符 意义 示例     . 默认情况下匹配除了换行符以外的任何字符，在DOTALL模式下，可以匹配任意字符 a.c   ^ (Caret)插入符，匹配起始位置的字符串，在MULTILINE模式下，可以在换行后继续匹配。 ^Hello   $ 匹配结束的字符串，也可用MULTILINE模式 abc.$匹配abc1\n   * 匹配*前的字符0个或n个 a">
+<meta property="og:description" content="特殊字符表Python re模块由于渲染问题下面表格的|使用I代替。    特殊字符 意义 示例     . 默认情况下匹配除了换行符以外的任何字符，在DOTALL模式下，可以匹配任意字符 a.c   ^ (Caret)插入符，匹配起始位置的字符串，在MULTILINE模式下，可以在换行后继续匹配。 ^Hello   $ 匹配结束的字符串，也可用MULTILINE模式 abc.$匹配abc1\n">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-26T06:10:28.834Z">
+<meta property="og:updated_time" content="2019-01-26T06:27:45.144Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式">
-<meta name="twitter:description" content="特殊字符表Python re模块    特殊字符 意义 示例     . 默认情况下匹配除了换行符以外的任何字符，在DOTALL模式下，可以匹配任意字符 a.c   ^ (Caret)插入符，匹配起始位置的字符串，在MULTILINE模式下，可以在换行后继续匹配。 ^Hello   $ 匹配结束的字符串，也可用MULTILINE模式 abc.$匹配abc1\n   * 匹配*前的字符0个或n个 a">
+<meta name="twitter:description" content="特殊字符表Python re模块由于渲染问题下面表格的|使用I代替。    特殊字符 意义 示例     . 默认情况下匹配除了换行符以外的任何字符，在DOTALL模式下，可以匹配任意字符 a.c   ^ (Caret)插入符，匹配起始位置的字符串，在MULTILINE模式下，可以在换行后继续匹配。 ^Hello   $ 匹配结束的字符串，也可用MULTILINE模式 abc.$匹配abc1\n">
     
     <link rel="shortcut icon" href="../../../../favicon.ico">
     <link rel="stylesheet" href="../../../../css/style.css?v=1.7.2">
@@ -183,7 +183,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="特殊字符表"><a href="#特殊字符表" class="headerlink" title="特殊字符表"></a>特殊字符表</h1><p><a href="https://docs.python.org/3.6/library/re.html" target="_blank" rel="noopener">Python re模块</a></p>
+            <h1 id="特殊字符表"><a href="#特殊字符表" class="headerlink" title="特殊字符表"></a>特殊字符表</h1><p><a href="https://docs.python.org/3.6/library/re.html" target="_blank" rel="noopener">Python re模块</a><br>由于渲染问题下面表格的|使用I代替。</p>
 <table>
 <thead>
 <tr>
@@ -244,12 +244,9 @@
 <td style="text-align:left">①[0-9A-Za-z]表示匹配所有的字符和数字；②[abc]匹配’a’,’b’或’c’  ③ [^^]表示除了^以外的所有字符,[^a]除a以外</td>
 </tr>
 <tr>
-<td style="text-align:left">`A</td>
-<td style="text-align:left">B`</td>
+<td style="text-align:left"><code>AIB</code></td>
 <td style="text-align:left">将一个或多个可选字符分隔开</td>
-<td>`gray</td>
-<td>grey<code>匹配gray或grey,也可以写成</code>gr(a</td>
-<td>e)y`</td>
+<td style="text-align:left"><code>grayIgrey</code>匹配gray或grey,也可以写成<code>gr(aIe)y</code></td>
 </tr>
 <tr>
 <td style="text-align:left">(…)</td>
@@ -259,14 +256,17 @@
 <tr>
 <td style="text-align:left"><code>\A</code></td>
 <td style="text-align:left">只匹配开头的字符串</td>
+<td style="text-align:left"></td>
 </tr>
 <tr>
 <td style="text-align:left"><code>\b</code></td>
 <td style="text-align:left">在字符串的开头或结尾匹配空字符串</td>
+<td style="text-align:left"></td>
 </tr>
 <tr>
 <td style="text-align:left"><code>\B</code></td>
 <td style="text-align:left">匹配一个不再字符串开头或结尾的空字符串</td>
+<td style="text-align:left"></td>
 </tr>
 <tr>
 <td style="text-align:left"><code>\d</code></td>
@@ -276,18 +276,22 @@
 <tr>
 <td style="text-align:left"><code>\D</code></td>
 <td style="text-align:left">匹配一个非数字</td>
+<td style="text-align:left"></td>
 </tr>
 <tr>
 <td style="text-align:left"><code>\w</code></td>
 <td style="text-align:left">匹配Unicode字符,任何语言的字符，包括数字下划线</td>
+<td style="text-align:left"></td>
 </tr>
 <tr>
 <td style="text-align:left"><code>\W</code></td>
 <td style="text-align:left">匹配不是单词字符的字符，相当于<code>[^A-Za-z0-9_]</code></td>
+<td style="text-align:left"></td>
 </tr>
 <tr>
 <td style="text-align:left"><code>\s</code></td>
 <td style="text-align:left">对于Unicode字符，匹配空格，包括<code>[ \t\n\r\f\v]</code>，对于8-bit字符串考虑有空格的字符</td>
+<td style="text-align:left"></td>
 </tr>
 <tr>
 <td style="text-align:left"><code>\S</code></td>
@@ -304,7 +308,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-01-26T06:10:28.834Z" itemprop="dateUpdated">2019-01-26 14:10:28</time>
+    最后更新时间：<time datetime="2019-01-26T06:27:45.144Z" itemprop="dateUpdated">2019-01-26 14:27:45</time>
 </span><br>
 
 
