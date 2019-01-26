@@ -14,25 +14,25 @@
     
     
     
-    <title>Python正则表达式模块re | while(live){coding} | 一个有味道的博客</title>
+    <title>Python re 模块 | while(live){coding} | 一个有味道的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="Python内置模块">
-    <meta name="description" content="函数 作用     match Match a regular expression pattern to the beginning of a string.   fullmatch Match a regular expression pattern to all of a string.   search Search a string for the presence of a pa">
+    <meta name="description" content="1.函数表   函数 作用     match 在字符串起始位置匹配，如果没有匹配到返回None。   fullmatch 用表达式匹配所有字符串   search 匹配任意位置的字符串   sub 替换字符串中匹配成功项。   subn 同上，返回替换次数   split 把查找到的字符串分割，并且打包成列表返回   findall 匹配字符串中所有匹配的项，打包成列表返回   finditer">
 <meta name="keywords" content="Python内置模块">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python正则表达式模块re">
+<meta property="og:title" content="Python re 模块">
 <meta property="og:url" content="https://blog.ojbkfeng.com/2019/01/26/python re/index.html">
 <meta property="og:site_name" content="while(live){coding}">
-<meta property="og:description" content="函数 作用     match Match a regular expression pattern to the beginning of a string.   fullmatch Match a regular expression pattern to all of a string.   search Search a string for the presence of a pa">
+<meta property="og:description" content="1.函数表   函数 作用     match 在字符串起始位置匹配，如果没有匹配到返回None。   fullmatch 用表达式匹配所有字符串   search 匹配任意位置的字符串   sub 替换字符串中匹配成功项。   subn 同上，返回替换次数   split 把查找到的字符串分割，并且打包成列表返回   findall 匹配字符串中所有匹配的项，打包成列表返回   finditer">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-26T06:18:24.469Z">
+<meta property="og:updated_time" content="2019-01-26T07:53:31.818Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python正则表达式模块re">
-<meta name="twitter:description" content="函数 作用     match Match a regular expression pattern to the beginning of a string.   fullmatch Match a regular expression pattern to all of a string.   search Search a string for the presence of a pa">
+<meta name="twitter:title" content="Python re 模块">
+<meta name="twitter:description" content="1.函数表   函数 作用     match 在字符串起始位置匹配，如果没有匹配到返回None。   fullmatch 用表达式匹配所有字符串   search 匹配任意位置的字符串   sub 替换字符串中匹配成功项。   subn 同上，返回替换次数   split 把查找到的字符串分割，并且打包成列表返回   findall 匹配字符串中所有匹配的项，打包成列表返回   finditer">
     
     <link rel="shortcut icon" href="../../../../favicon.ico">
     <link rel="stylesheet" href="../../../../css/style.css?v=1.7.2">
@@ -111,7 +111,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">Python正则表达式模块re</div>
+        <div class="flex-col header-title ellipsis">Python re 模块</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -133,7 +133,7 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">Python正则表达式模块re</h1>
+        <h1 class="title">Python re 模块</h1>
         <h5 class="subtitle">
             
                 <time datetime="2019-01-26T06:13:24.145Z" itemprop="datePublished" class="page-time">
@@ -155,11 +155,18 @@
 
 <div class="container body-wrap">
     
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-函数表"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.函数表</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-可选标志"><span class="post-toc-number">2.</span> <span class="post-toc-text">2.可选标志</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-re-match"><span class="post-toc-number">3.</span> <span class="post-toc-text">3.re.match()</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4-re-search"><span class="post-toc-number">4.</span> <span class="post-toc-text">4.re.search()</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#5-re-sub"><span class="post-toc-number">5.</span> <span class="post-toc-text">5.re.sub()</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#6-re-compile"><span class="post-toc-number">6.</span> <span class="post-toc-text">6.re.compile()</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#7-re-split"><span class="post-toc-number">7.</span> <span class="post-toc-text">7.re.split()</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#8-findall"><span class="post-toc-number">8.</span> <span class="post-toc-text">8.findall</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#9-re-finditer"><span class="post-toc-number">9.</span> <span class="post-toc-text">9.re.finditer()</span></a></li></ol>
+        </nav>
+    </aside>
+
 
 <article id="post-python re" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">Python正则表达式模块re</h1>
+        <h1 class="post-card-title">Python re 模块</h1>
         <div class="post-meta">
             <time class="post-time" title="2019-01-26 14:13:24" datetime="2019-01-26T06:13:24.145Z" itemprop="datePublished">2019-01-26</time>
 
@@ -176,7 +183,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <table>
+            <h1 id="1-函数表"><a href="#1-函数表" class="headerlink" title="1.函数表"></a>1.函数表</h1><table>
 <thead>
 <tr>
 <th style="text-align:center">函数</th>
@@ -186,50 +193,163 @@
 <tbody>
 <tr>
 <td style="text-align:center">match</td>
-<td style="text-align:left">Match a regular expression pattern to the beginning of a string.</td>
+<td style="text-align:left">在字符串起始位置匹配，如果没有匹配到返回None。</td>
 </tr>
 <tr>
 <td style="text-align:center">fullmatch</td>
-<td style="text-align:left">Match a regular expression pattern to all of a string.</td>
+<td style="text-align:left">用表达式匹配所有字符串</td>
 </tr>
 <tr>
 <td style="text-align:center">search</td>
-<td style="text-align:left">Search a string for the presence of a pattern.</td>
+<td style="text-align:left">匹配任意位置的字符串</td>
 </tr>
 <tr>
 <td style="text-align:center">sub</td>
-<td style="text-align:left">Substitute occurrences of a pattern found in a string.</td>
+<td style="text-align:left">替换字符串中匹配成功项。</td>
 </tr>
 <tr>
 <td style="text-align:center">subn</td>
-<td style="text-align:left">Same as sub, but also return the number of substitutions made.</td>
+<td style="text-align:left">同上，返回替换次数</td>
 </tr>
 <tr>
 <td style="text-align:center">split</td>
-<td style="text-align:left">Split a string by the occurrences of a pattern.</td>
+<td style="text-align:left">把查找到的字符串分割，并且打包成列表返回</td>
 </tr>
 <tr>
 <td style="text-align:center">findall</td>
-<td style="text-align:left">Find all occurrences of a pattern in a string.</td>
+<td style="text-align:left">匹配字符串中所有匹配的项，打包成列表返回</td>
 </tr>
 <tr>
 <td style="text-align:center">finditer</td>
-<td style="text-align:left">Return an iterator yielding a match object for each match.</td>
+<td style="text-align:left">同上，但是返回的是迭代器</td>
 </tr>
 <tr>
 <td style="text-align:center">compile</td>
-<td style="text-align:left">Compile a pattern into a RegexObject.</td>
+<td style="text-align:left">编译正则表达式(pattern)，生成一个正则表达式对象(RegexObject)，仅供match()和search()函数使用。</td>
 </tr>
 <tr>
 <td style="text-align:center">purge</td>
-<td style="text-align:left">Clear the regular expression cache.</td>
+<td style="text-align:left">清除缓存</td>
 </tr>
 <tr>
 <td style="text-align:center">escape</td>
-<td style="text-align:left">Backslash all non-alphanumerics in a string.</td>
+<td style="text-align:left">除了ASCII字母，数字和以外，转义模式中的所有字符</td>
 </tr>
 </tbody>
 </table>
+<h1 id="2-可选标志"><a href="#2-可选标志" class="headerlink" title="2.可选标志"></a>2.可选标志</h1><table>
+<thead>
+<tr>
+<th style="text-align:center">修饰符</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">re.I</td>
+<td style="text-align:left">使匹配对大小写不敏感</td>
+</tr>
+<tr>
+<td style="text-align:center">re.L</td>
+<td style="text-align:left">做本地化识别（locale-aware）匹配</td>
+</tr>
+<tr>
+<td style="text-align:center">re.M</td>
+<td style="text-align:left">多行匹配，会影响 ^ 和 $</td>
+</tr>
+<tr>
+<td style="text-align:center">re.S</td>
+<td style="text-align:left">使<code>.</code>匹配包括换行在内的所有字符</td>
+</tr>
+<tr>
+<td style="text-align:center">re.U</td>
+<td style="text-align:left">根据Unicode字符集解析字符。会标志影响 \w, \W, \b, \B.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="3-re-match"><a href="#3-re-match" class="headerlink" title="3.re.match()"></a>3.re.match()</h1><p>在字符串开头匹配。<br>函数原型：re.match(pattern, string, flags=0)<br>匹配成功：返回匹配的对象<br>匹配失败：返回None</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">pattern</td>
+<td style="text-align:center">匹配的正则表达式</td>
+</tr>
+<tr>
+<td style="text-align:center">string</td>
+<td style="text-align:center">要匹配的字符串。</td>
+</tr>
+<tr>
+<td style="text-align:center">flags</td>
+<td style="text-align:center">可选标志位，用于控制正则表达式的匹配方式</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在字符串开头匹配到返回一个对象</span></span><br><span class="line">print(re.match(<span class="string">'blog'</span>, <span class="string">'blog.ojbkfeng.cn'</span>))</span><br><span class="line"><span class="comment"># &lt;_sre.SRE_Match object; span=(0, 4), match='blog'&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在开头处没匹配到返回None</span></span><br><span class="line">print(re.match(<span class="string">'cn'</span>, <span class="string">'blog.ojbkfeng.cn'</span>))</span><br><span class="line"><span class="comment"># None</span></span><br><span class="line"></span><br><span class="line">print(re.match(<span class="string">'blog'</span>, <span class="string">'blog.ojbkfeng.cn'</span>).span())</span><br><span class="line"><span class="comment"># (0, 4)</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">strings = <span class="string">"what the fuck ???"</span></span><br><span class="line">reg = re.match(<span class="string">r'(.*) the (.*?) .*'</span>, strings, re.M|re.I)</span><br><span class="line"><span class="keyword">if</span> reg:</span><br><span class="line">   print(reg.group())</span><br><span class="line">   <span class="comment"># what the fuck ???</span></span><br><span class="line">   print(reg.group(<span class="number">1</span>)) <span class="comment"># 匹配到的第一个</span></span><br><span class="line">   <span class="comment"># what</span></span><br><span class="line">   print(reg.group(<span class="number">2</span>)) <span class="comment"># 第二个</span></span><br><span class="line">   <span class="comment"># fuck</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">   print( <span class="string">"No match!!"</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="4-re-search"><a href="#4-re-search" class="headerlink" title="4.re.search()"></a>4.re.search()</h1><p>在整个字符串匹配，并返回成功的第一个。<br>函数原型：re.search(pattern, string, flags=0)<br>匹配成功：返回匹配的对象。<br>匹配失败：返回None。<br><em>参数同match(), 用法相同。</em></p>
+<h1 id="5-re-sub"><a href="#5-re-sub" class="headerlink" title="5.re.sub()"></a>5.re.sub()</h1><p>替换字符串中匹配成功项。<br>函数原型：re.sub(pattern, repl, string, count=0, flags=0)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:left">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">pattern</td>
+<td style="text-align:left">正则中的模式字符串。</td>
+</tr>
+<tr>
+<td style="text-align:center">repl</td>
+<td style="text-align:left">替换的字符串，也可为一个函数。</td>
+</tr>
+<tr>
+<td style="text-align:center">string</td>
+<td style="text-align:left">要被查找替换的原始字符串。</td>
+</tr>
+<tr>
+<td style="text-align:center">count</td>
+<td style="text-align:left">模式匹配后替换的最大次数，默认 0 表示替换所有的匹配。</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">strings = <span class="string">"188-7438-6478"</span></span><br><span class="line">num = re.sub(<span class="string">r'\D'</span>, <span class="string">""</span>, strings)</span><br><span class="line">print(num) <span class="comment"># 18874386478</span></span><br></pre></td></tr></table></figure>
+<h1 id="6-re-compile"><a href="#6-re-compile" class="headerlink" title="6.re.compile()"></a>6.re.compile()</h1><p>编译正则表达式(pattern)，生成一个正则表达式对象(RegexObject)，仅供match()和search()函数使用。<br>函数原型：re.compile(pattern[, flags])<br>pattern : 一个字符串形式的正则表达式<br>flags : 可选标志，文章上面有参数表。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">strings = <span class="string">"188-7438-6478"</span></span><br><span class="line">reObj = re.compile(<span class="string">r'\D'</span>)</span><br><span class="line">num = re.sub(reObj, <span class="string">""</span>, strings)</span><br><span class="line">print(num) <span class="comment"># 18874386478</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="7-re-split"><a href="#7-re-split" class="headerlink" title="7.re.split()"></a>7.re.split()</h1><p>按照能够匹配的子串将字符串分割后返回列表。<br>函数原型re.split(pattern, string[, maxsplit=0, flags=0])<br>maxsplit：分隔次数，maxsplit=1 分隔一次，默认为 0，不限制次数<br>其余参数与match()相同。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">re.split(<span class="string">'\W+'</span>, <span class="string">'ojbk, ojbk, ojbkfeng.'</span>)</span><br><span class="line"><span class="comment"># ['ojbk', 'ojbk', 'ojbkfeng', '']</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="8-findall"><a href="#8-findall" class="headerlink" title="8.findall"></a>8.findall</h1><p>在字符串中找到正则表达式所匹配的所有子串，并返回一个列表，如果没有找到匹配的，则返回空列表。</p>
+<ul>
+<li>跟match()和search()不同的是findall()匹配所有出现过的字符串，match和search只匹配一次。<br>函数原型：findall(string[, pos[, endpos]])</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:left">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">string</td>
+<td style="text-align:left">待匹配的字符串。</td>
+</tr>
+<tr>
+<td style="text-align:center">pos</td>
+<td style="text-align:left">可选参数，指定字符串的起始位置，默认为 0。</td>
+</tr>
+<tr>
+<td style="text-align:center">endpos</td>
+<td style="text-align:left">可选参数，指定字符串的结束位置，默认为字符串的长度。</td>
+</tr>
+</tbody>
+</table>
+<h1 id="9-re-finditer"><a href="#9-re-finditer" class="headerlink" title="9.re.finditer()"></a>9.re.finditer()</h1><p>跟findall()一样，区别是返回一个迭代器(iter)。<br>函数原型：re.finditer(pattern, string, flags=0)</p>
 
         </div>
 
@@ -238,7 +358,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-01-26T06:18:24.469Z" itemprop="dateUpdated">2019-01-26 14:18:24</time>
+    最后更新时间：<time datetime="2019-01-26T07:53:31.818Z" itemprop="dateUpdated">2019-01-26 15:53:31</time>
 </span><br>
 
 
@@ -274,7 +394,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.ojbkfeng.com/2019/01/26/python re/&title=《Python正则表达式模块re》 — while(live){coding}&pic=https://blog.ojbkfeng.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.ojbkfeng.com/2019/01/26/python re/&title=《Python re 模块》 — while(live){coding}&pic=https://blog.ojbkfeng.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -284,7 +404,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.ojbkfeng.com/2019/01/26/python re/&title=《Python正则表达式模块re》 — while(live){coding}&source=描述" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.ojbkfeng.com/2019/01/26/python re/&title=《Python re 模块》 — while(live){coding}&source=描述" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -294,7 +414,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python正则表达式模块re》 — while(live){coding}&url=https://blog.ojbkfeng.com/2019/01/26/python re/&via=https://blog.ojbkfeng.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python re 模块》 — while(live){coding}&url=https://blog.ojbkfeng.com/2019/01/26/python re/&via=https://blog.ojbkfeng.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -444,7 +564,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.ojbkfeng.com/2019/01/26/python re/&title=《Python正则表达式模块re》 — while(live){coding}&pic=https://blog.ojbkfeng.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.ojbkfeng.com/2019/01/26/python re/&title=《Python re 模块》 — while(live){coding}&pic=https://blog.ojbkfeng.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -454,7 +574,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.ojbkfeng.com/2019/01/26/python re/&title=《Python正则表达式模块re》 — while(live){coding}&source=描述" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.ojbkfeng.com/2019/01/26/python re/&title=《Python re 模块》 — while(live){coding}&source=描述" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -464,7 +584,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python正则表达式模块re》 — while(live){coding}&url=https://blog.ojbkfeng.com/2019/01/26/python re/&via=https://blog.ojbkfeng.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python re 模块》 — while(live){coding}&url=https://blog.ojbkfeng.com/2019/01/26/python re/&via=https://blog.ojbkfeng.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
