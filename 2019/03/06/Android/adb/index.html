@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>adb command | while(live){coding} | 一个有味道的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="debug tools">
+    <meta name="description" content="1. Debuggingadb devicesadb start-serveradb kill-server2. Package Manageradb install app.apkadb uninstall adb uninstall com.zhihu.android adb shell pm list packagesprint all package  -f 查看文件关联 -d (disa">
+<meta name="keywords" content="debug tools">
+<meta property="og:type" content="article">
+<meta property="og:title" content="adb command">
+<meta property="og:url" content="https://blog.ojbkfeng.com/2019/03/06/Android/adb/index.html">
+<meta property="og:site_name" content="while(live){coding}">
+<meta property="og:description" content="1. Debuggingadb devicesadb start-serveradb kill-server2. Package Manageradb install app.apkadb uninstall adb uninstall com.zhihu.android adb shell pm list packagesprint all package  -f 查看文件关联 -d (disa">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-07T06:15:31.898Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="adb command">
+<meta name="twitter:description" content="1. Debuggingadb devicesadb start-serveradb kill-server2. Package Manageradb install app.apkadb uninstall adb uninstall com.zhihu.android adb shell pm list packagesprint all package  -f 查看文件关联 -d (disa">
+    
+    <link rel="shortcut icon" href="../../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../../css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(../../../../../img/brand.jpg)">
+      <div class="brand">
+        <a href="../../../../../index.html" class="avatar waves-effect waves-circle waves-light">
+          <img src="../../../../../img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Xiao YuFeng</h5>
+          <a href="mailto:yf0nuttiness@qq.com" title="yf0nuttiness@qq.com" class="mail">yf0nuttiness@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../../index.html">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../../archives">
+                <i class="icon icon-lg icon-archives"></i>
+                所有内容
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../../tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../../categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wordfeng" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">adb command</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">adb command</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-03-06T11:01:24.335Z" itemprop="datePublished" class="page-time">
+  2019-03-06
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../../categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-Debugging"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. Debugging</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adb-devices"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">adb devices</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adb-start-server"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">adb start-server</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adb-kill-server"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">adb kill-server</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-Package-Manager"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. Package Manager</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adb-install-app-apk"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">adb install app.apk</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adb-uninstall"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">adb uninstall </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adb-shell-pm-list-packages"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">adb shell pm list packages</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adb-shell-pm-path"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">adb shell pm path </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adb-shell-pm-clear"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">adb shell pm clear </span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-File-Manager"><span class="post-toc-number">3.</span> <span class="post-toc-text">3. File Manager</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adb-pull-local"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">adb pull  [local]</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-adb-shell（Android-Terminal）"><span class="post-toc-number">4.</span> <span class="post-toc-text">3. adb shell（Android Terminal）</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4-adb-wait-for-device"><span class="post-toc-number">5.</span> <span class="post-toc-text">4. adb wait-for-device</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#6-Network"><span class="post-toc-number">6.</span> <span class="post-toc-text">6. Network</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adb-shell-netstat"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">adb shell netstat</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#7-Screen-opration"><span class="post-toc-number">7.</span> <span class="post-toc-text">7. Screen opration</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adb-shell-screencap"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">adb shell screencap</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#8-Logcat"><span class="post-toc-number">8.</span> <span class="post-toc-text">8. Logcat</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adb-logcat"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">adb logcat</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Android/adb" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">adb command</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-03-06 19:01:24" datetime="2019-03-06T11:01:24.335Z" itemprop="datePublished">2019-03-06</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../../categories/Android/">Android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="1-Debugging"><a href="#1-Debugging" class="headerlink" title="1. Debugging"></a>1. Debugging</h1><h2 id="adb-devices"><a href="#adb-devices" class="headerlink" title="adb devices"></a>adb devices</h2><h2 id="adb-start-server"><a href="#adb-start-server" class="headerlink" title="adb start-server"></a>adb start-server</h2><h2 id="adb-kill-server"><a href="#adb-kill-server" class="headerlink" title="adb kill-server"></a>adb kill-server</h2><h1 id="2-Package-Manager"><a href="#2-Package-Manager" class="headerlink" title="2. Package Manager"></a>2. Package Manager</h1><h2 id="adb-install-app-apk"><a href="#adb-install-app-apk" class="headerlink" title="adb install app.apk"></a>adb install app.apk</h2><h2 id="adb-uninstall"><a href="#adb-uninstall" class="headerlink" title="adb uninstall "></a>adb uninstall <pkgname></pkgname></h2><pre><code>adb uninstall com.zhihu.android
+</code></pre><h2 id="adb-shell-pm-list-packages"><a href="#adb-shell-pm-list-packages" class="headerlink" title="adb shell pm list packages"></a>adb shell pm list packages</h2><pre><code>print all package
+</code></pre><ul>
+<li>-f 查看文件关联</li>
+<li>-d (disabled)查看已禁用的包</li>
+<li>-e (enabled)已启用的包</li>
+<li>-s 系统包</li>
+<li>-3 第三方包</li>
+<li>-i 查看已安装的包</li>
+<li>-u 所有包，包括已卸载的包</li>
+<li>–user &lt;USER_ID&gt; The user space to query.用户空间的包。<h2 id="adb-shell-pm-path"><a href="#adb-shell-pm-path" class="headerlink" title="adb shell pm path "></a>adb shell pm path <package></package></h2></li>
+<li>adb shell pm path com.zhihu.android<br>Print the path to the APK of the given <package>.<br>打印指定包的apk路径。<h2 id="adb-shell-pm-clear"><a href="#adb-shell-pm-clear" class="headerlink" title="adb shell pm clear "></a>adb shell pm clear <package></package></h2></package></li>
+<li>adb shell pm path com.zhihu.android<br>清除数据和缓存。</li>
+</ul>
+<h1 id="3-File-Manager"><a href="#3-File-Manager" class="headerlink" title="3. File Manager"></a>3. File Manager</h1><h2 id="adb-pull-local"><a href="#adb-pull-local" class="headerlink" title="adb pull  [local]"></a>adb pull <remote> [local]</remote></h2><ul>
+<li>adb push filename.ext /target-path</li>
+<li>adb pull /target-file-path/filename.ext /target-path</li>
+</ul>
+<h1 id="3-adb-shell（Android-Terminal）"><a href="#3-adb-shell（Android-Terminal）" class="headerlink" title="3. adb shell（Android Terminal）"></a>3. adb shell（Android Terminal）</h1><h1 id="4-adb-wait-for-device"><a href="#4-adb-wait-for-device" class="headerlink" title="4. adb wait-for-device"></a>4. adb wait-for-device</h1><pre><code>block until device is online.
+</code></pre><h1 id="6-Network"><a href="#6-Network" class="headerlink" title="6. Network"></a>6. Network</h1><h2 id="adb-shell-netstat"><a href="#adb-shell-netstat" class="headerlink" title="adb shell netstat"></a>adb shell netstat</h2><h1 id="7-Screen-opration"><a href="#7-Screen-opration" class="headerlink" title="7. Screen opration"></a>7. Screen opration</h1><h2 id="adb-shell-screencap"><a href="#adb-shell-screencap" class="headerlink" title="adb shell screencap"></a>adb shell screencap</h2><h1 id="8-Logcat"><a href="#8-Logcat" class="headerlink" title="8. Logcat"></a>8. Logcat</h1><h2 id="adb-logcat"><a href="#adb-logcat" class="headerlink" title="adb logcat"></a>adb logcat</h2>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-07T06:15:31.898Z" itemprop="dateUpdated">2019-03-07 14:15:31</time>
+</span><br>
+
+
+        
+        各位大爷们，评论在下最方，打赏点下面。转载请注明GitHub项目地址：https://github.com/wordfeng/wordfeng.github.io
+        
+    </div>
+    
+    <footer>
+        <a href="https://blog.ojbkfeng.com">
+            <img src="../../../../../img/avatar.jpg" alt="Xiao YuFeng">
+            Xiao YuFeng
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/debug-tools/">debug tools</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.ojbkfeng.com/2019/03/06/Android/adb/&title=《adb command》 — while(live){coding}&pic=https://blog.ojbkfeng.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.ojbkfeng.com/2019/03/06/Android/adb/&title=《adb command》 — while(live){coding}&source=描述" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.ojbkfeng.com/2019/03/06/Android/adb/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《adb command》 — while(live){coding}&url=https://blog.ojbkfeng.com/2019/03/06/Android/adb/&via=https://blog.ojbkfeng.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.ojbkfeng.com/2019/03/06/Android/adb/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="../../../../02/27/python/class,type,object/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">class, object, type之间的关系</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail'];<!-- 初始参数 'nick','mail','link' -->
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "cKe3yufiuoLVX7aeynK3jRP5-gzGzoHsz",
+            appKey: "4zBdRSwA5vUeliupdmxraDPT",
+            avatar: "mm",
+            placeholder: "可以在上面留下你的昵称和邮箱哦，支持markdown语法评论。",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="../../../../../img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="../../../../../img/wechat.jpg" data-alipay="../../../../../img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Xiao YuFeng &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.ojbkfeng.com/2019/03/06/Android/adb/&title=《adb command》 — while(live){coding}&pic=https://blog.ojbkfeng.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.ojbkfeng.com/2019/03/06/Android/adb/&title=《adb command》 — while(live){coding}&source=描述" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.ojbkfeng.com/2019/03/06/Android/adb/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《adb command》 — while(live){coding}&url=https://blog.ojbkfeng.com/2019/03/06/Android/adb/&via=https://blog.ojbkfeng.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.ojbkfeng.com/2019/03/06/Android/adb/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://blog.ojbkfeng.com/2019/03/06/Android/adb/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="../../../../../js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="../../../../../js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼快回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '嘿嘿嘿嘿(¯﹃¯)!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
