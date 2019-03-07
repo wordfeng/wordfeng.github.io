@@ -21,18 +21,18 @@
     
     
     <meta name="keywords" content="debug tools">
-    <meta name="description" content="1. Debuggingadb devicesadb start-serveradb kill-serveradb wait-for-device一直等待设备连接。block until device is online. 2. Package Manageradb install app.apkadb uninstall &amp;lt;pkgname&amp;gt;adb uninstall com.zhihu.a">
+    <meta name="description" content="1. Debugging1.1 adb devices列出设备。 1.2 adb start-server启动服务。 1.3 adb kill-server结束服务。 1.4 adb wait-for-device一直等待设备连接。block until device is online. 2. Package Manager2.1 adb install app.apk2.2 adb unins">
 <meta name="keywords" content="debug tools">
 <meta property="og:type" content="article">
 <meta property="og:title" content="adb command">
 <meta property="og:url" content="https://blog.ojbkfeng.com/2019/03/06/Android/adb/index.html">
 <meta property="og:site_name" content="while(live){coding}">
-<meta property="og:description" content="1. Debuggingadb devicesadb start-serveradb kill-serveradb wait-for-device一直等待设备连接。block until device is online. 2. Package Manageradb install app.apkadb uninstall &amp;lt;pkgname&amp;gt;adb uninstall com.zhihu.a">
+<meta property="og:description" content="1. Debugging1.1 adb devices列出设备。 1.2 adb start-server启动服务。 1.3 adb kill-server结束服务。 1.4 adb wait-for-device一直等待设备连接。block until device is online. 2. Package Manager2.1 adb install app.apk2.2 adb unins">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-07T07:00:25.918Z">
+<meta property="og:updated_time" content="2019-03-07T08:43:03.370Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="adb command">
-<meta name="twitter:description" content="1. Debuggingadb devicesadb start-serveradb kill-serveradb wait-for-device一直等待设备连接。block until device is online. 2. Package Manageradb install app.apkadb uninstall &amp;lt;pkgname&amp;gt;adb uninstall com.zhihu.a">
+<meta name="twitter:description" content="1. Debugging1.1 adb devices列出设备。 1.2 adb start-server启动服务。 1.3 adb kill-server结束服务。 1.4 adb wait-for-device一直等待设备连接。block until device is online. 2. Package Manager2.1 adb install app.apk2.2 adb unins">
     
     <link rel="shortcut icon" href="../../../../../favicon.ico">
     <link rel="stylesheet" href="../../../../../css/style.css?v=1.7.2">
@@ -154,7 +154,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-Debugging"><span class="post-toc-text">1. Debugging</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adb-devices"><span class="post-toc-text">adb devices</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adb-start-server"><span class="post-toc-text">adb start-server</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adb-kill-server"><span class="post-toc-text">adb kill-server</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adb-wait-for-device"><span class="post-toc-text">adb wait-for-device</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-Package-Manager"><span class="post-toc-text">2. Package Manager</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adb-install-app-apk"><span class="post-toc-text">adb install app.apk</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adb-uninstall-lt-pkgname"><span class="post-toc-text">adb uninstall &lt;pkgname&gt;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adb-shell-pm-list-packages"><span class="post-toc-text">adb shell pm list packages</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adb-shell-pm-path-lt-PACKAGE"><span class="post-toc-text">adb shell pm path &lt;PACKAGE&gt;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adb-shell-pm-clear-lt-PACKAGE"><span class="post-toc-text">adb shell pm clear &lt;PACKAGE&gt;</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-File-Manager"><span class="post-toc-text">3. File Manager</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adb-pull-lt-remote-local"><span class="post-toc-text">adb pull &lt;remote&gt; [local]</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adb-push-local-lt-remote"><span class="post-toc-text">adb push [local] &lt;remote&gt;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adb-shell"><span class="post-toc-text">adb shell</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ls"><span class="post-toc-text">ls</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#cd"><span class="post-toc-text">cd</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#rm"><span class="post-toc-text">rm</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#mkdir"><span class="post-toc-text">mkdir</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#touch"><span class="post-toc-text">touch</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#pwd"><span class="post-toc-text">pwd</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#cp"><span class="post-toc-text">cp</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#mv"><span class="post-toc-text">mv</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4-Network"><span class="post-toc-text">4. Network</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#netstat"><span class="post-toc-text">netstat</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ping"><span class="post-toc-text">ping</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#netcfg"><span class="post-toc-text">netcfg</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ip"><span class="post-toc-text">ip</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#5-screenshot"><span class="post-toc-text">5. screenshot</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#screencap"><span class="post-toc-text">screencap</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#screenrecord-4-4"><span class="post-toc-text">screenrecord[4.4+]</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#6-system"><span class="post-toc-text">6. system</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adb-root"><span class="post-toc-text">adb root</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adb-sideload"><span class="post-toc-text">adb sideload</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adb-shell-getprop"><span class="post-toc-text">adb shell getprop</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adb-shell-ps"><span class="post-toc-text">adb shell ps</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adb-shell-top"><span class="post-toc-text">adb shell top</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adb-shell-setprop"><span class="post-toc-text">adb shell setprop</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-Debugging"><span class="post-toc-text">1. Debugging</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1-adb-devices"><span class="post-toc-text">1.1 adb devices</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2-adb-start-server"><span class="post-toc-text">1.2 adb start-server</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-3-adb-kill-server"><span class="post-toc-text">1.3 adb kill-server</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-4-adb-wait-for-device"><span class="post-toc-text">1.4 adb wait-for-device</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-Package-Manager"><span class="post-toc-text">2. Package Manager</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-adb-install-app-apk"><span class="post-toc-text">2.1 adb install app.apk</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-adb-uninstall-lt-pkgname"><span class="post-toc-text">2.2 adb uninstall &lt;pkgname&gt;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-adb-shell-pm-list-packages"><span class="post-toc-text">2.3 adb shell pm list packages</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-adb-shell-pm-path-lt-PACKAGE"><span class="post-toc-text">2.4 adb shell pm path &lt;PACKAGE&gt;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-5-adb-shell-pm-clear-lt-PACKAGE"><span class="post-toc-text">2.5 adb shell pm clear &lt;PACKAGE&gt;</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-File-Manager"><span class="post-toc-text">3. File Manager</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-1-adb-pull-lt-remote-local"><span class="post-toc-text">3.1 adb pull &lt;remote&gt; [local]</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-2-adb-push-local-lt-remote"><span class="post-toc-text">3.2 adb push [local] &lt;remote&gt;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-3-adb-shell"><span class="post-toc-text">3.3 adb shell</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ls"><span class="post-toc-text">ls</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#cd"><span class="post-toc-text">cd</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#rm"><span class="post-toc-text">rm</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#mkdir"><span class="post-toc-text">mkdir</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#mkdir-options"><span class="post-toc-text">mkdir [options] </span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#touch"><span class="post-toc-text">touch</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#pwd"><span class="post-toc-text">pwd</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#cp"><span class="post-toc-text">cp</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#mv"><span class="post-toc-text">mv</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4-Network"><span class="post-toc-text">4. Network</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-1-netstat"><span class="post-toc-text">4.1 netstat</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-2-ping"><span class="post-toc-text">4.2 ping</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-3-netcfg"><span class="post-toc-text">4.3 netcfg</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-4-ip"><span class="post-toc-text">4.4 ip</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-5-reverse"><span class="post-toc-text">4.5 reverse</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#5-Logcat"><span class="post-toc-text">5. Logcat</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#6-Screen-operation"><span class="post-toc-text">6. Screen operation</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-1-screencap-截图"><span class="post-toc-text">6.1 screencap(截图)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-2-screenrecord-4-4-（录屏）"><span class="post-toc-text">6.2 screenrecord[4.4+]（录屏）</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#7-system"><span class="post-toc-text">7. system</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-1-adb-root"><span class="post-toc-text">7.1 adb root</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-2-adb-sideload"><span class="post-toc-text">7.2 adb sideload</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-3-adb-shell-ps"><span class="post-toc-text">7.3 adb shell ps</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-4-adb-shell-top"><span class="post-toc-text">7.4 adb shell top</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-5-adb-shell-getprop"><span class="post-toc-text">7.5 adb shell getprop</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-6-adb-shell-setprop"><span class="post-toc-text">7.6 adb shell setprop</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -179,10 +179,13 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="1-Debugging"><a href="#1-Debugging" class="headerlink" title="1. Debugging"></a>1. Debugging</h1><h2 id="adb-devices"><a href="#adb-devices" class="headerlink" title="adb devices"></a>adb devices</h2><h2 id="adb-start-server"><a href="#adb-start-server" class="headerlink" title="adb start-server"></a>adb start-server</h2><h2 id="adb-kill-server"><a href="#adb-kill-server" class="headerlink" title="adb kill-server"></a>adb kill-server</h2><h2 id="adb-wait-for-device"><a href="#adb-wait-for-device" class="headerlink" title="adb wait-for-device"></a>adb wait-for-device</h2><p>一直等待设备连接。<br>block until device is online.</p>
-<h1 id="2-Package-Manager"><a href="#2-Package-Manager" class="headerlink" title="2. Package Manager"></a>2. Package Manager</h1><h2 id="adb-install-app-apk"><a href="#adb-install-app-apk" class="headerlink" title="adb install app.apk"></a>adb install app.apk</h2><h2 id="adb-uninstall-lt-pkgname"><a href="#adb-uninstall-lt-pkgname" class="headerlink" title="adb uninstall &lt;pkgname>"></a>adb uninstall &lt;pkgname></h2><pre><code>adb uninstall com.zhihu.android
-</code></pre><h2 id="adb-shell-pm-list-packages"><a href="#adb-shell-pm-list-packages" class="headerlink" title="adb shell pm list packages"></a>adb shell pm list packages</h2><pre><code>print all package
-</code></pre><ul>
+            <h1 id="1-Debugging"><a href="#1-Debugging" class="headerlink" title="1. Debugging"></a>1. Debugging</h1><h2 id="1-1-adb-devices"><a href="#1-1-adb-devices" class="headerlink" title="1.1 adb devices"></a>1.1 adb devices</h2><p>列出设备。</p>
+<h2 id="1-2-adb-start-server"><a href="#1-2-adb-start-server" class="headerlink" title="1.2 adb start-server"></a>1.2 adb start-server</h2><p>启动服务。</p>
+<h2 id="1-3-adb-kill-server"><a href="#1-3-adb-kill-server" class="headerlink" title="1.3 adb kill-server"></a>1.3 adb kill-server</h2><p>结束服务。</p>
+<h2 id="1-4-adb-wait-for-device"><a href="#1-4-adb-wait-for-device" class="headerlink" title="1.4 adb wait-for-device"></a>1.4 adb wait-for-device</h2><p>一直等待设备连接。<br>block until device is online.</p>
+<h1 id="2-Package-Manager"><a href="#2-Package-Manager" class="headerlink" title="2. Package Manager"></a>2. Package Manager</h1><h2 id="2-1-adb-install-app-apk"><a href="#2-1-adb-install-app-apk" class="headerlink" title="2.1 adb install app.apk"></a>2.1 adb install app.apk</h2><h2 id="2-2-adb-uninstall-lt-pkgname"><a href="#2-2-adb-uninstall-lt-pkgname" class="headerlink" title="2.2 adb uninstall &lt;pkgname>"></a>2.2 adb uninstall &lt;pkgname></h2><pre><code>adb uninstall com.zhihu.android
+</code></pre><h2 id="2-3-adb-shell-pm-list-packages"><a href="#2-3-adb-shell-pm-list-packages" class="headerlink" title="2.3 adb shell pm list packages"></a>2.3 adb shell pm list packages</h2><p>打印所有的包。</p>
+<ul>
 <li>-f 查看文件关联</li>
 <li>-d (disabled)查看已禁用的包</li>
 <li>-e (enabled)已启用的包</li>
@@ -190,11 +193,15 @@
 <li>-3 第三方包</li>
 <li>-i 查看已安装的包</li>
 <li>-u 所有包，包括已卸载的包</li>
-<li>–user &lt;USER_ID&gt; The user space to query.用户空间的包。<h2 id="adb-shell-pm-path-lt-PACKAGE"><a href="#adb-shell-pm-path-lt-PACKAGE" class="headerlink" title="adb shell pm path &lt;PACKAGE>"></a>adb shell pm path &lt;PACKAGE></h2>  adb shell pm path com.zhihu.android<br>Print the path to the APK of the given <package>.<br>打印指定包的apk路径。<h2 id="adb-shell-pm-clear-lt-PACKAGE"><a href="#adb-shell-pm-clear-lt-PACKAGE" class="headerlink" title="adb shell pm clear &lt;PACKAGE>"></a>adb shell pm clear &lt;PACKAGE></h2>  adb shell pm path com.zhihu.android<br>清除数据和缓存。</package></li>
+<li>–user &lt;USER_ID&gt; The user space to query.用户空间的包。<h2 id="2-4-adb-shell-pm-path-lt-PACKAGE"><a href="#2-4-adb-shell-pm-path-lt-PACKAGE" class="headerlink" title="2.4 adb shell pm path &lt;PACKAGE>"></a>2.4 adb shell pm path &lt;PACKAGE></h2>打印指定包的apk路径。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell pm path com.zhihu.android</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<h1 id="3-File-Manager"><a href="#3-File-Manager" class="headerlink" title="3. File Manager"></a>3. File Manager</h1><h2 id="adb-pull-lt-remote-local"><a href="#adb-pull-lt-remote-local" class="headerlink" title="adb pull &lt;remote> [local]"></a>adb pull &lt;remote> [local]</h2><pre><code>adb pull /target-file-path/filename.ext /localpath
-</code></pre><h2 id="adb-push-local-lt-remote"><a href="#adb-push-local-lt-remote" class="headerlink" title="adb push [local] &lt;remote>"></a>adb push [local] &lt;remote></h2><p>同pull。<br>    adb push /localpath/filename.ext /target-path</p>
-<h2 id="adb-shell"><a href="#adb-shell" class="headerlink" title="adb shell"></a>adb shell</h2><h3 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h3><ul>
+<h2 id="2-5-adb-shell-pm-clear-lt-PACKAGE"><a href="#2-5-adb-shell-pm-clear-lt-PACKAGE" class="headerlink" title="2.5 adb shell pm clear &lt;PACKAGE>"></a>2.5 adb shell pm clear &lt;PACKAGE></h2><pre><code>adb shell pm path com.zhihu.android
+</code></pre><p>清除数据和缓存。</p>
+<h1 id="3-File-Manager"><a href="#3-File-Manager" class="headerlink" title="3. File Manager"></a>3. File Manager</h1><h2 id="3-1-adb-pull-lt-remote-local"><a href="#3-1-adb-pull-lt-remote-local" class="headerlink" title="3.1 adb pull &lt;remote> [local]"></a>3.1 adb pull &lt;remote> [local]</h2><pre><code>adb pull /target-file-path/filename.ext /localpath
+</code></pre><h2 id="3-2-adb-push-local-lt-remote"><a href="#3-2-adb-push-local-lt-remote" class="headerlink" title="3.2 adb push [local] &lt;remote>"></a>3.2 adb push [local] &lt;remote></h2><p>同pull。</p>
+<pre><code>adb push /localpath/filename.ext /target-path
+</code></pre><h2 id="3-3-adb-shell"><a href="#3-3-adb-shell" class="headerlink" title="3.3 adb shell"></a>3.3 adb shell</h2><h3 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h3><ul>
 <li>-a 不隐藏.开头的</li>
 <li>-i 给每个文件加上数字索引</li>
 <li>-s 以blocks为单位打印每个文件的大小</li>
@@ -203,9 +210,95 @@
 <li>-f 强制删除，且不提示。</li>
 <li>-r 以递归方式删除目录内容</li>
 <li>-d 删除目录，即使是非空(rm -d等于rmdir)</li>
-<li>-i 删除前提示<h3 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h3><h3 id="touch"><a href="#touch" class="headerlink" title="touch"></a>touch</h3><h3 id="pwd"><a href="#pwd" class="headerlink" title="pwd"></a>pwd</h3><h3 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h3><h3 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h3></li>
+<li>-i 删除前提示<h3 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h3><h4 id="mkdir-options"><a href="#mkdir-options" class="headerlink" title="mkdir [options] "></a>mkdir [options] <directory name\=""></directory></h4></li>
 </ul>
-<h1 id="4-Network"><a href="#4-Network" class="headerlink" title="4. Network"></a>4. Network</h1><h2 id="netstat"><a href="#netstat" class="headerlink" title="netstat"></a>netstat</h2><h2 id="ping"><a href="#ping" class="headerlink" title="ping"></a>ping</h2><h2 id="netcfg"><a href="#netcfg" class="headerlink" title="netcfg"></a>netcfg</h2><h2 id="ip"><a href="#ip" class="headerlink" title="ip"></a>ip</h2><h1 id="5-screenshot"><a href="#5-screenshot" class="headerlink" title="5. screenshot"></a>5. screenshot</h1><h2 id="screencap"><a href="#screencap" class="headerlink" title="screencap"></a>screencap</h2><h2 id="screenrecord-4-4"><a href="#screenrecord-4-4" class="headerlink" title="screenrecord[4.4+]"></a>screenrecord[4.4+]</h2><h1 id="6-system"><a href="#6-system" class="headerlink" title="6. system"></a>6. system</h1><h2 id="adb-root"><a href="#adb-root" class="headerlink" title="adb root"></a>adb root</h2><h2 id="adb-sideload"><a href="#adb-sideload" class="headerlink" title="adb sideload"></a>adb sideload</h2><h2 id="adb-shell-getprop"><a href="#adb-shell-getprop" class="headerlink" title="adb shell getprop"></a>adb shell getprop</h2><h2 id="adb-shell-ps"><a href="#adb-shell-ps" class="headerlink" title="adb shell ps"></a>adb shell ps</h2><h2 id="adb-shell-top"><a href="#adb-shell-top" class="headerlink" title="adb shell top"></a>adb shell top</h2><h2 id="adb-shell-setprop"><a href="#adb-shell-setprop" class="headerlink" title="adb shell setprop"></a>adb shell setprop</h2>
+<p>直接创建</p>
+<pre><code>mkdir /sdcard/wtf
+</code></pre><p>顺便加个权限</p>
+<pre><code>mkdir -m 777 /sdcard/wtf
+</code></pre><p>根据需要创建父目录</p>
+<pre><code>mkdir -p /sdcard/wtf/sub1/sub2
+</code></pre><h3 id="touch"><a href="#touch" class="headerlink" title="touch"></a>touch</h3><p>创建文件。</p>
+<h3 id="pwd"><a href="#pwd" class="headerlink" title="pwd"></a>pwd</h3><p>当前路径。</p>
+<h3 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h3><pre><code>cp /当前/test.txt /目标/demo.txt
+</code></pre><p>还能顺便改个名</p>
+<h3 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h3><pre><code>mv /当前/tmp /目标/tmp
+</code></pre><p>改名</p>
+<pre><code>mv /sdcard/wtf /sdcard/test
+</code></pre><h1 id="4-Network"><a href="#4-Network" class="headerlink" title="4. Network"></a>4. Network</h1><h2 id="4-1-netstat"><a href="#4-1-netstat" class="headerlink" title="4.1 netstat"></a>4.1 netstat</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell netstat</span><br></pre></td></tr></table></figure>
+<p>↓↓↓↓↓<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Proto Recv-Q Send-Q Local Address          Foreign Address        State</span><br><span class="line">tcp        0      0 127.0.0.1:5037         0.0.0.0:*              LISTEN</span><br><span class="line">tcp        0      0 0.0.0.0:5555           0.0.0.0:*              LISTEN</span><br><span class="line">tcp        0      0 10.0.2.15:5555         10.0.2.2:54444         ESTABLISHED</span><br></pre></td></tr></table></figure></p>
+<h2 id="4-2-ping"><a href="#4-2-ping" class="headerlink" title="4.2 ping"></a>4.2 ping</h2><p>需要Ctrl+c结束<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell ping www.baidu.com</span><br></pre></td></tr></table></figure></p>
+<h2 id="4-3-netcfg"><a href="#4-3-netcfg" class="headerlink" title="4.3 netcfg"></a>4.3 netcfg</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">通过配置文件配置管理网络。</span><br><span class="line">netcfg [&lt;interface&gt; &#123;dhcp|up|down&#125;]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># netcfg</span><br><span class="line">netcfg</span><br><span class="line">lo       UP    127.0.0.1       255.0.0.0       0x00000049</span><br><span class="line">eth0     UP    10.0.2.15       255.255.255.0   0x00001043</span><br><span class="line">tunl0    DOWN  0.0.0.0         0.0.0.0         0x00000080</span><br><span class="line">gre0     DOWN  0.0.0.0         0.0.0.0         0x00000080</span><br></pre></td></tr></table></figure>
+<h2 id="4-4-ip"><a href="#4-4-ip" class="headerlink" title="4.4 ip"></a>4.4 ip</h2><p>show, manipulate routing, devices, policy routing and tunnels.<br>展示和操作路由、设备、路由规则和隧道。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ip [ OPTIONS ] OBJECT</span><br><span class="line"></span><br><span class="line">OBJECT := &#123; link | addr | addrlabel | route | rule | neigh | ntable |tunnel | tuntap | maddr | mroute | mrule | monitor | xfrm |netns | l2tp &#125;</span><br><span class="line"></span><br><span class="line">OPTIONS := &#123; -V[ersion] | -s[tatistics] | -d[etails] | -r[esolve] |-f[amily] &#123; inet | inet6 | ipx | dnet | link &#125; |-l[oops] &#123; maximum-addr-flush-attempts &#125; |-o[neline] | -t[imestamp] | -b[atch] [filename] |-rc[vbuf] [size]&#125;</span><br></pre></td></tr></table></figure></p>
+<pre><code>ip -f inet addr show wlan0 //WiFi的地址
+</code></pre><h2 id="4-5-reverse"><a href="#4-5-reverse" class="headerlink" title="4.5 reverse"></a>4.5 reverse</h2><p>手机跟电脑在不同网络的时候，电脑的本地API服务手机无法访问，reverse后，手机访问<a href="http://localhost:8000时，被路由到localhost:3000" target="_blank" rel="noopener">http://localhost:8000时，被路由到localhost:3000</a><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb reverse tcp：8000 tcp：3000</span><br></pre></td></tr></table></figure></p>
+<h1 id="5-Logcat"><a href="#5-Logcat" class="headerlink" title="5. Logcat"></a>5. Logcat</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">打印日志数据到屏幕。</span><br><span class="line">adb logcat [option] [filter-specs]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>adb logcat 直接打印Ctrl + c停止</li>
+<li>adb logcat *:V 最低优先级，只显示详细级别Verbose level</li>
+<li>*:D 只显示debug级别Debug level</li>
+<li>*:I info  level</li>
+<li>*:W warning level</li>
+<li>*:E error level</li>
+<li>*:F 致命程度Fatal level</li>
+<li>*:S 最高优先级，不打印任何内容</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb logcat -v &lt;format&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>adb logcat -v brief 显示发出消息的进程的优先级、标记和PID(默认格式)。</li>
+<li>adb logcat -v process 只显示PID。</li>
+<li>adb logcat -v tag 只显示优先级和标签。</li>
+<li>adb logcat -v raw 显示原始数据，没有其他元数据字段。</li>
+<li>adb logcat -v time 显示发出消息的进程日期，调用时间，优先级，标记和PID。</li>
+<li>adb logcat -v threadtime 同上，增加TID。</li>
+<li>adb logcat -v long 显示所有元数据字段，并用空格分割。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb logcat -b &lt;Buffer&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>adb logcat -b radio 只显示收音机和电话的消息缓冲区。</li>
+<li>adb logcat -b event 只看事件相关的缓冲区。</li>
+<li><p>adb logcat -b main 默认</p>
+</li>
+<li><p>其他</p>
+<ul>
+<li>adb logcat -c 清除所有日志并退出</li>
+<li>adb logcat -d 将日志转储到屏幕并退出</li>
+<li>adb logcat -f test.log 将日志消息转入test.log</li>
+<li>adb logcat -g 打印指定日志并退出</li>
+<li>adb logcat -n <count> 将最大旋转日志(rotated logs)设置为count</count></li>
+<li>adb logcat -r <kbytes> 每kbytes输出旋转日志文件。最大默认值为4，用-r指定。</kbytes></li>
+<li>adb logcat -s 将默认过滤器设置为静默，默认16，-f指定。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">转储系统数据。</span><br><span class="line">adb shell dumpsys [options]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>adb shell dumpsys 直接查看</li>
+<li>adb shell dumpsys battery 直接查看</li>
+<li>adb shell dumpsys batterystats 为设备收集电池数据(android 5.0以上)</li>
+<li>adb shell dumpsys batterystats –reset 删除旧的数据。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">转储状态。(dumps State)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>adb shell dumpstate 直接查看</li>
+<li>adb shell dumpstate &gt; state.logs 存入文件</li>
+</ul>
+<h1 id="6-Screen-operation"><a href="#6-Screen-operation" class="headerlink" title="6. Screen operation"></a>6. Screen operation</h1><h2 id="6-1-screencap-截图"><a href="#6-1-screencap-截图" class="headerlink" title="6.1 screencap(截图)"></a>6.1 screencap(截图)</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//截图</span><br><span class="line">adb shell screencap /sdcard/screen.png</span><br><span class="line">//配合pull保存到电脑</span><br><span class="line">adb pull /sdcard/screen.png</span><br></pre></td></tr></table></figure>
+<h2 id="6-2-screenrecord-4-4-（录屏）"><a href="#6-2-screenrecord-4-4-（录屏）" class="headerlink" title="6.2 screenrecord[4.4+]（录屏）"></a>6.2 screenrecord[4.4+]（录屏）</h2><p>Android 4.4+版本支持。<br>录屏，Ctrl+c停止或3分钟或-time-limit设置的时间限制内自动结束。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell screenrecord [options] &lt;filename&gt;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>adb shell screenrecord /sdcard/wtf.mp4 默认设置直接录制。</li>
+<li>adb shell screenrecord –size <widthxheight> 设置视频分辨率。1280x720</widthxheight></li>
+<li>adb shell screenrecord –bit-rate <rate> 设置视频的比特率，默认值为4Mbps,例如5Mbps参数为–bit-rate 5000000 /path/wtf.mp4</rate></li>
+<li>adb shell screenrecord –rotate 设置最长录制时间，默认值180秒。</li>
+<li>adb shell screenrecord –verbose 将输出旋转90度。<h1 id="7-system"><a href="#7-system" class="headerlink" title="7. system"></a>7. system</h1><h2 id="7-1-adb-root"><a href="#7-1-adb-root" class="headerlink" title="7.1 adb root"></a>7.1 adb root</h2>用root权限重启adbd守护进程。(只能用于模拟器)<br><code>adb root</code><h2 id="7-2-adb-sideload"><a href="#7-2-adb-sideload" class="headerlink" title="7.2 adb sideload"></a>7.2 adb sideload</h2>flashing/restoring Android update.zip packages.<br>刷新/恢复安卓update.zip包。<br><code>adb sideload &lt;update.zip&gt;</code><h2 id="7-3-adb-shell-ps"><a href="#7-3-adb-shell-ps" class="headerlink" title="7.3 adb shell ps"></a>7.3 adb shell ps</h2>跟Linux差不多。<h2 id="7-4-adb-shell-top"><a href="#7-4-adb-shell-top" class="headerlink" title="7.4 adb shell top"></a>7.4 adb shell top</h2></li>
+<li>top 显示CPU顶级进程。</li>
+<li>top -t 显示线程<h2 id="7-5-adb-shell-getprop"><a href="#7-5-adb-shell-getprop" class="headerlink" title="7.5 adb shell getprop"></a>7.5 adb shell getprop</h2>通过安卓属性服务获取属性。<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">adb shell getprop</span><br><span class="line">----输出----</span><br><span class="line">[ro.secure]: [0]</span><br><span class="line">[ro.allow.mock.location]: [1]</span><br><span class="line">[ro.debuggable]: [1]</span><br><span class="line">[persist.service.adb.enable]: [1]</span><br><span class="line">[ro.kernel.qemu.gles]: [0]</span><br><span class="line">[ro.kernel.qemu]: [1]</span><br><span class="line">[ro.kernel.console]: [ttyS0]</span><br><span class="line">[ro.kernel.android.qemud]: [ttyS1]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//获取构建sdk版本</span><br><span class="line">adb shell getprop ro.build.version.sdk</span><br></pre></td></tr></table></figure>
+<h2 id="7-6-adb-shell-setprop"><a href="#7-6-adb-shell-setprop" class="headerlink" title="7.6 adb shell setprop"></a>7.6 adb shell setprop</h2><p>可以修改getprop可以获得的信息。<br>将adb端口设置为5555<br><code>setprop service.adb.tcp.port 5555</code></p>
+
         </div>
 
         <blockquote class="post-copyright">
@@ -213,7 +306,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-03-07T07:00:25.918Z" itemprop="dateUpdated">2019-03-07 15:00:25</time>
+    最后更新时间：<time datetime="2019-03-07T08:43:03.370Z" itemprop="dateUpdated">2019-03-07 16:43:03</time>
 </span><br>
 
 
