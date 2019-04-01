@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Python re 模块 | while(live){coding} | 一个有味道的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Python内置模块">
+    <meta name="description" content="1.函数表   函数 作用     match 在字符串起始位置匹配，如果没有匹配到返回None。   fullmatch 用表达式匹配所有字符串   search 匹配任意位置的字符串   sub 替换字符串中匹配成功项。   subn 同上，返回替换次数   split 把查找到的字符串分割，并且打包成列表返回   findall 匹配字符串中所有匹配的项，打包成列表返回   finditer">
+<meta name="keywords" content="Python内置模块">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python re 模块">
+<meta property="og:url" content="https://blog.ojbkfeng.com/2019/01/26/python/python re/index.html">
+<meta property="og:site_name" content="while(live){coding}">
+<meta property="og:description" content="1.函数表   函数 作用     match 在字符串起始位置匹配，如果没有匹配到返回None。   fullmatch 用表达式匹配所有字符串   search 匹配任意位置的字符串   sub 替换字符串中匹配成功项。   subn 同上，返回替换次数   split 把查找到的字符串分割，并且打包成列表返回   findall 匹配字符串中所有匹配的项，打包成列表返回   finditer">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-07T06:40:56.723Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python re 模块">
+<meta name="twitter:description" content="1.函数表   函数 作用     match 在字符串起始位置匹配，如果没有匹配到返回None。   fullmatch 用表达式匹配所有字符串   search 匹配任意位置的字符串   sub 替换字符串中匹配成功项。   subn 同上，返回替换次数   split 把查找到的字符串分割，并且打包成列表返回   findall 匹配字符串中所有匹配的项，打包成列表返回   finditer">
+    
+    <link rel="shortcut icon" href="../../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../../css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(../../../../../img/brand.jpg)">
+      <div class="brand">
+        <a href="../../../../../index.html" class="avatar waves-effect waves-circle waves-light">
+          <img src="../../../../../img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">慕华</h5>
+          <a href="mailto:yf0nuttiness@qq.com" title="yf0nuttiness@qq.com" class="mail">yf0nuttiness@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../../index.html">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../../archives">
+                <i class="icon icon-lg icon-archives"></i>
+                所有内容
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../../tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../../categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wordfeng" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Python re 模块</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Python re 模块</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-01-26T06:13:24.145Z" itemprop="datePublished" class="page-time">
+  2019-01-26
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../../categories/正则表达式/">正则表达式</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../../categories/正则表达式/Python/">Python</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-函数表"><span class="post-toc-text">1.函数表</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-可选标志"><span class="post-toc-text">2.可选标志</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-re-match"><span class="post-toc-text">3.re.match()</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4-re-search"><span class="post-toc-text">4.re.search()</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#5-re-sub"><span class="post-toc-text">5.re.sub()</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#6-re-compile"><span class="post-toc-text">6.re.compile()</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#7-re-split"><span class="post-toc-text">7.re.split()</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#8-findall"><span class="post-toc-text">8.findall</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#9-re-finditer"><span class="post-toc-text">9.re.finditer()</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-python/python re" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Python re 模块</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-01-26 14:13:24" datetime="2019-01-26T06:13:24.145Z" itemprop="datePublished">2019-01-26</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../../categories/正则表达式/">正则表达式</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../../categories/正则表达式/Python/">Python</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="1-函数表"><a href="#1-函数表" class="headerlink" title="1.函数表"></a>1.函数表</h1><table>
+<thead>
+<tr>
+<th style="text-align:center">函数</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">match</td>
+<td style="text-align:left">在字符串起始位置匹配，如果没有匹配到返回None。</td>
+</tr>
+<tr>
+<td style="text-align:center">fullmatch</td>
+<td style="text-align:left">用表达式匹配所有字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">search</td>
+<td style="text-align:left">匹配任意位置的字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">sub</td>
+<td style="text-align:left">替换字符串中匹配成功项。</td>
+</tr>
+<tr>
+<td style="text-align:center">subn</td>
+<td style="text-align:left">同上，返回替换次数</td>
+</tr>
+<tr>
+<td style="text-align:center">split</td>
+<td style="text-align:left">把查找到的字符串分割，并且打包成列表返回</td>
+</tr>
+<tr>
+<td style="text-align:center">findall</td>
+<td style="text-align:left">匹配字符串中所有匹配的项，打包成列表返回</td>
+</tr>
+<tr>
+<td style="text-align:center">finditer</td>
+<td style="text-align:left">同上，但是返回的是迭代器</td>
+</tr>
+<tr>
+<td style="text-align:center">compile</td>
+<td style="text-align:left">编译正则表达式(pattern)，生成一个正则表达式对象(RegexObject)，仅供match()和search()函数使用。</td>
+</tr>
+<tr>
+<td style="text-align:center">purge</td>
+<td style="text-align:left">清除缓存</td>
+</tr>
+<tr>
+<td style="text-align:center">escape</td>
+<td style="text-align:left">除了ASCII字母，数字和以外，转义模式中的所有字符</td>
+</tr>
+</tbody>
+</table>
+<h1 id="2-可选标志"><a href="#2-可选标志" class="headerlink" title="2.可选标志"></a>2.可选标志</h1><table>
+<thead>
+<tr>
+<th style="text-align:center">修饰符</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">re.I</td>
+<td style="text-align:left">使匹配对大小写不敏感</td>
+</tr>
+<tr>
+<td style="text-align:center">re.L</td>
+<td style="text-align:left">做本地化识别（locale-aware）匹配</td>
+</tr>
+<tr>
+<td style="text-align:center">re.M</td>
+<td style="text-align:left">多行匹配，会影响 ^ 和 $</td>
+</tr>
+<tr>
+<td style="text-align:center">re.S</td>
+<td style="text-align:left">使<code>.</code>匹配包括换行在内的所有字符</td>
+</tr>
+<tr>
+<td style="text-align:center">re.U</td>
+<td style="text-align:left">根据Unicode字符集解析字符。会标志影响 \w, \W, \b, \B.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="3-re-match"><a href="#3-re-match" class="headerlink" title="3.re.match()"></a>3.re.match()</h1><p>在字符串开头匹配。<br>函数原型：re.match(pattern, string, flags=0)<br>匹配成功：返回匹配的对象<br>匹配失败：返回None</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">pattern</td>
+<td style="text-align:center">匹配的正则表达式</td>
+</tr>
+<tr>
+<td style="text-align:center">string</td>
+<td style="text-align:center">要匹配的字符串。</td>
+</tr>
+<tr>
+<td style="text-align:center">flags</td>
+<td style="text-align:center">可选标志位，用于控制正则表达式的匹配方式</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在字符串开头匹配到返回一个对象</span></span><br><span class="line">print(re.match(<span class="string">'blog'</span>, <span class="string">'blog.ojbkfeng.cn'</span>))</span><br><span class="line"><span class="comment"># &lt;_sre.SRE_Match object; span=(0, 4), match='blog'&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在开头处没匹配到返回None</span></span><br><span class="line">print(re.match(<span class="string">'cn'</span>, <span class="string">'blog.ojbkfeng.cn'</span>))</span><br><span class="line"><span class="comment"># None</span></span><br><span class="line"></span><br><span class="line">print(re.match(<span class="string">'blog'</span>, <span class="string">'blog.ojbkfeng.cn'</span>).span())</span><br><span class="line"><span class="comment"># (0, 4)</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">strings = <span class="string">"what the fuck ???"</span></span><br><span class="line">reg = re.match(<span class="string">r'(.*) the (.*?) .*'</span>, strings, re.M|re.I)</span><br><span class="line"><span class="keyword">if</span> reg:</span><br><span class="line">   print(reg.group())</span><br><span class="line">   <span class="comment"># what the fuck ???</span></span><br><span class="line">   print(reg.group(<span class="number">1</span>)) <span class="comment"># 匹配到的第一个</span></span><br><span class="line">   <span class="comment"># what</span></span><br><span class="line">   print(reg.group(<span class="number">2</span>)) <span class="comment"># 第二个</span></span><br><span class="line">   <span class="comment"># fuck</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">   print( <span class="string">"No match!!"</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="4-re-search"><a href="#4-re-search" class="headerlink" title="4.re.search()"></a>4.re.search()</h1><p>在整个字符串匹配，并返回成功的第一个。<br>函数原型：re.search(pattern, string, flags=0)<br>匹配成功：返回匹配的对象。<br>匹配失败：返回None。<br><em>参数同match(), 用法相同。</em></p>
+<h1 id="5-re-sub"><a href="#5-re-sub" class="headerlink" title="5.re.sub()"></a>5.re.sub()</h1><p>替换字符串中匹配成功项。<br>函数原型：re.sub(pattern, repl, string, count=0, flags=0)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:left">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">pattern</td>
+<td style="text-align:left">正则中的模式字符串。</td>
+</tr>
+<tr>
+<td style="text-align:center">repl</td>
+<td style="text-align:left">替换的字符串，也可为一个函数。</td>
+</tr>
+<tr>
+<td style="text-align:center">string</td>
+<td style="text-align:left">要被查找替换的原始字符串。</td>
+</tr>
+<tr>
+<td style="text-align:center">count</td>
+<td style="text-align:left">模式匹配后替换的最大次数，默认 0 表示替换所有的匹配。</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">strings = <span class="string">"188-7438-6478"</span></span><br><span class="line">num = re.sub(<span class="string">r'\D'</span>, <span class="string">""</span>, strings)</span><br><span class="line">print(num) <span class="comment"># 18874386478</span></span><br></pre></td></tr></table></figure>
+<h1 id="6-re-compile"><a href="#6-re-compile" class="headerlink" title="6.re.compile()"></a>6.re.compile()</h1><p>编译正则表达式(pattern)，生成一个正则表达式对象(RegexObject)，仅供match()和search()函数使用。<br>函数原型：re.compile(pattern[, flags])<br>pattern : 一个字符串形式的正则表达式<br>flags : 可选标志，文章上面有参数表。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">strings = <span class="string">"188-7438-6478"</span></span><br><span class="line">reObj = re.compile(<span class="string">r'\D'</span>)</span><br><span class="line">num = re.sub(reObj, <span class="string">""</span>, strings)</span><br><span class="line">print(num) <span class="comment"># 18874386478</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="7-re-split"><a href="#7-re-split" class="headerlink" title="7.re.split()"></a>7.re.split()</h1><p>按照能够匹配的子串将字符串分割后返回列表。<br>函数原型re.split(pattern, string[, maxsplit=0, flags=0])<br>maxsplit：分隔次数，maxsplit=1 分隔一次，默认为 0，不限制次数<br>其余参数与match()相同。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">re.split(<span class="string">'\W+'</span>, <span class="string">'ojbk, ojbk, ojbkfeng.'</span>)</span><br><span class="line"><span class="comment"># ['ojbk', 'ojbk', 'ojbkfeng', '']</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="8-findall"><a href="#8-findall" class="headerlink" title="8.findall"></a>8.findall</h1><p>在字符串中找到正则表达式所匹配的所有子串，并返回一个列表，如果没有找到匹配的，则返回空列表。</p>
+<ul>
+<li>跟match()和search()不同的是findall()匹配所有出现过的字符串，match和search只匹配一次。<br>函数原型：findall(string[, pos[, endpos]])</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:left">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">string</td>
+<td style="text-align:left">待匹配的字符串。</td>
+</tr>
+<tr>
+<td style="text-align:center">pos</td>
+<td style="text-align:left">可选参数，指定字符串的起始位置，默认为 0。</td>
+</tr>
+<tr>
+<td style="text-align:center">endpos</td>
+<td style="text-align:left">可选参数，指定字符串的结束位置，默认为字符串的长度。</td>
+</tr>
+</tbody>
+</table>
+<h1 id="9-re-finditer"><a href="#9-re-finditer" class="headerlink" title="9.re.finditer()"></a>9.re.finditer()</h1><p>跟findall()一样，区别是返回一个迭代器(iter)。<br>函数原型：re.finditer(pattern, string, flags=0)</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-07T06:40:56.723Z" itemprop="dateUpdated">2019-03-07 14:40:56</time>
+</span><br>
+
+
+        
+        各位大爷们，评论在下最方，打赏点下面。转载请注明GitHub项目地址：https://github.com/wordfeng/wordfeng.github.io
+        
+    </div>
+    
+    <footer>
+        <a href="https://blog.ojbkfeng.com">
+            <img src="../../../../../img/avatar.jpg" alt="慕华">
+            慕华
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/Python内置模块/">Python内置模块</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="../../../29/算法与数据结构/算法_冒泡排序/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">冒泡排序</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="../../正则表达式/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">正则表达式</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail'];<!-- 初始参数 'nick','mail','link' -->
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "cKe3yufiuoLVX7aeynK3jRP5-gzGzoHsz",
+            appKey: "4zBdRSwA5vUeliupdmxraDPT",
+            avatar: "mm",
+            placeholder: "可以在上面留下你的昵称和邮箱哦，支持markdown语法评论。",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="../../../../../img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="../../../../../img/wechat.jpg" data-alipay="../../../../../img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>慕华 &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
+
+
+</script>
+
+<script src="../../../../../js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="../../../../../js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '你最好回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '这还差不多(¯﹃¯)!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
