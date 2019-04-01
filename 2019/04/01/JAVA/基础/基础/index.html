@@ -14,25 +14,25 @@
     
     
     
-    <title>基本类型、关键字 | while(live){coding} | 一个有味道的博客</title>
+    <title>基本类型、static关键字 | while(live){coding} | 一个有味道的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="基础探索">
-    <meta name="description" content="1.基本类型和包装类   基本类型 包装类     byte Byte   short Short   int Integer   float Float   long Long   double Double   char Character   boolean Boolean    ①除了以上几种基本类型，其他的都是引用类型。②基本类型和包装类型可以互相自动装箱，拆箱。③类型转换只能由小到大。">
+    <meta name="description" content="1.基本类型和包装类   基本类型 包装类     byte Byte   short Short   int Integer   float Float   long Long   double Double   char Character   boolean Boolean    ①除了以上几种基本类型，其他的都是引用类型，包装类也是引用类型(引用类型默认值为null)。②基本类型和包装类型">
 <meta name="keywords" content="基础探索">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基本类型、关键字">
+<meta property="og:title" content="基本类型、static关键字">
 <meta property="og:url" content="https://blog.ojbkfeng.com/2019/04/01/JAVA/基础/基础/index.html">
 <meta property="og:site_name" content="while(live){coding}">
-<meta property="og:description" content="1.基本类型和包装类   基本类型 包装类     byte Byte   short Short   int Integer   float Float   long Long   double Double   char Character   boolean Boolean    ①除了以上几种基本类型，其他的都是引用类型。②基本类型和包装类型可以互相自动装箱，拆箱。③类型转换只能由小到大。">
+<meta property="og:description" content="1.基本类型和包装类   基本类型 包装类     byte Byte   short Short   int Integer   float Float   long Long   double Double   char Character   boolean Boolean    ①除了以上几种基本类型，其他的都是引用类型，包装类也是引用类型(引用类型默认值为null)。②基本类型和包装类型">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-01T13:02:43.041Z">
+<meta property="og:updated_time" content="2019-04-01T13:22:56.609Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="基本类型、关键字">
-<meta name="twitter:description" content="1.基本类型和包装类   基本类型 包装类     byte Byte   short Short   int Integer   float Float   long Long   double Double   char Character   boolean Boolean    ①除了以上几种基本类型，其他的都是引用类型。②基本类型和包装类型可以互相自动装箱，拆箱。③类型转换只能由小到大。">
+<meta name="twitter:title" content="基本类型、static关键字">
+<meta name="twitter:description" content="1.基本类型和包装类   基本类型 包装类     byte Byte   short Short   int Integer   float Float   long Long   double Double   char Character   boolean Boolean    ①除了以上几种基本类型，其他的都是引用类型，包装类也是引用类型(引用类型默认值为null)。②基本类型和包装类型">
     
     <link rel="shortcut icon" href="../../../../../../favicon.ico">
     <link rel="stylesheet" href="../../../../../../css/style.css?v=1.7.2">
@@ -111,7 +111,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">基本类型、关键字</div>
+        <div class="flex-col header-title ellipsis">基本类型、static关键字</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -129,7 +129,7 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">基本类型、关键字</h1>
+        <h1 class="title">基本类型、static关键字</h1>
         <h5 class="subtitle">
             
                 <time datetime="2019-04-01T08:46:12.358Z" itemprop="datePublished" class="page-time">
@@ -154,7 +154,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-基本类型和包装类"><span class="post-toc-text">1.基本类型和包装类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-static-关键字"><span class="post-toc-text">2. static 关键字</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-1-修饰成员函数"><span class="post-toc-text">2.1 修饰成员函数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-2-修饰成员变量"><span class="post-toc-text">2.2 修饰成员变量</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-基本类型和包装类"><span class="post-toc-text">1.基本类型和包装类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-static-关键字"><span class="post-toc-text">2. static 关键字</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-1-修饰成员函数"><span class="post-toc-text">2.1 修饰成员函数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-2-修饰成员变量"><span class="post-toc-text">2.2 修饰成员变量</span></a></li></ol></li></ol><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-静态代码块"><span class="post-toc-text">2.3 静态代码块</span></a></li>
         </nav>
     </aside>
 
@@ -162,7 +162,7 @@
 <article id="post-JAVA/基础/基础" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">基本类型、关键字</h1>
+        <h1 class="post-card-title">基本类型、static关键字</h1>
         <div class="post-meta">
             <time class="post-time" title="2019-04-01 16:46:12" datetime="2019-04-01T08:46:12.358Z" itemprop="datePublished">2019-04-01</time>
 
@@ -221,10 +221,11 @@
 </tr>
 </tbody>
 </table>
-<p>①除了以上几种基本类型，其他的都是引用类型。<br>②基本类型和包装类型可以互相自动装箱，拆箱。<br>③类型转换只能由小到大。</p>
+<p>①除了以上几种基本类型，其他的都是引用类型，包装类也是引用类型(引用类型默认值为null)。<br>②基本类型和包装类型可以互相自动装箱，拆箱。<br>③类型转换只能由小到大。</p>
 <h2 id="2-static-关键字"><a href="#2-static-关键字" class="headerlink" title="2. static 关键字"></a>2. static 关键字</h2><h4 id="2-1-修饰成员函数"><a href="#2-1-修饰成员函数" class="headerlink" title="2.1 修饰成员函数"></a>2.1 修饰成员函数</h4><p>① 用static修饰的函数可以直接由调用，不用创建对象。<br>② 静态方法，推荐用类名称调用，不推荐使用对象名访问。<br>③ 使用对象名调用static方法，会被编译成类名调用。<br>④ 常用的有Integer.parseInt()之类的。<br>⑤ 静态方法不能直接访问非静态变量。（内存中先有静态内容，后有动态内容）<br>⑥ 静态方法中不能使用this关键字。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        TestStatic.testa();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestStatic</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testa</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"ok"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h4 id="2-2-修饰成员变量"><a href="#2-2-修饰成员变量" class="headerlink" title="2.2 修饰成员变量"></a>2.2 修饰成员变量</h4><p>static修饰的成员变量的所有实例共享同一个数据。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Student a = <span class="keyword">new</span> Student(<span class="string">"李华"</span>, <span class="number">16</span>);</span><br><span class="line">        a.setClassRoomNumber(<span class="number">101</span>);</span><br><span class="line">        <span class="comment">//李华 16 101 1</span></span><br><span class="line">        System.out.println(a.getName()+<span class="string">" "</span>+ a.getAge()+<span class="string">" "</span>+a.getClassRoomNumber()+<span class="string">" "</span>+a.getId());</span><br><span class="line"></span><br><span class="line">        Student b = <span class="keyword">new</span> Student(<span class="string">"黎明"</span>, <span class="number">15</span>);</span><br><span class="line">        <span class="comment">//李华 16 101 2</span></span><br><span class="line">        System.out.println(a.getName()+<span class="string">" "</span>+ a.getAge()+<span class="string">" "</span>+a.getClassRoomNumber()+<span class="string">" "</span>+a.getId());</span><br><span class="line">        <span class="comment">//黎明 15 101 2</span></span><br><span class="line">        System.out.println(b.getName()+<span class="string">" "</span> + b.getAge()+ <span class="string">" "</span>+b.getClassRoomNumber()+<span class="string">" "</span>+b.getId());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Integer classRoomNumber;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Integer id=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    Student(String name, Integer age) &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">        <span class="keyword">this</span>.id = ++id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(Integer age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setClassRoomNumber</span><span class="params">(Integer classRoomNumber)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.classRoomNumber = classRoomNumber;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">getClassRoomNumber</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> classRoomNumber;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">getAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Integer <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> id;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-3-静态代码块"><a href="#2-3-静态代码块" class="headerlink" title="2.3 静态代码块"></a>2.3 静态代码块</h2><p>① 当第一次使用到此类的时候，静态代码块执行唯一的一次<br>② 第一次实例化的时候会执行！第一次调用该类的静态方法也会执行。但不管任意方式执行，都只能执行唯一一次，实例化执行后调用静态方法就不会执行，反之亦然。<br>③ <strong>※</strong> 用来一次性的对静态变量赋值！<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">      <span class="comment">//静态代码块</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
         </div>
 
@@ -233,7 +234,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-04-01T13:02:43.041Z" itemprop="dateUpdated">2019-04-01 21:02:43</time>
+    最后更新时间：<time datetime="2019-04-01T13:22:56.609Z" itemprop="dateUpdated">2019-04-01 21:22:56</time>
 </span><br>
 
 
