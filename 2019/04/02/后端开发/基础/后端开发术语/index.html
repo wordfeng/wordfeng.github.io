@@ -34,7 +34,11 @@
 <meta property="og:image" content="https://blog.ojbkfeng.com/img/简单负载均衡.jpg">
 <meta property="og:image" content="https://blog.ojbkfeng.com/img/负载均衡集群+系统集群.jpg">
 <meta property="og:image" content="https://blog.ojbkfeng.com/img/状态转移.jpg">
-<meta property="og:updated_time" content="2019-04-02T06:35:03.536Z">
+<meta property="og:image" content="https://blog.ojbkfeng.com/img/任务分配器.jpg">
+<meta property="og:image" content="https://blog.ojbkfeng.com/img/任务分解.jpg">
+<meta property="og:image" content="https://blog.ojbkfeng.com/img/计算服务器.jpg">
+<meta property="og:image" content="https://blog.ojbkfeng.com/img/存储高可用.jpg">
+<meta property="og:updated_time" content="2019-04-02T08:39:53.370Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="后端开发术语">
 <meta name="twitter:description" content="1. 系统吞吐量系统吞吐量表示了一个系统的承压能力，受到线程数、进程数、IO、请求对CPU的消耗等影响。单个请求对CPU消耗越高，外部系统接口、IO影响速度越慢，系统吞吐能力越低，反之越高。 1.1 TPS/QPSQPS(Queries Per Second):每秒能处理的请求个数，针对于单个接口或者服务。TPS(Transactions Per Second):每秒能处理的事务数，一个事物在分布">
@@ -160,7 +164,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-系统吞吐量"><span class="post-toc-text">1. 系统吞吐量</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1-TPS-QPS"><span class="post-toc-text">1.1 TPS/QPS</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2-并发数"><span class="post-toc-text">1.2 并发数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-3-响应时间（RT）"><span class="post-toc-text">1.3 响应时间（RT）</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-分布式与集群"><span class="post-toc-text">2. 分布式与集群</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-分布式-distributed"><span class="post-toc-text">2.1 分布式(distributed)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-集群-Cluster"><span class="post-toc-text">2.2 集群(Cluster)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-负载均衡-Load-Balancer"><span class="post-toc-text">2.3 负载均衡(Load Balancer)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-弹性"><span class="post-toc-text">2.4 弹性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-5-失效转移"><span class="post-toc-text">2.5 失效转移</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考资料"><span class="post-toc-text">参考资料</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-系统吞吐量"><span class="post-toc-text">1. 系统吞吐量</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1-TPS-QPS"><span class="post-toc-text">1.1 TPS/QPS</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2-并发数"><span class="post-toc-text">1.2 并发数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-3-响应时间（RT）"><span class="post-toc-text">1.3 响应时间（RT）</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-分布式与集群"><span class="post-toc-text">2. 分布式与集群</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-分布式-distributed"><span class="post-toc-text">2.1 分布式(distributed)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-集群-Cluster"><span class="post-toc-text">2.2 集群(Cluster)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-负载均衡-Load-Balancer-详细内容见标题8"><span class="post-toc-text">2.3 负载均衡(Load Balancer) 详细内容见标题8</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-弹性"><span class="post-toc-text">2.4 弹性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-5-失效转移"><span class="post-toc-text">2.5 失效转移</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-高性能"><span class="post-toc-text">3. 高性能</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-1-高性能的定义"><span class="post-toc-text">3.1 高性能的定义</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-2-计算机集群的高性能"><span class="post-toc-text">3.2 计算机集群的高性能</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-2-1-任务分配"><span class="post-toc-text">3.2.1 任务分配</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-2-2-任务分解"><span class="post-toc-text">3.2.2 任务分解</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4-高可用"><span class="post-toc-text">4. 高可用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-1-计算高可用"><span class="post-toc-text">4.1 计算高可用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-2-存储高可用"><span class="post-toc-text">4.2 存储高可用</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#5-状态决策"><span class="post-toc-text">5. 状态决策</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#6-可拓展"><span class="post-toc-text">6. 可拓展</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#7-数据库集群"><span class="post-toc-text">7. 数据库集群</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#8-负载均衡"><span class="post-toc-text">8. 负载均衡</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-1-DNS-负载均衡"><span class="post-toc-text">8.1 DNS 负载均衡</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-2-硬件负载均衡"><span class="post-toc-text">8.2 硬件负载均衡</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-3-软件负载均衡"><span class="post-toc-text">8.3 软件负载均衡</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#幂等性"><span class="post-toc-text">幂等性</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考资料"><span class="post-toc-text">参考资料</span></a></li></ol>
         </nav>
     </aside>
 
@@ -205,7 +209,7 @@
                 </div>
                 <div class="image-caption">A系统组成的集群（集群A系统）</div>
             </figure><br>但是每个系统的IP地址都不同，我们应该访问哪一个？如果只访问某一个还是会挂掉。这时候就要用到负载均衡了。</p>
-<h2 id="2-3-负载均衡-Load-Balancer"><a href="#2-3-负载均衡-Load-Balancer" class="headerlink" title="2.3 负载均衡(Load Balancer)"></a>2.3 负载均衡(Load Balancer)</h2><p>负载均衡，将请求分发到不同的服务器系统上，比如将3万个服务请求均匀分到集群A系统中的各个A系统中。(比如Nginx)<br><figure class="image-bubble">
+<h2 id="2-3-负载均衡-Load-Balancer-详细内容见标题8"><a href="#2-3-负载均衡-Load-Balancer-详细内容见标题8" class="headerlink" title="2.3 负载均衡(Load Balancer) 详细内容见标题8"></a>2.3 负载均衡(Load Balancer) 详细内容见标题8</h2><p>负载均衡，将请求分发到不同的服务器系统上，比如将3万个服务请求均匀分到集群A系统中的各个A系统中。(比如Nginx)<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/img/简单负载均衡.jpg" alt="增加了负载均衡的集群A系统" title="">
@@ -227,7 +231,109 @@
                 </div>
                 <div class="image-caption">存储在同一服务器</div>
             </figure></p>
-<p>高性能<br>单台计算机的高性能<br>计算机集群的高性能任务分配,任务分解<br>高可用<br>计算高可用</p>
+<h1 id="3-高性能"><a href="#3-高性能" class="headerlink" title="3. 高性能"></a>3. 高性能</h1><h2 id="3-1-高性能的定义"><a href="#3-1-高性能的定义" class="headerlink" title="3.1 高性能的定义"></a>3.1 高性能的定义</h2><p>3.1.1 后台系统中的“高性能”主要包括两部分：</p>
+<ul>
+<li>尽可能多地榨干单台计算机的性能。</li>
+<li>尽可能高的利用计算机集群的能力。</li>
+</ul>
+<p>3.1.2 操作系统和性能最相关的就是进程和线程：</p>
+<ul>
+<li>每个进程占据独立内存空间，CPU分片串行处理，进程通信，操作系统分配资源的最小单位。</li>
+<li>线程是进程内部的子任务，共享同一份进程数据，多线程并发，互斥锁，操作系统调度的最小单位。</li>
+</ul>
+<p>它们的存在是为了让计算机在 IO 或者网络时，CPU 仍然能忙碌着。具体实现采用多进程还是多线程，不同的业务可能适合不同的方式，没有最好的选择。<br>    Nginx可以用多进程也可以用多线程；JBoss采用的是多线程；Redis采用的是单进程；Memcache 采用的是多线程。</p>
+<h2 id="3-2-计算机集群的高性能"><a href="#3-2-计算机集群的高性能" class="headerlink" title="3.2 计算机集群的高性能"></a>3.2 计算机集群的高性能</h2><p>拥有计算机集群是提升性能的第一步，第二步就是如何让多台机器配合起来达到高性能。<br>主要有两种方式：</p>
+<ul>
+<li>任务分配</li>
+<li>任务分解</li>
+</ul>
+<h2 id="3-2-1-任务分配"><a href="#3-2-1-任务分配" class="headerlink" title="3.2.1 任务分配"></a>3.2.1 任务分配</h2><p>指的是在客户端和业务服务器之间增加一层任务分配器，他们的作用就是负责分配任务给合适的机器。这个分配的复杂点在于，任务分配的算法和任务分配器多了，还需要负责分配给任务分配器的分配器。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/任务分配器.jpg" alt="任务分配" title="">
+                </div>
+                <div class="image-caption">任务分配</div>
+            </figure></p>
+<h2 id="3-2-2-任务分解"><a href="#3-2-2-任务分解" class="headerlink" title="3.2.2 任务分解"></a>3.2.2 任务分解</h2><p>指的是将不同的业务系统分配到不同的机器上，把原本大一统但复杂的系统，拆分成多个简单但需要配合的系统，然后再针对部分访问量大的系统做优化。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/任务分解.jpg" alt="任务分解" title="">
+                </div>
+                <div class="image-caption">任务分解</div>
+            </figure></p>
+<h1 id="4-高可用"><a href="#4-高可用" class="headerlink" title="4. 高可用"></a>4. 高可用</h1><p>高可用指的是系统无中断地执行器功能的能力。<br>难点就在于“无中断”，无论硬件还是软件都会逐渐不可用，比如硬件会逐渐老化，软件会逐渐复杂不好维护。<br>软件系统的高可用主要是通过增加冗余机器实现的，一般包括两种：</p>
+<ul>
+<li>计算高可用</li>
+<li>存储高可用</li>
+</ul>
+<h2 id="4-1-计算高可用"><a href="#4-1-计算高可用" class="headerlink" title="4.1 计算高可用"></a>4.1 计算高可用</h2><p>“计算”指的是业务逻辑，计算高可用的目的是无论在哪台机器上执行业务逻辑，最后的结果都一致。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/计算服务器.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>和前面高性能一样，同样需要有一个任务分配器来分配业务给主服务器或备服务器：</p>
+<h2 id="4-2-存储高可用"><a href="#4-2-存储高可用" class="headerlink" title="4.2 存储高可用"></a>4.2 存储高可用</h2><p>我们知道，数据 + 逻辑 = 业务。存储高可用的目的是尽可能地保证数据在不同机器上都是一致的。<br>阻碍：由于数据从一台机器搬到另一台机器需要时间，不同地理位置、不同网络状况下需要的时间各不同。对于整个系统而言，在某个时间点上，数据一定是不一致的，最后会导致业务出问题。存储高可用的难点在于如何减少或者规避数据不一致导致的业务异常。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/存储高可用.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h1 id="5-状态决策"><a href="#5-状态决策" class="headerlink" title="5. 状态决策"></a>5. 状态决策</h1><p>无论计算高可用还是存储高可用，本质上都是通过冗余实现。系统需要能够根据当前状态做出决策，一般有三种决策方式：</p>
+<ol>
+<li>独裁式<ul>
+<li>只有一个独立的决策者，其余冗余的个体不参与决策。优点是简单，缺点是决策者故障时系统就会故障。</li>
+</ul>
+</li>
+<li>协商式<ul>
+<li>两台机器通过交流信息，根据规则进行决策，比如主备决策。难点在于规则的确定和信息交换异常的处理。</li>
+</ul>
+</li>
+<li>选举式<ul>
+<li>通过投票的方式来进行状态决策。难点在于算法复杂，还有可能乎产生“脑裂”。</li>
+</ul>
+</li>
+</ol>
+<h1 id="6-可拓展"><a href="#6-可拓展" class="headerlink" title="6. 可拓展"></a>6. 可拓展</h1><p>可扩展性是指系统应对需求变化的一种扩展能力。当新需求出现时，可以不修改或者尽可能少的修改即可支持。</p>
+<ol>
+<li><p>设计可扩展的系统，主要有两步：</p>
+<ul>
+<li><p>正确预测变化</p>
+</li>
+<li><p>结合行业业务发展方向，预测未来技术方向</p>
+</li>
+<li><p>结合公司业务发展规模，预测高性能、高可用相关压力</p>
+</li>
+<li><p>适度预测，不要过度设计</p>
+</li>
+</ul>
+</li>
+<li><p>完美封装变化</p>
+<ul>
+<li><p>拆分出变化层和稳定层</p>
+</li>
+<li><p>设计变化层和稳定层之间的接口</p>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="7-数据库集群"><a href="#7-数据库集群" class="headerlink" title="7. 数据库集群"></a>7. 数据库集群</h1><p>在业务复杂到一定程度后，数据库服务器也需要集群，数据库集群一般有两种实现方式：</p>
+<ul>
+<li>读写分离</li>
+<li>分库分表</li>
+</ul>
+<h1 id="8-负载均衡"><a href="#8-负载均衡" class="headerlink" title="8. 负载均衡"></a>8. 负载均衡</h1><p>常见的负载均衡主要有三种：</p>
+<ul>
+<li>DNS 负载均衡</li>
+<li>硬件负载均衡</li>
+<li>软件负载均衡</li>
+</ul>
+<h2 id="8-1-DNS-负载均衡"><a href="#8-1-DNS-负载均衡" class="headerlink" title="8.1 DNS 负载均衡"></a>8.1 DNS 负载均衡</h2><h2 id="8-2-硬件负载均衡"><a href="#8-2-硬件负载均衡" class="headerlink" title="8.2 硬件负载均衡"></a>8.2 硬件负载均衡</h2><h2 id="8-3-软件负载均衡"><a href="#8-3-软件负载均衡" class="headerlink" title="8.3 软件负载均衡"></a>8.3 软件负载均衡</h2><h1 id="幂等性"><a href="#幂等性" class="headerlink" title="幂等性"></a>幂等性</h1><p>防止下订单一大波点击提交<br>1）利用乐观锁</p>
+<p>通过版本号去控制</p>
+<p>2）悲观锁也行</p>
+<p>select * from xx for update</p>
+<p>悲观锁和乐观锁的区别</p>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
 <li><a href="https://www.itcodemonkey.com/article/9087.html" target="_blank" rel="noopener">后端术语快速扫盲</a></li>
 <li><a href="https://mp.weixin.qq.com/s?__biz=MzA3NTUzNjk1OA==&amp;mid=2651561191&amp;idx=1&amp;sn=49c6bac6ed21383008e8314accd7a668&amp;chksm=849033b6b3e7baa0e8248a99c79ff93d128f0d41de1f36b0920d98e7747fdda7562542fd2347&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">分布式和集群</a></li>
@@ -240,7 +346,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-04-02T06:35:03.536Z" itemprop="dateUpdated">2019-04-02 14:35:03</time>
+    最后更新时间：<time datetime="2019-04-02T08:39:53.370Z" itemprop="dateUpdated">2019-04-02 16:39:53</time>
 </span><br>
 
 
