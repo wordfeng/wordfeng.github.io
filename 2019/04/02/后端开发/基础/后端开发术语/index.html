@@ -10,6 +10,7 @@
 
 
     <meta charset="utf-8">
+    <link rel="shortcut icon" href="themes\hexo-theme-indigo\source\img\alipay.jpg" type="image/x-icon">
     
     
     
@@ -33,7 +34,8 @@
 <meta property="og:image" content="https://blog.ojbkfeng.com/img/A系统组成的集群.jpg">
 <meta property="og:image" content="https://blog.ojbkfeng.com/img/简单负载均衡.jpg">
 <meta property="og:image" content="https://blog.ojbkfeng.com/img/负载均衡集群+系统集群.jpg">
-<meta property="og:updated_time" content="2019-04-02T06:02:36.085Z">
+<meta property="og:image" content="https://blog.ojbkfeng.com/img/状态转移.jpg">
+<meta property="og:updated_time" content="2019-04-02T06:35:03.536Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="后端开发术语">
 <meta name="twitter:description" content="1. 系统吞吐量系统吞吐量表示了一个系统的承压能力，受到线程数、进程数、IO、请求对CPU的消耗等影响。单个请求对CPU消耗越高，外部系统接口、IO影响速度越慢，系统吞吐能力越低，反之越高。 1.1 TPS/QPSQPS(Queries Per Second):每秒能处理的请求个数，针对于单个接口或者服务。TPS(Transactions Per Second):每秒能处理的事务数，一个事物在分布">
@@ -159,7 +161,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-系统吞吐量"><span class="post-toc-text">1. 系统吞吐量</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1-TPS-QPS"><span class="post-toc-text">1.1 TPS/QPS</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2-并发数"><span class="post-toc-text">1.2 并发数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-3-响应时间（RT）"><span class="post-toc-text">1.3 响应时间（RT）</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-分布式与集群"><span class="post-toc-text">2. 分布式与集群</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-分布式-distributed"><span class="post-toc-text">2.1 分布式(distributed)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-集群-Cluster"><span class="post-toc-text">2.2 集群(Cluster)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-负载均衡-Load-Balancer"><span class="post-toc-text">2.3 负载均衡(Load Balancer)</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考资料"><span class="post-toc-text">参考资料</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-系统吞吐量"><span class="post-toc-text">1. 系统吞吐量</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1-TPS-QPS"><span class="post-toc-text">1.1 TPS/QPS</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2-并发数"><span class="post-toc-text">1.2 并发数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-3-响应时间（RT）"><span class="post-toc-text">1.3 响应时间（RT）</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-分布式与集群"><span class="post-toc-text">2. 分布式与集群</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-分布式-distributed"><span class="post-toc-text">2.1 分布式(distributed)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-集群-Cluster"><span class="post-toc-text">2.2 集群(Cluster)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-负载均衡-Load-Balancer"><span class="post-toc-text">2.3 负载均衡(Load Balancer)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-弹性"><span class="post-toc-text">2.4 弹性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-5-失效转移"><span class="post-toc-text">2.5 失效转移</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考资料"><span class="post-toc-text">参考资料</span></a></li></ol>
         </nav>
     </aside>
 
@@ -204,7 +206,7 @@
                 </div>
                 <div class="image-caption">A系统组成的集群（集群A系统）</div>
             </figure><br>但是每个系统的IP地址都不同，我们应该访问哪一个？如果只访问某一个还是会挂掉。这时候就要用到负载均衡了。</p>
-<h2 id="2-3-负载均衡-Load-Balancer"><a href="#2-3-负载均衡-Load-Balancer" class="headerlink" title="2.3 负载均衡(Load Balancer)"></a>2.3 负载均衡(Load Balancer)</h2><p>负载均衡，将请求分发到不同的服务器系统上，比如将3万个服务均匀分到集群A系统中的各个A系统中。(比如Nginx)<br><figure class="image-bubble">
+<h2 id="2-3-负载均衡-Load-Balancer"><a href="#2-3-负载均衡-Load-Balancer" class="headerlink" title="2.3 负载均衡(Load Balancer)"></a>2.3 负载均衡(Load Balancer)</h2><p>负载均衡，将请求分发到不同的服务器系统上，比如将3万个服务请求均匀分到集群A系统中的各个A系统中。(比如Nginx)<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/img/简单负载均衡.jpg" alt="增加了负载均衡的集群A系统" title="">
@@ -216,6 +218,15 @@
                     <img src="/img/负载均衡集群+系统集群.jpg" alt="负载均衡集群+系统集群" title="">
                 </div>
                 <div class="image-caption">负载均衡集群+系统集群</div>
+            </figure></p>
+<p>这个新的集群中虽然有两个机器，但我们可以用某种办法，让这个集群对外只提供一个IP地址，也就是说用户看到的好像只有一个机器。<br>同一时刻，我们只让一个负载均衡的机器工作，另外一个原地待命。如果工作的那个挂掉了，待命的那个就顶上去。</p>
+<h2 id="2-4-弹性"><a href="#2-4-弹性" class="headerlink" title="2.4 弹性"></a>2.4 弹性</h2><p>如果这3个系统A的实例还是满足不了大量的请求，那就再加服务器！<br>双11来了，用户量是平时的10倍这时候有两个方案：<br>① 方案一：购买十几个服务器。<br>② 方案二：使用云主机（云计算）。<br>如果使用①，双十一过后，访问数下降，新购的主机就成了摆设，什么卵用都没了，造成了浪费。<br>如果使用②，在购置的云服务上自由添加删除虚拟机，就不会造成浪费，这就叫弹性。</p>
+<h2 id="2-5-失效转移"><a href="#2-5-失效转移" class="headerlink" title="2.5 失效转移"></a>2.5 失效转移</h2><p>上面的系统看起来很美好，但是做了一个不切实际的假设：所有的服务都是无状态的。<br>换句话说，假设用户的两次请求直接是没有关联的。<br>实际上，大多数请求都是有状态的，比如说：购物车。<br>如果在服务器1.1上创建一个购物车，并且向其中加入了几个商品，然后1.1挂掉了，被其他服务器接管，那么问题来了，其他服务器上没有1.1里创建的那个购物车，该怎么办？<br>还有登录，如果把用户的登录保存在1.2的session中，1.2挂了，用户又被跳转到登录界面了，怎么办？<br>解决方案：<br>① 把状态信息在集群的各个服务器之间复制，让集群的各个服务器达成一致。(Websphere, Weblogic)<br>② 把状态信息存在统一的一个服务器里，让各个集群里的服务器都能找到。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/状态转移.jpg" alt="存储在同一服务器" title="">
+                </div>
+                <div class="image-caption">存储在同一服务器</div>
             </figure></p>
 <p>高性能<br>单台计算机的高性能<br>计算机集群的高性能任务分配,任务分解<br>高可用<br>计算高可用</p>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
@@ -230,7 +241,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-04-02T06:02:36.085Z" itemprop="dateUpdated">2019-04-02 14:02:36</time>
+    最后更新时间：<time datetime="2019-04-02T06:35:03.536Z" itemprop="dateUpdated">2019-04-02 14:35:03</time>
 </span><br>
 
 
