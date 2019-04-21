@@ -14,30 +14,28 @@
     
     
     
-    <title>在win上用Linux命令 | while(live){coding} | 一个有味道的博客</title>
+    <title>java 接口与抽象类 | while(live){coding} | 一个有味道的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="bash,cmd">
-    <meta name="description" content="clink（记录命令）官网可以用来记录命令，cmd本身不带有这功能，关闭后，就不知道上次用了啥命令了。ctrl + r可以检索历史命令。 gow(支持Linux命令)github项目页(指不定啥时候就关了)随便安装在哪里，安装完成后打开cmd，输入ls，显示目录就OK了。Gow-0.8.0.exe GNU bash(解决gow的一些问题)下载页(指不定啥时候凉了)由于指不定啥时候就凉了所以我就下好">
-<meta name="keywords" content="bash,cmd">
+    <meta name="keywords" content="总结">
+    <meta name="description" content="语法区别   语法维度 抽象类 接口     关键字 abstract interface    参考文献《码出高效：java开发手册》">
+<meta name="keywords" content="总结">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在win上用Linux命令">
-<meta property="og:url" content="https://blog.ojbkfeng.com/2019/01/29/cmd扩展Linuxbash命令/index.html">
+<meta property="og:title" content="java 接口与抽象类">
+<meta property="og:url" content="https://blog.ojbkfeng.com/2019/04/07/JAVA/基础/接口/index.html">
 <meta property="og:site_name" content="while(live){coding}">
-<meta property="og:description" content="clink（记录命令）官网可以用来记录命令，cmd本身不带有这功能，关闭后，就不知道上次用了啥命令了。ctrl + r可以检索历史命令。 gow(支持Linux命令)github项目页(指不定啥时候就关了)随便安装在哪里，安装完成后打开cmd，输入ls，显示目录就OK了。Gow-0.8.0.exe GNU bash(解决gow的一些问题)下载页(指不定啥时候凉了)由于指不定啥时候就凉了所以我就下好">
+<meta property="og:description" content="语法区别   语法维度 抽象类 接口     关键字 abstract interface    参考文献《码出高效：java开发手册》">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://blog.ojbkfeng.com/img/bash-ls.jpg">
-<meta property="og:updated_time" content="2019-01-29T08:23:08.149Z">
+<meta property="og:updated_time" content="2019-04-07T03:43:12.164Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在win上用Linux命令">
-<meta name="twitter:description" content="clink（记录命令）官网可以用来记录命令，cmd本身不带有这功能，关闭后，就不知道上次用了啥命令了。ctrl + r可以检索历史命令。 gow(支持Linux命令)github项目页(指不定啥时候就关了)随便安装在哪里，安装完成后打开cmd，输入ls，显示目录就OK了。Gow-0.8.0.exe GNU bash(解决gow的一些问题)下载页(指不定啥时候凉了)由于指不定啥时候就凉了所以我就下好">
-<meta name="twitter:image" content="https://blog.ojbkfeng.com/img/bash-ls.jpg">
+<meta name="twitter:title" content="java 接口与抽象类">
+<meta name="twitter:description" content="语法区别   语法维度 抽象类 接口     关键字 abstract interface    参考文献《码出高效：java开发手册》">
     
-    <link rel="shortcut icon" href="../../../../img/favicon.ico">
-    <link rel="stylesheet" href="../../../../css/style.css?v=1.7.2">
+    <link rel="shortcut icon" href="../../../../../../img/favicon.ico">
+    <link rel="stylesheet" href="../../../../../../css/style.css?v=1.7.2">
     <script>window.lazyScripts=[]</script>
 
     <!-- custom head -->
@@ -53,10 +51,10 @@
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
-    <div class="brand-wrap" style="background-image:url(../../../../img/brand.jpg)">
+    <div class="brand-wrap" style="background-image:url(../../../../../../img/brand.jpg)">
       <div class="brand">
-        <a href="../../../../index.html" class="avatar waves-effect waves-circle waves-light">
-          <img src="../../../../img/avatar.jpg">
+        <a href="../../../../../../index.html" class="avatar waves-effect waves-circle waves-light">
+          <img src="../../../../../../img/avatar.jpg">
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">慕华</h5>
@@ -68,28 +66,28 @@
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="../../../../index.html">
+              <a href="../../../../../../index.html">
                 <i class="icon icon-lg icon-home"></i>
                 主页
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="../../../../archives">
+              <a href="../../../../../../archives">
                 <i class="icon icon-lg icon-archives"></i>
                 所有内容
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="../../../../tags">
+              <a href="../../../../../../tags">
                 <i class="icon icon-lg icon-tags"></i>
                 标签
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="../../../../categories">
+              <a href="../../../../../../categories">
                 <i class="icon icon-lg icon-th-list"></i>
                 分类
               </a>
@@ -113,7 +111,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">在win上用Linux命令</div>
+        <div class="flex-col header-title ellipsis">java 接口与抽象类</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -131,15 +129,15 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">在win上用Linux命令</h1>
+        <h1 class="title">java 接口与抽象类</h1>
         <h5 class="subtitle">
             
-                <time datetime="2019-01-29T08:05:26.062Z" itemprop="datePublished" class="page-time">
-  2019-01-29
+                <time datetime="2019-04-07T03:16:46.804Z" itemprop="datePublished" class="page-time">
+  2019-04-07
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../categories/折腾永无止境/">折腾永无止境</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../../../categories/java/">java</a></li></ul>
 
             
         </h5>
@@ -156,20 +154,20 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#clink（记录命令）"><span class="post-toc-text">clink（记录命令）</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#gow-支持Linux命令"><span class="post-toc-text">gow(支持Linux命令)</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#GNU-bash-解决gow的一些问题"><span class="post-toc-text">GNU bash(解决gow的一些问题)</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#语法区别"><span class="post-toc-text">语法区别</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考文献"><span class="post-toc-text">参考文献</span></a></li></ol>
         </nav>
     </aside>
 
 
-<article id="post-cmd扩展Linuxbash命令" class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-JAVA/基础/接口" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">在win上用Linux命令</h1>
+        <h1 class="post-card-title">java 接口与抽象类</h1>
         <div class="post-meta">
-            <time class="post-time" title="2019-01-29 16:05:26" datetime="2019-01-29T08:05:26.062Z" itemprop="datePublished">2019-01-29</time>
+            <time class="post-time" title="2019-04-07 11:16:46" datetime="2019-04-07T03:16:46.804Z" itemprop="datePublished">2019-04-07</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../categories/折腾永无止境/">折腾永无止境</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../../../categories/java/">java</a></li></ul>
 
 
 
@@ -181,15 +179,23 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="clink（记录命令）"><a href="#clink（记录命令）" class="headerlink" title="clink（记录命令）"></a>clink（记录命令）</h1><p><a href="https://mridgers.github.io/clink/" target="_blank" rel="noopener">官网</a><br>可以用来记录命令，cmd本身不带有这功能，关闭后，就不知道上次用了啥命令了。<br><code>ctrl + r</code>可以检索历史命令。</p>
-<h1 id="gow-支持Linux命令"><a href="#gow-支持Linux命令" class="headerlink" title="gow(支持Linux命令)"></a>gow(支持Linux命令)</h1><p><a href="https://github.com/bmatzelle/gow" target="_blank" rel="noopener">github项目页(指不定啥时候就关了)</a><br>随便安装在哪里，安装完成后打开cmd，输入ls，显示目录就OK了。<br><a href="/一些文件/Gow-0.8.0.exe">Gow-0.8.0.exe</a></p>
-<h1 id="GNU-bash-解决gow的一些问题"><a href="#GNU-bash-解决gow的一些问题" class="headerlink" title="GNU bash(解决gow的一些问题)"></a>GNU bash(解决gow的一些问题)</h1><p><a href="https://steve.fi/Software/bash/?tdsourcetag=s_pctim_aiomsg" target="_blank" rel="noopener">下载页(指不定啥时候凉了)</a><br>由于指不定啥时候就凉了所以我就下好保存起了。<br><a href="/一些文件/bash-203.zip">bash-203.zip</a><br>只要用里面的ls.exe文件替代gow安装目录中的/bin目录下的ls.exe文件就可以解决无法显示中文的问题了。<br>使用方式有一丢丢区别，gow的ls直接显示在cmd命令下，bash的显示方式不同，如果使用ls -l | less这种的话，按q退出。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/bash-ls.jpg" alt="需要用到的文件" title="">
-                </div>
-                <div class="image-caption">需要用到的文件</div>
-            </figure></p>
+            <h1 id="语法区别"><a href="#语法区别" class="headerlink" title="语法区别"></a>语法区别</h1><table>
+<thead>
+<tr>
+<th>语法维度</th>
+<th>抽象类</th>
+<th>接口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>关键字</td>
+<td>abstract</td>
+<td>interface</td>
+</tr>
+</tbody>
+</table>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>《码出高效：java开发手册》</p>
 
         </div>
 
@@ -198,7 +204,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-01-29T08:23:08.149Z" itemprop="dateUpdated">2019-01-29 16:23:08</time>
+    最后更新时间：<time datetime="2019-04-07T03:43:12.164Z" itemprop="dateUpdated">2019-04-07 11:43:12</time>
 </span><br>
 
 
@@ -209,7 +215,7 @@
     
     <footer>
         <a href="https://blog.ojbkfeng.com">
-            <img src="../../../../img/avatar.jpg" alt="慕华">
+            <img src="../../../../../../img/avatar.jpg" alt="慕华">
             慕华
         </a>
     </footer>
@@ -224,7 +230,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/bash/">bash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/cmd/">cmd</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../../tags/总结/">总结</a></li></ul>
 
 
             
@@ -237,18 +243,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="../../../02/27/python/class,type,object/" id="post-prev" class="post-nav-link">
+      <a href="../../../../20/JAVA/基础/多线程/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">class, object, type之间的关系</h4>
+        <h4 class="title">线程的状态、同步和锁</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="../算法与数据结构/算法_冒泡排序/" id="post-next" class="post-nav-link">
+      <a href="../../../../02/后端开发/基础/后端开发术语/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">冒泡排序</h4>
+        <h4 class="title">后端开发术语</h4>
       </a>
     </div>
   
@@ -310,11 +316,11 @@
     <div class="reward-content">
         
         <div class="reward-code">
-            <img id="rewardCode" src="../../../../img/wechat.jpg" alt="打赏二维码">
+            <img id="rewardCode" src="../../../../../../img/wechat.jpg" alt="打赏二维码">
         </div>
         
         <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="../../../../img/wechat.jpg" data-alipay="../../../../img/alipay.jpg">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="../../../../../../img/wechat.jpg" data-alipay="../../../../../../img/alipay.jpg">
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechat">微信</span>
                 <span class="reward-toggle-label"></span>
@@ -369,7 +375,7 @@ var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
 
 </script>
 
-<script src="../../../../js/main.min.js?v=1.7.2"></script>
+<script src="../../../../../../js/main.min.js?v=1.7.2"></script>
 
 
 <div class="search-panel" id="search-panel">
@@ -389,7 +395,7 @@ var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
 </li>
 </template>
 
-<script src="../../../../js/search.min.js?v=1.7.2" async></script>
+<script src="../../../../../../js/search.min.js?v=1.7.2" async></script>
 
 
 
