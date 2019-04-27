@@ -30,7 +30,7 @@
 <meta property="og:description" content="线程的状态在import java.lang.Thread.State枚举类里列出了6种线程状态    状态 意义     NEW A thread that has not yet started is in this state.（创建后未调用start方法）   RUNNABLE A thread in the runnable is executing in the Java virtua">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://blog.ojbkfeng.com/2019/04/20/JAVA/基础/多线程/img/monitorLock.jpg">
-<meta property="og:updated_time" content="2019-04-21T15:07:10.677Z">
+<meta property="og:updated_time" content="2019-04-21T16:01:12.323Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线程的状态、同步和锁">
 <meta name="twitter:description" content="线程的状态在import java.lang.Thread.State枚举类里列出了6种线程状态    状态 意义     NEW A thread that has not yet started is in this state.（创建后未调用start方法）   RUNNABLE A thread in the runnable is executing in the Java virtua">
@@ -242,10 +242,10 @@
 <h1 id="正在运行的线程"><a href="#正在运行的线程" class="headerlink" title="正在运行的线程"></a>正在运行的线程</h1><p>static Thread currentThread() ：返回对当前正在执行的线程对象的引用。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Thread.currentThread().getName()</span><br></pre></td></tr></table></figure></p>
 <h1 id="设置线程名称"><a href="#设置线程名称" class="headerlink" title="设置线程名称"></a>设置线程名称</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Thread.setName();</span><br><span class="line">Thread.getName();</span><br></pre></td></tr></table></figure>
 <h1 id="线程睡眠"><a href="#线程睡眠" class="headerlink" title="线程睡眠"></a>线程睡眠</h1><p>static void sleep(long millis): 线程休眠。</p>
-<h1 id="线程同步-锁"><a href="#线程同步-锁" class="headerlink" title="线程同步(锁)"></a>线程同步(锁)</h1><h2 id="synchronized同步代码块"><a href="#synchronized同步代码块" class="headerlink" title="synchronized同步代码块"></a>synchronized同步代码块</h2><p>执行时获得锁  执行完毕释放锁<br>sychronized(提供锁的对象，比如this){<br>    临界代码<br>}</p>
-<h2 id="synchronized同步方法"><a href="#synchronized同步方法" class="headerlink" title="synchronized同步方法"></a>synchronized同步方法</h2><p>权限修饰 synchronized 返回值 方法名(…){<br>     临界代码<br>}</p>
+<h1 id="线程同步-锁"><a href="#线程同步-锁" class="headerlink" title="线程同步(锁)"></a>线程同步(锁)</h1><h2 id="synchronized同步代码块"><a href="#synchronized同步代码块" class="headerlink" title="synchronized同步代码块"></a>synchronized同步代码块</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">执行时获得锁  执行完毕释放锁</span><br><span class="line">sychronized(提供锁的对象，比如<span class="keyword">this</span>)&#123;</span><br><span class="line">    临界代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="synchronized同步方法"><a href="#synchronized同步方法" class="headerlink" title="synchronized同步方法"></a>synchronized同步方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">权限修饰 <span class="keyword">synchronized</span> 返回值 方法名(...)&#123;</span><br><span class="line">     临界代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="synchronized同步类"><a href="#synchronized同步类" class="headerlink" title="synchronized同步类"></a>synchronized同步类</h2><p>权限修饰 synchronized class 。。。</p>
-<h2 id="synchronized静态代码块"><a href="#synchronized静态代码块" class="headerlink" title="synchronized静态代码块"></a>synchronized静态代码块</h2><p>权限修饰 返回值 方法名(…){<br>    sychronized(RunnableImpl.class){<br>     临界代码<br>    }<br>}</p>
+<h2 id="synchronized静态代码块"><a href="#synchronized静态代码块" class="headerlink" title="synchronized静态代码块"></a>synchronized静态代码块</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">权限修饰 返回值 方法名(...)&#123;</span><br><span class="line">    sychronized(RunnableImpl.class)&#123;</span><br><span class="line">     临界代码</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="Lock锁"><a href="#Lock锁" class="headerlink" title="Lock锁"></a>Lock锁</h1><p>用java.util.concurrent.locks包下ReentrantLock类，它实现了Lock接口</p>
 <ul>
 <li>void lock()获取锁</li>
@@ -264,7 +264,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-04-21T15:07:10.677Z" itemprop="dateUpdated">2019-04-21 23:07:10</time>
+    最后更新时间：<time datetime="2019-04-21T16:01:12.323Z" itemprop="dateUpdated">2019-04-22 00:01:12</time>
 </span><br>
 
 
@@ -300,7 +300,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="../../../../27/JAVA/基础/Lambda/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Lambda表达式</h4>
+      </a>
+    </div>
   
 
   
