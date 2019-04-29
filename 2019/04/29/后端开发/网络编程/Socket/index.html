@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>TCP实现简单图片文件上传服务器 | while(live){coding} | 一个有味道的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="网络编程">
+    <meta name="description" content="客户端 java.net.Socket服务端 java.net.ServerSocket 客户端和服务端直接是逻辑连接，其中包含一个IO对象(字节流对象), 服务端用客户端的流跟客户端交互。 serversocket.accept()获取客户端的Socket请求对象 Server端12345678910111213141516171819202122232425262728293031323334">
+<meta name="keywords" content="网络编程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TCP实现简单图片文件上传服务器">
+<meta property="og:url" content="https://blog.ojbkfeng.com/2019/04/29/后端开发/网络编程/Socket/index.html">
+<meta property="og:site_name" content="while(live){coding}">
+<meta property="og:description" content="客户端 java.net.Socket服务端 java.net.ServerSocket 客户端和服务端直接是逻辑连接，其中包含一个IO对象(字节流对象), 服务端用客户端的流跟客户端交互。 serversocket.accept()获取客户端的Socket请求对象 Server端12345678910111213141516171819202122232425262728293031323334">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-29T07:54:21.422Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TCP实现简单图片文件上传服务器">
+<meta name="twitter:description" content="客户端 java.net.Socket服务端 java.net.ServerSocket 客户端和服务端直接是逻辑连接，其中包含一个IO对象(字节流对象), 服务端用客户端的流跟客户端交互。 serversocket.accept()获取客户端的Socket请求对象 Server端12345678910111213141516171819202122232425262728293031323334">
+    
+    <link rel="shortcut icon" href="../../../../../../img/favicon.ico">
+    <link rel="stylesheet" href="../../../../../../css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(../../../../../../img/brand.jpg)">
+      <div class="brand">
+        <a href="../../../../../../index.html" class="avatar waves-effect waves-circle waves-light">
+          <img src="../../../../../../img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">慕华</h5>
+          <a href="mailto:yf0nuttiness@qq.com" title="yf0nuttiness@qq.com" class="mail">yf0nuttiness@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../../../index.html">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../../../archives">
+                <i class="icon icon-lg icon-archives"></i>
+                所有内容
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../../../tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../../../categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wordfeng" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">TCP实现简单图片文件上传服务器</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">TCP实现简单图片文件上传服务器</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-29T04:21:51.944Z" itemprop="datePublished" class="page-time">
+  2019-04-29
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../../../categories/Java/">Java</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Server端"><span class="post-toc-text">Server端</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Client"><span class="post-toc-text">Client</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-后端开发/网络编程/Socket" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">TCP实现简单图片文件上传服务器</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-29 12:21:51" datetime="2019-04-29T04:21:51.944Z" itemprop="datePublished">2019-04-29</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../../../categories/Java/">Java</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>客户端 java.net.Socket<br>服务端 java.net.ServerSocket</p>
+<p>客户端和服务端直接是逻辑连接，其中包含一个IO对象(字节流对象), 服务端用客户端的流跟客户端交互。</p>
+<p>serversocket.accept()获取客户端的Socket请求对象</p>
+<h1 id="Server端"><a href="#Server端" class="headerlink" title="Server端"></a>Server端</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> file.upload;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.net.ServerSocket;</span><br><span class="line"><span class="keyword">import</span> java.net.Socket;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileUploadServer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        ServerSocket server = <span class="keyword">new</span> ServerSocket(<span class="number">8000</span>);</span><br><span class="line">        <span class="comment">//获取客户端socket对象</span></span><br><span class="line">       <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">           <span class="comment">//获取客户端Socket对象</span></span><br><span class="line">           Socket accept = server.accept();</span><br><span class="line">           <span class="comment">//网络字节输入流获取客户端数据</span></span><br><span class="line">           <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">               <span class="comment">//一个客户端连接，建立一个线程</span></span><br><span class="line">               <span class="meta">@Override</span></span><br><span class="line">               <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                   <span class="keyword">try</span>&#123;</span><br><span class="line">                       InputStream inputStream = accept.getInputStream();</span><br><span class="line">                       <span class="comment">//判断upload文件夹是否存在</span></span><br><span class="line">                       File file = <span class="keyword">new</span> File(<span class="string">"D:\\upload"</span>);</span><br><span class="line">                       <span class="keyword">if</span>(!file.exists())&#123;</span><br><span class="line">                           file.mkdirs();</span><br><span class="line">                       &#125;</span><br><span class="line">                       FileOutputStream fileOutputStream = <span class="keyword">new</span> FileOutputStream(file +<span class="string">"\\"</span>+System.currentTimeMillis()+<span class="string">".gif"</span>);</span><br><span class="line"></span><br><span class="line">                       <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">                       <span class="keyword">byte</span>[] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span> * <span class="number">10</span>];</span><br><span class="line">                       <span class="keyword">while</span> ((len = inputStream.read(bytes)) != -<span class="number">1</span>) &#123;</span><br><span class="line">                           <span class="comment">//写入本地</span></span><br><span class="line">                           fileOutputStream.write(bytes, <span class="number">0</span>, len);</span><br><span class="line">                       &#125;</span><br><span class="line"></span><br><span class="line">                       accept.getOutputStream().write(<span class="string">"接收完毕"</span>.getBytes());</span><br><span class="line">                       fileOutputStream.close();</span><br><span class="line"></span><br><span class="line">                   &#125;<span class="keyword">catch</span> (IOException e)&#123;</span><br><span class="line">                       e.printStackTrace();</span><br><span class="line">                   &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">                       <span class="keyword">try</span> &#123;</span><br><span class="line">                           accept.close();</span><br><span class="line">                       &#125;<span class="keyword">catch</span> (IOException e)&#123;</span><br><span class="line">                           e.printStackTrace();</span><br><span class="line">                       &#125;</span><br><span class="line">                   &#125;</span><br><span class="line"></span><br><span class="line">               &#125;</span><br><span class="line">           &#125;);</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line"><span class="comment">//        server.close();</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Client"><a href="#Client" class="headerlink" title="Client"></a>Client</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> file.upload;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.net.Socket;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileUploadClient</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        FileInputStream file = <span class="keyword">new</span> FileInputStream(<span class="string">"D:\\vim.gif"</span>);</span><br><span class="line">        <span class="keyword">byte</span>[] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span> * <span class="number">10</span>];</span><br><span class="line">        <span class="keyword">int</span> readLen = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        Socket socket = <span class="keyword">new</span> Socket(<span class="string">"127.0.0.1"</span>, <span class="number">8000</span>);</span><br><span class="line"></span><br><span class="line">        OutputStream outputStream = socket.getOutputStream();</span><br><span class="line">        <span class="keyword">while</span> ((readLen = file.read(bytes)) != -<span class="number">1</span>) &#123;<span class="comment">//=-1读取不到结束标记</span></span><br><span class="line">            <span class="comment">//网络字节输出流 上传到服务器</span></span><br><span class="line">            outputStream.write(bytes,<span class="number">0</span>,readLen);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//禁用此套接字的输出流。对于TCP任何以前写入的数据都会被发送并且后面跟TCP的正常终止序列</span></span><br><span class="line">        socket.shutdownOutput();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取服务器输入流 接收服务器反馈</span></span><br><span class="line">        InputStream inputStream = socket.getInputStream();</span><br><span class="line">        <span class="keyword">while</span> ((readLen = inputStream.read(bytes)) != -<span class="number">1</span>) &#123;</span><br><span class="line">            System.out.println(<span class="keyword">new</span> String(bytes, <span class="number">0</span>, readLen));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        file.close();</span><br><span class="line">        socket.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-04-29T07:54:21.422Z" itemprop="dateUpdated">2019-04-29 15:54:21</time>
+</span><br>
+
+
+        
+        各位大爷们，评论在下最方，打赏点下面。转载请注明GitHub项目地址：https://github.com/wordfeng/wordfeng.github.io
+        
+    </div>
+    
+    <footer>
+        <a href="https://blog.ojbkfeng.com">
+            <img src="../../../../../../img/avatar.jpg" alt="慕华">
+            慕华
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../../tags/网络编程/">网络编程</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="../../../../27/JAVA/基础/Lambda/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Lambda表达式</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail'];<!-- 初始参数 'nick','mail','link' -->
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "cKe3yufiuoLVX7aeynK3jRP5-gzGzoHsz",
+            appKey: "4zBdRSwA5vUeliupdmxraDPT",
+            avatar: "mm",
+            placeholder: "可以在上面留下你的昵称和邮箱哦，支持markdown语法评论。",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="../../../../../../img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="../../../../../../img/wechat.jpg" data-alipay="../../../../../../img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>慕华 &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
+
+
+</script>
+
+<script src="../../../../../../js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="../../../../../../js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '你最好回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '这还差不多(¯﹃¯)!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

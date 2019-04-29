@@ -21,18 +21,18 @@
     
     
     <meta name="keywords" content="函数式编程,Lambda">
-    <meta name="description" content="使用前提 必须具有接口，且接口中有且仅有一个抽象方法。(如Runnable、Comparable) 必须具有上下文推断：方法的参数具有的类型必须为Lambda对应的接口类型，才能使用Lambda作该接口的实例。  *有且仅有一个接口的抽象方法，称为函数式接口。* 格式(参数表) -&amp;gt; {代码块(方法体)} -&amp;gt; ： 把参数传给方法体{} ： 重写接口的方法体 1234567891011">
+    <meta name="description" content="使用前提 必须具有接口，且接口中有且仅有一个抽象方法。(如Runnable、Comparable) 必须具有上下文推断：方法的参数具有的类型必须为Lambda对应的接口类型，才能使用Lambda作该接口的实例。  有且仅有一个接口的抽象方法，称为函数式接口。 格式(参数表) -&amp;gt; {代码块(方法体)} -&amp;gt; ： 把参数传给方法体{} ： 重写接口的方法体 1234567891011//">
 <meta name="keywords" content="函数式编程,Lambda">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Lambda表达式">
 <meta property="og:url" content="https://blog.ojbkfeng.com/2019/04/27/JAVA/基础/Lambda/index.html">
 <meta property="og:site_name" content="while(live){coding}">
-<meta property="og:description" content="使用前提 必须具有接口，且接口中有且仅有一个抽象方法。(如Runnable、Comparable) 必须具有上下文推断：方法的参数具有的类型必须为Lambda对应的接口类型，才能使用Lambda作该接口的实例。  *有且仅有一个接口的抽象方法，称为函数式接口。* 格式(参数表) -&amp;gt; {代码块(方法体)} -&amp;gt; ： 把参数传给方法体{} ： 重写接口的方法体 1234567891011">
+<meta property="og:description" content="使用前提 必须具有接口，且接口中有且仅有一个抽象方法。(如Runnable、Comparable) 必须具有上下文推断：方法的参数具有的类型必须为Lambda对应的接口类型，才能使用Lambda作该接口的实例。  有且仅有一个接口的抽象方法，称为函数式接口。 格式(参数表) -&amp;gt; {代码块(方法体)} -&amp;gt; ： 把参数传给方法体{} ： 重写接口的方法体 1234567891011//">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-27T12:28:41.900Z">
+<meta property="og:updated_time" content="2019-04-27T12:33:59.052Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lambda表达式">
-<meta name="twitter:description" content="使用前提 必须具有接口，且接口中有且仅有一个抽象方法。(如Runnable、Comparable) 必须具有上下文推断：方法的参数具有的类型必须为Lambda对应的接口类型，才能使用Lambda作该接口的实例。  *有且仅有一个接口的抽象方法，称为函数式接口。* 格式(参数表) -&amp;gt; {代码块(方法体)} -&amp;gt; ： 把参数传给方法体{} ： 重写接口的方法体 1234567891011">
+<meta name="twitter:description" content="使用前提 必须具有接口，且接口中有且仅有一个抽象方法。(如Runnable、Comparable) 必须具有上下文推断：方法的参数具有的类型必须为Lambda对应的接口类型，才能使用Lambda作该接口的实例。  有且仅有一个接口的抽象方法，称为函数式接口。 格式(参数表) -&amp;gt; {代码块(方法体)} -&amp;gt; ： 把参数传给方法体{} ： 重写接口的方法体 1234567891011//">
     
     <link rel="shortcut icon" href="../../../../../../img/favicon.ico">
     <link rel="stylesheet" href="../../../../../../css/style.css?v=1.7.2">
@@ -183,7 +183,7 @@
 <li>必须具有接口，且接口中有且仅有一个抽象方法。(如Runnable、Comparable)</li>
 <li>必须具有上下文推断：方法的参数具有的类型必须为Lambda对应的接口类型，才能使用Lambda作该接口的实例。</li>
 </ol>
-<p><strong>*有且仅有一个接口的抽象方法，称为</strong>函数式接口<strong>。*</strong></p>
+<p>有且仅有一个接口的抽象方法，称为<strong>函数式接口</strong>。</p>
 <h1 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h1><p>(参数表) -&gt; {代码块(方法体)}</p>
 <p>-&gt; ： 把参数传给方法体<br>{} ： 重写接口的方法体</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//普通写法</span></span><br><span class="line"><span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                System.out.println(Thread.currentThread().getName());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"><span class="comment">//Lambda写法</span></span><br><span class="line"><span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">    System.out.println(Thread.currentThread().getName());</span><br><span class="line">&#125;).start();</span><br></pre></td></tr></table></figure>
@@ -208,7 +208,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-04-27T12:28:41.900Z" itemprop="dateUpdated">2019-04-27 20:28:41</time>
+    最后更新时间：<time datetime="2019-04-27T12:33:59.052Z" itemprop="dateUpdated">2019-04-27 20:33:59</time>
 </span><br>
 
 
@@ -244,7 +244,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="../../../../29/后端开发/网络编程/Socket/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">TCP实现简单图片文件上传服务器</h4>
+      </a>
+    </div>
   
 
   
