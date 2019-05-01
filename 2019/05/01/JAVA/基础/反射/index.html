@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>反射(reflect) | while(live){coding} | 一个有味道的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="反射">
+    <meta name="description" content="反射反射的好处：在程序运行过程中操作对象可以提高程序的扩展性，解耦 获取Class对象的时机方式：1. .class文件未加载阶段在未加载阶段，将字节码文件加载进内存，返回Class对象：Class.forName(“包名+类名”)  多用于配置文件，将类名定义在配置文件中，读取文件，加载类123Class&amp;lt;?&amp;gt; clas1 = Class.forName(&quot;com.learn.ref">
+<meta name="keywords" content="反射">
+<meta property="og:type" content="article">
+<meta property="og:title" content="反射(reflect)">
+<meta property="og:url" content="https://blog.ojbkfeng.com/2019/05/01/JAVA/基础/反射/index.html">
+<meta property="og:site_name" content="while(live){coding}">
+<meta property="og:description" content="反射反射的好处：在程序运行过程中操作对象可以提高程序的扩展性，解耦 获取Class对象的时机方式：1. .class文件未加载阶段在未加载阶段，将字节码文件加载进内存，返回Class对象：Class.forName(“包名+类名”)  多用于配置文件，将类名定义在配置文件中，读取文件，加载类123Class&amp;lt;?&amp;gt; clas1 = Class.forName(&quot;com.learn.ref">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-01T02:09:10.804Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="反射(reflect)">
+<meta name="twitter:description" content="反射反射的好处：在程序运行过程中操作对象可以提高程序的扩展性，解耦 获取Class对象的时机方式：1. .class文件未加载阶段在未加载阶段，将字节码文件加载进内存，返回Class对象：Class.forName(“包名+类名”)  多用于配置文件，将类名定义在配置文件中，读取文件，加载类123Class&amp;lt;?&amp;gt; clas1 = Class.forName(&quot;com.learn.ref">
+    
+    <link rel="shortcut icon" href="../../../../../../img/favicon.ico">
+    <link rel="stylesheet" href="../../../../../../css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(../../../../../../img/brand.jpg)">
+      <div class="brand">
+        <a href="../../../../../../index.html" class="avatar waves-effect waves-circle waves-light">
+          <img src="../../../../../../img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">慕华</h5>
+          <a href="mailto:yf0nuttiness@qq.com" title="yf0nuttiness@qq.com" class="mail">yf0nuttiness@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../../../index.html">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../../../archives">
+                <i class="icon icon-lg icon-archives"></i>
+                所有内容
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../../../tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../../../categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wordfeng" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">反射(reflect)</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">反射(reflect)</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T23:36:15.978Z" itemprop="datePublished" class="page-time">
+  2019-05-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../../../categories/java/">java</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#反射"><span class="post-toc-text">反射</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#获取Class对象的时机方式："><span class="post-toc-text">获取Class对象的时机方式：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-class文件未加载阶段"><span class="post-toc-text">1. .class文件未加载阶段</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-Class类对象阶段-对象已经被ClassLoader加载入内存-，通过类名的属性：类名-class"><span class="post-toc-text">2. Class类对象阶段(对象已经被ClassLoader加载入内存)，通过类名的属性：类名.class</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-在程序Runtime阶段，使用Object类的方法：对象-getClass"><span class="post-toc-text">3. 在程序Runtime阶段，使用Object类的方法：对象.getClass()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#比较三种方式"><span class="post-toc-text">比较三种方式</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Class对象的操作"><span class="post-toc-text">Class对象的操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-获取成员变量"><span class="post-toc-text">1.获取成员变量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取构造方法"><span class="post-toc-text">获取构造方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取成员方法"><span class="post-toc-text">获取成员方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取类名"><span class="post-toc-text">获取类名</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取后的操作set-get-方法"><span class="post-toc-text">获取后的操作set() get()方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#类-lt-gt-…-parameterTypes的含义"><span class="post-toc-text">类&lt;?&gt;… parameterTypes的含义</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#getMehod如何执行"><span class="post-toc-text">getMehod如何执行</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置文件作为中间数据，加载执行其他类对象、方法"><span class="post-toc-text">配置文件作为中间数据，加载执行其他类对象、方法</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-JAVA/基础/反射" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">反射(reflect)</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-05-01 07:36:15" datetime="2019-04-30T23:36:15.978Z" itemprop="datePublished">2019-05-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../../../categories/java/">java</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h1><p>反射的好处：在程序运行过程中操作对象<br>可以提高程序的扩展性，解耦</p>
+<h1 id="获取Class对象的时机方式："><a href="#获取Class对象的时机方式：" class="headerlink" title="获取Class对象的时机方式："></a>获取Class对象的时机方式：</h1><h2 id="1-class文件未加载阶段"><a href="#1-class文件未加载阶段" class="headerlink" title="1. .class文件未加载阶段"></a>1. .class文件未加载阶段</h2><p>在未加载阶段，将字节码文件加载进内存，返回Class对象：Class.forName(“包名+类名”)</p>
+<ul>
+<li>多用于配置文件，将类名定义在配置文件中，读取文件，加载类<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Class&lt;?&gt; clas1 = Class.forName(<span class="string">"com.learn.reflect.Scholar"</span>);</span><br><span class="line">System.out.println(clas1);</span><br><span class="line"><span class="comment">//class com.learn.reflect.Scholar</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="2-Class类对象阶段-对象已经被ClassLoader加载入内存-，通过类名的属性：类名-class"><a href="#2-Class类对象阶段-对象已经被ClassLoader加载入内存-，通过类名的属性：类名-class" class="headerlink" title="2. Class类对象阶段(对象已经被ClassLoader加载入内存)，通过类名的属性：类名.class"></a>2. Class类对象阶段(对象已经被ClassLoader加载入内存)，通过类名的属性：类名.class</h2><ul>
+<li>多用于参数的传递<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Class&lt;Scholar&gt; clas2 = Scholar.class;</span><br><span class="line">System.out.println(clas2);</span><br><span class="line"><span class="comment">//class com.learn.reflect.Scholar</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="3-在程序Runtime阶段，使用Object类的方法：对象-getClass"><a href="#3-在程序Runtime阶段，使用Object类的方法：对象-getClass" class="headerlink" title="3. 在程序Runtime阶段，使用Object类的方法：对象.getClass()"></a>3. 在程序Runtime阶段，使用Object类的方法：对象.getClass()</h2><ul>
+<li>多用于对象获取字节码的方式<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Scholar scholar1 = <span class="keyword">new</span> Scholar();</span><br><span class="line">Class&lt;? extends Scholar&gt; clas3 = scholar1.getClass();</span><br><span class="line">System.out.println(clas3);</span><br><span class="line"><span class="comment">//class com.learn.reflect.Scholar</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="比较三种方式"><a href="#比较三种方式" class="headerlink" title="比较三种方式"></a>比较三种方式</h2><p>内存地址的比较<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(clas1 == clas2);<span class="comment">//true</span></span><br><span class="line">System.out.println(clas2 == clas3);<span class="comment">//true</span></span><br><span class="line">System.out.println(clas1 == clas3);<span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<p>结论：不管用哪种方式获取的class对象是同一个，区别仅仅是获取的时机不同。</p>
+<h1 id="Class对象的操作"><a href="#Class对象的操作" class="headerlink" title="Class对象的操作"></a>Class对象的操作</h1><h2 id="1-获取成员变量"><a href="#1-获取成员变量" class="headerlink" title="1.获取成员变量"></a>1.获取成员变量</h2><ul>
+<li>Field[] getFields() 获取public修饰的成员变量</li>
+<li><p>Field getField(String name) 获取指定名字的public修饰的成员变量</p>
+</li>
+<li><p>Field[] getDeclaredFields() 获取所有定义了的成员变量</p>
+</li>
+<li>Field getDeclaredFields(String name)</li>
+</ul>
+<h2 id="获取构造方法"><a href="#获取构造方法" class="headerlink" title="获取构造方法"></a>获取构造方法</h2><ul>
+<li>Constructor&lt;?&gt; [] getConstructors()</li>
+<li>Constructor<t> getConstructor(类&lt;?&gt;… parameterTypes)</t></li>
+<li></li>
+<li>Constructor&lt;?&gt; [] getDeclaredConstructors()</li>
+<li>Constructor<t> getDeclaredConstructor(类&lt;?&gt;… parameterTypes)</t></li>
+</ul>
+<h2 id="获取成员方法"><a href="#获取成员方法" class="headerlink" title="获取成员方法"></a>获取成员方法</h2><ul>
+<li>Method[] getMethods()</li>
+<li><p>Method getMethod(String name, 类&lt;?&gt;… parameterTypes)</p>
+</li>
+<li><p>Method[] getDeclaredMethods()</p>
+</li>
+<li>Method getDeclaredMethod(String name, 类&lt;?&gt;… parameterTypes)</li>
+</ul>
+<h2 id="获取类名"><a href="#获取类名" class="headerlink" title="获取类名"></a>获取类名</h2><ul>
+<li>String getName()</li>
+</ul>
+<h2 id="获取后的操作set-get-方法"><a href="#获取后的操作set-get-方法" class="headerlink" title="获取后的操作set() get()方法"></a>获取后的操作set() get()方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Scholar scholar = <span class="keyword">new</span> Scholar();</span><br><span class="line">Field fields = clas1.getDeclaredField(<span class="string">"name"</span>);</span><br><span class="line"><span class="comment">//忽略权限修饰符的检查，将私有变量设置为可访问，暴力反射</span></span><br><span class="line">fields.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">System.out.println(fields.get(scholar));<span class="comment">//null</span></span><br><span class="line">fields.set(scholar,<span class="string">"王麻子"</span>);</span><br><span class="line">System.out.println(fields.get(scholar));</span><br></pre></td></tr></table></figure>
+<h2 id="类-lt-gt-…-parameterTypes的含义"><a href="#类-lt-gt-…-parameterTypes的含义" class="headerlink" title="类&lt;?&gt;… parameterTypes的含义"></a>类&lt;?&gt;… parameterTypes的含义</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Class&lt;Scholar&gt; clas2 = Scholar.class;</span><br><span class="line"></span><br><span class="line">Constructor&lt;Scholar&gt; constructor = clas2.getConstructor(<span class="keyword">int</span>.class, String.class);</span><br><span class="line">Scholar obj = constructor.newInstance(<span class="number">40</span>, <span class="string">"老妈子"</span>);</span><br><span class="line">System.out.println(obj);</span><br></pre></td></tr></table></figure>
+<h2 id="getMehod如何执行"><a href="#getMehod如何执行" class="headerlink" title="getMehod如何执行"></a>getMehod如何执行</h2><p>如果使用getMethods 返回的方法包含了Object的方法，因为所有类都是Object的子类<br>直接引用上一个代码块的Scholar对象obj<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Method setAge = clas2.getMethod(<span class="string">"setAge"</span>,<span class="keyword">int</span>.class);</span><br><span class="line">setAge.invoke(obj,<span class="number">50</span>);</span><br><span class="line">System.out.println(obj);</span><br></pre></td></tr></table></figure></p>
+<h2 id="配置文件作为中间数据，加载执行其他类对象、方法"><a href="#配置文件作为中间数据，加载执行其他类对象、方法" class="headerlink" title="配置文件作为中间数据，加载执行其他类对象、方法"></a>配置文件作为中间数据，加载执行其他类对象、方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Properties properties = <span class="keyword">new</span> Properties();</span><br><span class="line">      <span class="comment">//获取、加载配置文件</span></span><br><span class="line">      ClassLoader classLoader = ReflectTest.class.getClassLoader();</span><br><span class="line">      InputStream in = classLoader.getResourceAsStream(<span class="string">"config.propertites"</span>);</span><br><span class="line">      properties.load(in);</span><br><span class="line">      <span class="comment">//获取配置文件中定义的数据</span></span><br><span class="line">      String className = properties.getProperty(<span class="string">"className"</span>);</span><br><span class="line">      String methodName = properties.getProperty(<span class="string">"methodName"</span>);</span><br><span class="line">      <span class="comment">//将目标类加载进内存</span></span><br><span class="line">      Class clas = Class.forName(className);</span><br><span class="line">      Object obj = clas.newInstance();</span><br><span class="line">      Method method = clas.getMethod(methodName);</span><br><span class="line">      method.invoke(obj);</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-05-01T02:09:10.804Z" itemprop="dateUpdated">2019-05-01 10:09:10</time>
+</span><br>
+
+
+        
+        各位大爷们，评论在下最方，打赏点下面。转载请注明GitHub项目地址：https://github.com/wordfeng/wordfeng.github.io
+        
+    </div>
+    
+    <footer>
+        <a href="https://blog.ojbkfeng.com">
+            <img src="../../../../../../img/avatar.jpg" alt="慕华">
+            慕华
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../../tags/反射/">反射</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="../../../../../04/30/JAVA/基础/函数式接口/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">函数式接口</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail'];<!-- 初始参数 'nick','mail','link' -->
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "cKe3yufiuoLVX7aeynK3jRP5-gzGzoHsz",
+            appKey: "4zBdRSwA5vUeliupdmxraDPT",
+            avatar: "mm",
+            placeholder: "可以在上面留下你的昵称和邮箱哦，支持markdown语法评论。",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="../../../../../../img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="../../../../../../img/wechat.jpg" data-alipay="../../../../../../img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>慕华 &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
+
+
+</script>
+
+<script src="../../../../../../js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="../../../../../../js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '你最好回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '这还差不多(¯﹃¯)!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
