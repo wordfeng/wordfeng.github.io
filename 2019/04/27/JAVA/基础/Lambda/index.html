@@ -14,7 +14,7 @@
     
     
     
-    <title>Lambda表达式 | while(live){coding} | 一个有味道的博客</title>
+    <title>Lambda表达式，闭包 | while(live){coding} | 一个有味道的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
@@ -24,14 +24,14 @@
     <meta name="description" content="使用前提 必须具有接口，且接口中有且仅有一个抽象方法。(如Runnable、Comparable) 必须具有上下文推断：方法的参数具有的类型必须为Lambda对应的接口类型，才能使用Lambda作该接口的实例。  有且仅有一个接口的抽象方法，称为函数式接口。 格式(参数表) -&amp;gt; {代码块(方法体)} -&amp;gt; ： 把参数传给方法体{} ： 重写接口的方法体 1234567891011//">
 <meta name="keywords" content="函数式编程,Lambda">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Lambda表达式">
+<meta property="og:title" content="Lambda表达式，闭包">
 <meta property="og:url" content="https://blog.ojbkfeng.com/2019/04/27/JAVA/基础/Lambda/index.html">
 <meta property="og:site_name" content="while(live){coding}">
 <meta property="og:description" content="使用前提 必须具有接口，且接口中有且仅有一个抽象方法。(如Runnable、Comparable) 必须具有上下文推断：方法的参数具有的类型必须为Lambda对应的接口类型，才能使用Lambda作该接口的实例。  有且仅有一个接口的抽象方法，称为函数式接口。 格式(参数表) -&amp;gt; {代码块(方法体)} -&amp;gt; ： 把参数传给方法体{} ： 重写接口的方法体 1234567891011//">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-27T12:33:59.052Z">
+<meta property="og:updated_time" content="2019-05-01T03:08:49.316Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lambda表达式">
+<meta name="twitter:title" content="Lambda表达式，闭包">
 <meta name="twitter:description" content="使用前提 必须具有接口，且接口中有且仅有一个抽象方法。(如Runnable、Comparable) 必须具有上下文推断：方法的参数具有的类型必须为Lambda对应的接口类型，才能使用Lambda作该接口的实例。  有且仅有一个接口的抽象方法，称为函数式接口。 格式(参数表) -&amp;gt; {代码块(方法体)} -&amp;gt; ： 把参数传给方法体{} ： 重写接口的方法体 1234567891011//">
     
     <link rel="shortcut icon" href="../../../../../../img/favicon.ico">
@@ -111,7 +111,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">Lambda表达式</div>
+        <div class="flex-col header-title ellipsis">Lambda表达式，闭包</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -129,7 +129,7 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">Lambda表达式</h1>
+        <h1 class="title">Lambda表达式，闭包</h1>
         <h5 class="subtitle">
             
                 <time datetime="2019-04-27T11:21:00.304Z" itemprop="datePublished" class="page-time">
@@ -154,7 +154,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#使用前提"><span class="post-toc-text">使用前提</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#格式"><span class="post-toc-text">格式</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Lambda的省略规则"><span class="post-toc-text">Lambda的省略规则</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#使用前提"><span class="post-toc-text">使用前提</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#格式"><span class="post-toc-text">格式</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Lambda的省略规则"><span class="post-toc-text">Lambda的省略规则</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Lambda引用的局部变量必须是-final"><span class="post-toc-text">Lambda引用的局部变量必须是 final</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#闭包"><span class="post-toc-text">闭包</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#方法引用"><span class="post-toc-text">方法引用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#构建方法引用的三种方式"><span class="post-toc-text">构建方法引用的三种方式</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -162,7 +162,7 @@
 <article id="post-JAVA/基础/Lambda" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">Lambda表达式</h1>
+        <h1 class="post-card-title">Lambda表达式，闭包</h1>
         <div class="post-meta">
             <time class="post-time" title="2019-04-27 19:21:00" datetime="2019-04-27T11:21:00.304Z" itemprop="datePublished">2019-04-27</time>
 
@@ -198,9 +198,13 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Lambda 省略形式</span></span><br><span class="line"><span class="keyword">new</span> Thread(()-&gt; System.out.println(Thread.currentThread().getName())).start();</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Lambda 省略形式</span></span><br><span class="line"><span class="keyword">new</span> Thread(()-&gt; System.out.println(Thread.currentThread().getName())).start();</span><br><span class="line"><span class="keyword">new</span> Thread(()-&gt; Thread.currentThread().getName()).start();</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Lambda 省略形式</span></span><br><span class="line">invokeCalc(<span class="number">4</span>,<span class="number">5</span>,(a,b)-&gt; a + b);</span><br></pre></td></tr></table></figure>
-
+<h1 id="Lambda引用的局部变量必须是-final"><a href="#Lambda引用的局部变量必须是-final" class="headerlink" title="Lambda引用的局部变量必须是 final"></a>Lambda引用的局部变量必须是 final</h1><h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><p>闭包是一个函数的实例，可以无限制地访问那个函数的非本地变量。<br>闭包可以作为参数传递给另一个函数，也可以访问和修改其作用域之外的变量。<br>限制：不能修改定义Lambda的方法的局部变量的内容，这些变量必须是隐式的final的。<br>限制的原因是由于局部变量保存在栈上，并且隐式表示他们仅限于其所在的线程，如果改变会造成线程不安全的可能。</p>
+<h1 id="方法引用"><a href="#方法引用" class="headerlink" title="方法引用"></a>方法引用</h1><p>根据已有的方法来创建Lambda表达式，如下getAge是Student内的一个方法。</p>
+<h3 id="构建方法引用的三种方式"><a href="#构建方法引用的三种方式" class="headerlink" title="构建方法引用的三种方式"></a>构建方法引用的三种方式</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.指向静态方法的方法引用</span></span><br><span class="line"><span class="comment">//Integer的parseInt方法</span></span><br><span class="line">Integer::parseInt</span><br><span class="line"></span><br><span class="line"><span class="comment">//2.指向**任意类型实例**的方法</span></span><br><span class="line"><span class="comment">//String的length方法</span></span><br><span class="line">String::length</span><br><span class="line"></span><br><span class="line"><span class="comment">//3.指向**现有对象的实例方法**的方法引用</span></span><br><span class="line"><span class="comment">//Student类中存age的方法</span></span><br><span class="line">Student::getAge</span><br><span class="line"></span><br><span class="line"><span class="comment">//4.构造方法引用</span></span><br><span class="line">Supplier&lt;Scholar&gt; supplier = ()-&gt;<span class="keyword">new</span> Scholar();<span class="comment">//Lambda普通简化写法</span></span><br><span class="line">Supplier&lt;Scholar&gt; supplier = Scholar::<span class="keyword">new</span>;<span class="comment">//使用方法引用 进一步简化</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//普通写法</span></span><br><span class="line">(Student a)-&gt;a.getAge()</span><br><span class="line"><span class="comment">//方法引用</span></span><br><span class="line">Student::getAge</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">()-&gt;Thread.currentThread().dumpStack()</span><br><span class="line">()-&gt;Thread.currentThread::dumpStack</span><br><span class="line"></span><br><span class="line">(str, i)-&gt;str.substring(i)</span><br><span class="line">String::substring</span><br><span class="line"></span><br><span class="line">(String s)-&gt;System.out.println(s)</span><br><span class="line">System.out::println</span><br></pre></td></tr></table></figure>
         </div>
 
         <blockquote class="post-copyright">
@@ -208,7 +212,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-04-27T12:33:59.052Z" itemprop="dateUpdated">2019-04-27 20:33:59</time>
+    最后更新时间：<time datetime="2019-05-01T03:08:49.316Z" itemprop="dateUpdated">2019-05-01 11:08:49</time>
 </span><br>
 
 

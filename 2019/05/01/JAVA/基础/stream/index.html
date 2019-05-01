@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>流式操作，让操作集合跟Python一样简单 | while(live){coding} | 一个有味道的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="函数式编程">
+    <meta name="description" content="1. 什么是流流是从支持数据处理操作的源生的一系列元素。流利用内部迭代，中间操作会返回一个流并且可以链接在一起，可以用来设置一条流水线不生成任何结果。流中的元素的按需计算的，类似于Python中的生成器，都是惰性计算，需要的时候产生结果。个人认为有了流，操作起数据来方便程度跟python有得一拼。12345678910111213141516171819List&amp;lt;String&amp;gt; lis">
+<meta name="keywords" content="函数式编程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="流式操作，让操作集合跟Python一样简单">
+<meta property="og:url" content="https://blog.ojbkfeng.com/2019/05/01/JAVA/基础/stream/index.html">
+<meta property="og:site_name" content="while(live){coding}">
+<meta property="og:description" content="1. 什么是流流是从支持数据处理操作的源生的一系列元素。流利用内部迭代，中间操作会返回一个流并且可以链接在一起，可以用来设置一条流水线不生成任何结果。流中的元素的按需计算的，类似于Python中的生成器，都是惰性计算，需要的时候产生结果。个人认为有了流，操作起数据来方便程度跟python有得一拼。12345678910111213141516171819List&amp;lt;String&amp;gt; lis">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-01T07:30:19.661Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="流式操作，让操作集合跟Python一样简单">
+<meta name="twitter:description" content="1. 什么是流流是从支持数据处理操作的源生的一系列元素。流利用内部迭代，中间操作会返回一个流并且可以链接在一起，可以用来设置一条流水线不生成任何结果。流中的元素的按需计算的，类似于Python中的生成器，都是惰性计算，需要的时候产生结果。个人认为有了流，操作起数据来方便程度跟python有得一拼。12345678910111213141516171819List&amp;lt;String&amp;gt; lis">
+    
+    <link rel="shortcut icon" href="../../../../../../img/favicon.ico">
+    <link rel="stylesheet" href="../../../../../../css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(../../../../../../img/brand.jpg)">
+      <div class="brand">
+        <a href="../../../../../../index.html" class="avatar waves-effect waves-circle waves-light">
+          <img src="../../../../../../img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">慕华</h5>
+          <a href="mailto:yf0nuttiness@qq.com" title="yf0nuttiness@qq.com" class="mail">yf0nuttiness@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../../../index.html">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../../../archives">
+                <i class="icon icon-lg icon-archives"></i>
+                所有内容
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../../../tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../../../categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wordfeng" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">流式操作，让操作集合跟Python一样简单</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">流式操作，让操作集合跟Python一样简单</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-05-01T04:23:51.188Z" itemprop="datePublished" class="page-time">
+  2019-05-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../../../categories/java/">java</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-什么是流"><span class="post-toc-text">1. 什么是流</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-中间操作"><span class="post-toc-text">2. 中间操作</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-终端操作"><span class="post-toc-text">3. 终端操作</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4-筛选-filter"><span class="post-toc-text">4. 筛选(filter)</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#5-映射-map"><span class="post-toc-text">5. 映射(map)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#例1："><span class="post-toc-text">例1：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#例2："><span class="post-toc-text">例2：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#解1"><span class="post-toc-text">解1</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#解2"><span class="post-toc-text">解2</span></a></li></ol></li></ol></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#6-合并流-flatMap"><span class="post-toc-text">6. 合并流(flatMap)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#解例2"><span class="post-toc-text">解例2</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#例3"><span class="post-toc-text">例3</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#7-查找和匹配"><span class="post-toc-text">7. 查找和匹配</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-1-匹配任意一个-anyMatch"><span class="post-toc-text">7.1 匹配任意一个(anyMatch)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-2-匹配所有-allMatch"><span class="post-toc-text">7.2 匹配所有(allMatch)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-3-没有任何匹配-noneMatch"><span class="post-toc-text">7.3 没有任何匹配(noneMatch)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-4-查找任意一元素-findAny"><span class="post-toc-text">7.4 查找任意一元素(findAny)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-5-查找第一个元素-findFirst"><span class="post-toc-text">7.5 查找第一个元素(findFirst)</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#8-归约"><span class="post-toc-text">8. 归约</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-1-reduce"><span class="post-toc-text">8.1 reduce</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-2-reduce的优势"><span class="post-toc-text">8.2 reduce的优势</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#并行流-parallelStream"><span class="post-toc-text">并行流(parallelStream())</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#有状态和无状态"><span class="post-toc-text">有状态和无状态</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#扩展阅读"><span class="post-toc-text">扩展阅读</span></a></li>
+        </nav>
+    </aside>
+
+
+<article id="post-JAVA/基础/stream" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">流式操作，让操作集合跟Python一样简单</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-05-01 12:23:51" datetime="2019-05-01T04:23:51.188Z" itemprop="datePublished">2019-05-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../../../categories/java/">java</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="1-什么是流"><a href="#1-什么是流" class="headerlink" title="1. 什么是流"></a>1. 什么是流</h1><p>流是从支持数据处理操作的源生的一系列元素。流利用内部迭代，中间操作会返回一个流并且可以链接在一起，可以用来设置一条流水线不生成任何结果。<br>流中的元素的按需计算的，类似于Python中的生成器，都是惰性计算，需要的时候产生结果。<br>个人认为有了流，操作起数据来方便程度跟python有得一拼。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    list.add(<span class="string">"王麻子"</span>);</span><br><span class="line">    list.add(<span class="string">"张三丰"</span>);</span><br><span class="line">    list.add(<span class="string">"狮子"</span>);</span><br><span class="line">    <span class="comment">//统计集合中有字符长度为3的元素个数</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//普通写法</span></span><br><span class="line">    <span class="keyword">long</span> count=<span class="number">0</span>;</span><br><span class="line">    <span class="comment">//外部迭代</span></span><br><span class="line">    <span class="keyword">for</span> (String s : list) &#123;</span><br><span class="line">        <span class="keyword">if</span>(s.length()==<span class="number">3</span>)&#123;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//使用流</span></span><br><span class="line">    <span class="keyword">long</span> count = list.stream()</span><br><span class="line">            .filter((name) -&gt; name.length() == <span class="number">3</span>)<span class="comment">//内部迭代</span></span><br><span class="line">            .count();</span><br></pre></td></tr></table></figure></p>
+<p>首先第一步list.stream()支持流<br>第二步filter()过滤字符串长度为3的元素<br>第三部count()统计过滤后的元素个数</p>
+<p>其中第二步称为中间操作<br>第三步称为终端操作</p>
+<h1 id="2-中间操作"><a href="#2-中间操作" class="headerlink" title="2. 中间操作"></a>2. 中间操作</h1><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>操作类型</th>
+<th>返回值</th>
+<th>使用的类型/函数式接口</th>
+<th>函数描述符</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>filter</td>
+<td>中间</td>
+<td>Stream&lt;T></td>
+<td>Predicate&lt;T></td>
+<td>T -&gt; boolean</td>
+<td>过滤元素</td>
+</tr>
+<tr>
+<td>map</td>
+<td>中间</td>
+<td>Stream&lt;T></td>
+<td>Function&lt;T, R&gt;</td>
+<td>T -&gt; R</td>
+<td>映射元素</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>中间(有状态-有界)</td>
+<td>Stream&lt;T></td>
+<td>long</td>
+<td></td>
+<td>limit(n)返回前n个元素</td>
+</tr>
+<tr>
+<td>sorted</td>
+<td>中间</td>
+<td>Stream&lt;T></td>
+<td>Comparetor&lt;T></td>
+<td>(T, T) -&gt; int</td>
+<td>排序</td>
+</tr>
+<tr>
+<td>distinct</td>
+<td>中间(有状态-无界)</td>
+<td>Stream&lt;T></td>
+<td></td>
+<td></td>
+<td>去重</td>
+</tr>
+<tr>
+<td>skip</td>
+<td>中间(有状态-有界)</td>
+<td>Stream&lt;T></td>
+<td>long</td>
+<td></td>
+<td>skip(n)跳过前n个元素</td>
+</tr>
+<tr>
+<td>sorted</td>
+<td>中间(有状态-有界)</td>
+<td>Stream&lt;T></td>
+<td>Comparator&lt;T></td>
+<td>(T,T)-&gt;int</td>
+</tr>
+<tr>
+<td>flatMap</td>
+<td>中间</td>
+<td>Stream&lt;T></td>
+<td>Function&lt;T,Stream&lt;R>&gt;</td>
+<td>T-&gt;Stream&lt;R></td>
+</tr>
+</tbody>
+</table>
+<h1 id="3-终端操作"><a href="#3-终端操作" class="headerlink" title="3. 终端操作"></a>3. 终端操作</h1><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>操作类型</th>
+<th>返回值</th>
+<th>使用的类型/函数式接口</th>
+<th>函数描述符</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>forEach</td>
+<td>终端</td>
+<td>void</td>
+<td>Consumer&lt;T></td>
+<td>T-&gt;void</td>
+<td>消费流中的每个元素并对其应用Lambda。返回void</td>
+</tr>
+<tr>
+<td>count</td>
+<td>终端</td>
+<td>long</td>
+<td></td>
+<td></td>
+<td>返回流中元素的个数</td>
+</tr>
+<tr>
+<td>collect</td>
+<td>终端</td>
+<td>R</td>
+<td>Collector&lt;T,A,T&gt;</td>
+<td></td>
+<td>把流归约成一个集合，比如List，Map甚至Integer。</td>
+</tr>
+<tr>
+<td>anyMatch</td>
+<td>终端</td>
+<td>boolean</td>
+<td>Predicate&lt;T></td>
+<td>T-&gt;boolean</td>
+<td>返回流中给匹配谓词的元素</td>
+</tr>
+<tr>
+<td>findAny</td>
+<td>终端</td>
+<td>Optional<t></t></td>
+<td></td>
+<td></td>
+<td>返回任意一个元素</td>
+</tr>
+<tr>
+<td>findFirst</td>
+<td>终端</td>
+<td>Optional<t></t></td>
+<td></td>
+<td></td>
+<td>返回第一个元素</td>
+</tr>
+<tr>
+<td>reduce</td>
+<td>终端(有状态-有界)</td>
+<td>Optional&lt;T></td>
+<td>BinaryOperator</td>
+<td>(T,T)-&gt;T</td>
+<td>归约</td>
+</tr>
+</tbody>
+</table>
+<h1 id="4-筛选-filter"><a href="#4-筛选-filter" class="headerlink" title="4. 筛选(filter)"></a>4. 筛选(filter)</h1><p>Streams接口的filter会接收一个谓词(一个返回boolean的函数)作为参数，并且包含所有符合谓词表述的元素的流。</p>
+<p>筛选出集合中的奇数，并且去重。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; list = Arrays.asList(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">list.stream()</span><br><span class="line">    .filter((i)-&gt;(i &amp; <span class="number">1</span>)==<span class="number">1</span>)</span><br><span class="line">    .distinct()</span><br><span class="line">    .forEach(System.out::println);</span><br><span class="line">    <span class="comment">//.collect(toList()); //直接转换成集合返回</span></span><br><span class="line">    <span class="comment">//终端操作只能一次</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="5-映射-map"><a href="#5-映射-map" class="headerlink" title="5. 映射(map)"></a>5. 映射(map)</h1><h4 id="例1："><a href="#例1：" class="headerlink" title="例1："></a>例1：</h4><p><strong>统计每一个字符串的长度。</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; list = Arrays.asList(<span class="string">"I"</span>, <span class="string">"am"</span>, <span class="string">"a"</span>, <span class="string">"Student"</span>);</span><br><span class="line"></span><br><span class="line">list.stream()</span><br><span class="line">        .map(String::length)</span><br><span class="line">        .forEach(System.out::println);</span><br></pre></td></tr></table></figure></p>
+<h4 id="例2："><a href="#例2：" class="headerlink" title="例2："></a>例2：</h4><p><strong>将[“I”, “am”, “a”, “Student”]变成[[“I”, “a”, m”, “a”, “S”,”t”, “u”, “d”. “e”, “n”, “t”]]</strong></p>
+<h6 id="解1"><a href="#解1" class="headerlink" title="解1"></a>解1</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; list = Arrays.asList(<span class="string">"I"</span>, <span class="string">"am"</span>, <span class="string">"a"</span>, <span class="string">"Student"</span>);</span><br><span class="line">list.stream()</span><br><span class="line">        .map((word -&gt; word.split(<span class="string">""</span>)))</span><br><span class="line">        .collect(toList());</span><br></pre></td></tr></table></figure>
+<p>这样子处理返回的是List&lt;String[]>类型的，是[[“I”],[“a”,”m”],[“a”],[…]], 跟预期的结果不一样。需要的是一个字符流，而不是数组流。</p>
+<h6 id="解2"><a href="#解2" class="headerlink" title="解2"></a>解2</h6><p>如果让每个数组都变成单独的流呢？Arrays.stream()可以做到：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">list.stream()</span><br><span class="line">        .map((word -&gt; word.split(<span class="string">""</span>)))</span><br><span class="line">        .map(Arrays::stream) <span class="comment">//让每个数组变成单独的流</span></span><br><span class="line">        .collect(toList());</span><br></pre></td></tr></table></figure></p>
+<p>但是这样做以后返回值会变成Stream<string>类型的，怎么合成一个流呢？</string></p>
+<p>接下来就要用到新东西了，流的扁平化</p>
+<h1 id="6-合并流-flatMap"><a href="#6-合并流-flatMap" class="headerlink" title="6. 合并流(flatMap)"></a>6. 合并流(flatMap)</h1><p>flatMap将各个生成流扁平化为单个流</p>
+<h6 id="解例2"><a href="#解例2" class="headerlink" title="解例2"></a>解例2</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">list.stream()</span><br><span class="line">        .map((word -&gt; word.split(<span class="string">""</span>)))</span><br><span class="line">        .flatMap(Arrays::stream)</span><br><span class="line">        .forEach(System.out::println);</span><br></pre></td></tr></table></figure>
+<p>终于达到了想要的结果<br>返回值为List<string></string></p>
+<h4 id="例3"><a href="#例3" class="headerlink" title="例3"></a>例3</h4><p><strong>给定[1,2,3]和[1,2]求他们的笛卡尔积。</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; num1 = Arrays.asList(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>);</span><br><span class="line">List&lt;Integer&gt; num2 = Arrays.asList(<span class="number">3</span>,<span class="number">4</span>);</span><br><span class="line">List&lt;<span class="keyword">int</span>[]&gt; collect = num1.stream()</span><br><span class="line">        .flatMap(i -&gt; num2.stream()</span><br><span class="line">                .map(j -&gt; <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;i, j&#125;)</span><br><span class="line">        ).collect(toList());</span><br></pre></td></tr></table></figure></p>
+<h1 id="7-查找和匹配"><a href="#7-查找和匹配" class="headerlink" title="7. 查找和匹配"></a>7. 查找和匹配</h1><h2 id="7-1-匹配任意一个-anyMatch"><a href="#7-1-匹配任意一个-anyMatch" class="headerlink" title="7.1 匹配任意一个(anyMatch)"></a>7.1 匹配任意一个(anyMatch)</h2><p>返回一个boolean，所以是一个终端操作。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(students.stream().anyMatch(Student::isGoodStudent))&#123;</span><br><span class="line">    System.out.println(<span class="string">"有好孩子"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="7-2-匹配所有-allMatch"><a href="#7-2-匹配所有-allMatch" class="headerlink" title="7.2 匹配所有(allMatch)"></a>7.2 匹配所有(allMatch)</h2><p>终端操作，跟anyMatch差不多，只有所有都为true才为true</p>
+<h2 id="7-3-没有任何匹配-noneMatch"><a href="#7-3-没有任何匹配-noneMatch" class="headerlink" title="7.3 没有任何匹配(noneMatch)"></a>7.3 没有任何匹配(noneMatch)</h2><p>没有任何元素匹配才为true</p>
+<p><strong>anyMatch、allMatch、noneMatch都是短路操作。</strong></p>
+<h2 id="7-4-查找任意一元素-findAny"><a href="#7-4-查找任意一元素-findAny" class="headerlink" title="7.4 查找任意一元素(findAny)"></a>7.4 查找任意一元素(findAny)</h2><p>查找任意元素：可以结合filter过滤使用，会返回一个Optional[3]这样的东西，Optional<t>类（java.util.Optional）是一个容器类，代表一个值存在或不存在。findAny可能什么都没找到，返回Optional[3]就可以不用返回null了。可以用T get()获取返回值(如果有的话，没有则返回NoSuchElem异常)。</t></p>
+<h2 id="7-5-查找第一个元素-findFirst"><a href="#7-5-查找第一个元素-findFirst" class="headerlink" title="7.5 查找第一个元素(findFirst)"></a>7.5 查找第一个元素(findFirst)</h2><p>返回第一个元素。</p>
+<h1 id="8-归约"><a href="#8-归约" class="headerlink" title="8. 归约"></a>8. 归约</h1><p>把流中的元素全部组合起来，表达一个复杂的查询结果。比如计算总数，查找最大值。</p>
+<h2 id="8-1-reduce"><a href="#8-1-reduce" class="headerlink" title="8.1 reduce"></a>8.1 reduce</h2><p>reduce接收两个参数,有三个重载<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//有初始值返回T</span></span><br><span class="line"><span class="function">T <span class="title">reduce</span><span class="params">(T identity, BinaryOperator&lt;T&gt; accumulator)</span></span>;</span><br><span class="line"><span class="comment">//无初始值，返回Optional&lt;T&gt;</span></span><br><span class="line"><span class="function">Optional&lt;T&gt; <span class="title">reduce</span><span class="params">(BinaryOperator&lt;T&gt; accumulator)</span></span>;</span><br><span class="line"><span class="comment">//???</span></span><br><span class="line">&lt;U&gt; <span class="function">U <span class="title">reduce</span><span class="params">(U identity,</span></span></span><br><span class="line"><span class="function"><span class="params">                 BiFunction&lt;U, ? <span class="keyword">super</span> T, U&gt; accumulator,</span></span></span><br><span class="line"><span class="function"><span class="params">                 BinaryOperator&lt;U&gt; combiner)</span></span>;</span><br></pre></td></tr></table></figure></p>
+<p>这里的BinaryOperator<t>是继承自BiFunction的函数式接口</t></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//用第一个参数键入初始值，第二个参数将两个元素结合起来生成一个新值</span></span><br><span class="line">    List&lt;Integer&gt; num1 = Arrays.asList(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>);</span><br><span class="line">    <span class="keyword">int</span> num = num1.stream().reduce(<span class="number">0</span>,(a,b)-&gt;a+b);</span><br><span class="line">    System.out.println(num);<span class="comment">//21</span></span><br></pre></td></tr></table></figure>
+<p>用map和reduce统计集合中元素个数<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">num1.stream().map(i-&gt;<span class="number">1</span>).reduce((a,b)-&gt;a+b).get()</span><br></pre></td></tr></table></figure></p>
+<p>map-reduce模式容易并行化，google用这种模式做搜索。</p>
+<h2 id="8-2-reduce的优势"><a href="#8-2-reduce的优势" class="headerlink" title="8.2 reduce的优势"></a>8.2 reduce的优势</h2><p>使用reduce的优势在于，迭代被内部迭代抽象了，这让内部实现可以选择并行执行reduce操作。如果使用外部迭代器，要不断更新共享变量sum，不容易并行化，如果使用同步synchronize和ReentrantLock之类的锁同步，需要将输入分块，分块求和，最后再合并起来。使用reduce只需要把stream()改成parallelStream()即可。</p>
+<h1 id="并行流-parallelStream"><a href="#并行流-parallelStream" class="headerlink" title="并行流(parallelStream())"></a>并行流(parallelStream())</h1><p>并行流也可能会付出一些代价。<br>传递给reduce的Lambda不能更改状态(比如实例变量), 而且操作必须满足结合律才可以按任意顺序执行。</p>
+<h1 id="有状态和无状态"><a href="#有状态和无状态" class="headerlink" title="有状态和无状态"></a>有状态和无状态</h1><p>像map，reduce之类的操作会从输入流中获取每一个元素，并且在输出流中得到0/1个结果，这种操作叫无状态。</p>
+<p>像reduce，sum，max操作需要内部状态积累结果，但是内部状态很小，不过内部状态是有界的。</p>
+<p>像sort，distinct需要把元素都放入缓冲区后才能在输出流加入元素，如果流很大，或者是无限的就会有问题。</p>
+<h1 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h1><p><a href="https://lw900925.github.io/java/java8-stream-api.html" target="_blank" rel="noopener">Java 8新特性（二）：Stream API</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-05-01T07:30:19.661Z" itemprop="dateUpdated">2019-05-01 15:30:19</time>
+</span><br>
+
+
+        
+        各位大爷们，评论在下最方，打赏点下面。转载请注明GitHub项目地址：https://github.com/wordfeng/wordfeng.github.io
+        
+    </div>
+    
+    <footer>
+        <a href="https://blog.ojbkfeng.com">
+            <img src="../../../../../../img/avatar.jpg" alt="慕华">
+            慕华
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../../tags/函数式编程/">函数式编程</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="../反射/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">反射(reflect)</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail'];<!-- 初始参数 'nick','mail','link' -->
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "cKe3yufiuoLVX7aeynK3jRP5-gzGzoHsz",
+            appKey: "4zBdRSwA5vUeliupdmxraDPT",
+            avatar: "mm",
+            placeholder: "可以在上面留下你的昵称和邮箱哦，支持markdown语法评论。",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="../../../../../../img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="../../../../../../img/wechat.jpg" data-alipay="../../../../../../img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>慕华 &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
+
+
+</script>
+
+<script src="../../../../../../js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="../../../../../../js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '你最好回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '这还差不多(¯﹃¯)!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
