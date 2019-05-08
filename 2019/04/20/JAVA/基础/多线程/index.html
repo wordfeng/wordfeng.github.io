@@ -30,7 +30,7 @@
 <meta property="og:description" content="线程的状态在import java.lang.Thread.State枚举类里列出了6种线程状态    状态 意义     NEW A thread that has not yet started is in this state.（创建后未调用start方法）   RUNNABLE A thread in the runnable is executing in the Java virtua">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://blog.ojbkfeng.com/2019/04/20/JAVA/基础/多线程/img/monitorLock.jpg">
-<meta property="og:updated_time" content="2019-04-21T16:01:12.323Z">
+<meta property="og:updated_time" content="2019-05-04T06:00:37.797Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线程的状态、同步和锁">
 <meta name="twitter:description" content="线程的状态在import java.lang.Thread.State枚举类里列出了6种线程状态    状态 意义     NEW A thread that has not yet started is in this state.（创建后未调用start方法）   RUNNABLE A thread in the runnable is executing in the Java virtua">
@@ -156,7 +156,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#线程的状态"><span class="post-toc-text">线程的状态</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Java中的线程"><span class="post-toc-text">Java中的线程</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#创建线程"><span class="post-toc-text">创建线程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#方法1-继承Thread类，重写run-方法"><span class="post-toc-text">方法1 继承Thread类，重写run()方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#方法二-实现Runnable接口，创建Thread类的时候把实现的接口作为参数传递"><span class="post-toc-text">方法二 实现Runnable接口，创建Thread类的时候把实现的接口作为参数传递</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#方法三-匿名内部类-创建线程"><span class="post-toc-text">方法三 匿名内部类 创建线程</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#正在运行的线程"><span class="post-toc-text">正在运行的线程</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#设置线程名称"><span class="post-toc-text">设置线程名称</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#线程睡眠"><span class="post-toc-text">线程睡眠</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#线程同步-锁"><span class="post-toc-text">线程同步(锁)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#synchronized同步代码块"><span class="post-toc-text">synchronized同步代码块</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#synchronized同步方法"><span class="post-toc-text">synchronized同步方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#synchronized同步类"><span class="post-toc-text">synchronized同步类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#synchronized静态代码块"><span class="post-toc-text">synchronized静态代码块</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Lock锁"><span class="post-toc-text">Lock锁</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#什么是intrinsic-lock-内在锁-和monitor-lock-监视器锁"><span class="post-toc-text">什么是intrinsic lock(内在锁)和monitor lock(监视器锁)</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#线程的状态"><span class="post-toc-text">线程的状态</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-Java中的线程"><span class="post-toc-text">1. Java中的线程</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#创建线程"><span class="post-toc-text">创建线程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#方法1-继承Thread类，重写run-方法"><span class="post-toc-text">方法1 继承Thread类，重写run()方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#方法二-实现Runnable接口，创建Thread类的时候把实现的接口作为参数传递"><span class="post-toc-text">方法二 实现Runnable接口，创建Thread类的时候把实现的接口作为参数传递</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#方法三-匿名内部类-创建线程"><span class="post-toc-text">方法三 匿名内部类 创建线程</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#正在运行的线程"><span class="post-toc-text">正在运行的线程</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#设置线程名称"><span class="post-toc-text">设置线程名称</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#线程睡眠"><span class="post-toc-text">线程睡眠</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#线程同步-锁"><span class="post-toc-text">线程同步(锁)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#synchronized同步代码块"><span class="post-toc-text">synchronized同步代码块</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#synchronized同步方法"><span class="post-toc-text">synchronized同步方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#synchronized同步类"><span class="post-toc-text">synchronized同步类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#synchronized静态代码块"><span class="post-toc-text">synchronized静态代码块</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ReentrantLock锁"><span class="post-toc-text">ReentrantLock锁</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#什么是intrinsic-lock-内在锁-和monitor-lock-监视器锁"><span class="post-toc-text">什么是intrinsic lock(内在锁)和monitor lock(监视器锁)</span></a></li></ol>
         </nav>
     </aside>
 
@@ -229,7 +229,7 @@
             </figure></li>
 <li>②：例如：调用Object.wait()方法进入WATTING的线程在等待另一个线程在这个对象调用Object.notify()或者Object.notifyAll()。调用Thread.join()的线程在等待指定线程终止。</li>
 </ul>
-<h1 id="Java中的线程"><a href="#Java中的线程" class="headerlink" title="Java中的线程"></a>Java中的线程</h1><p>java.lang.Thread<br>java中的线程是抢占调度模式，Java虚拟机允许并发执行多个线程，每个线程都有一个优先级，高优先级执行优于低优先级。每个线程都可以或不可以标记为一个守护程序。当某个线程中运行的代码创建一个新 Thread 对象时，该新线程的初始优先级被设定为创建线程的优先级，并且当且仅当创建线程是守护线程时，新线程才是守护程序。 </p>
+<h1 id="1-Java中的线程"><a href="#1-Java中的线程" class="headerlink" title="1. Java中的线程"></a>1. Java中的线程</h1><p>java.lang.Thread<br>java中的线程是抢占调度模式，Java虚拟机允许并发执行多个线程，每个线程都有一个优先级，高优先级执行优于低优先级。每个线程都可以或不可以标记为一个守护程序。当某个线程中运行的代码创建一个新 Thread 对象时，该新线程的初始优先级被设定为创建线程的优先级，并且当且仅当创建线程是守护线程时，新线程才是守护程序。 </p>
 <p>当 Java 虚拟机启动时，通常都会有单个非守护线程（它通常会调用某个指定类的 main 方法）。Java 虚拟机会继续执行线程，直到下列任一情况出现时为止： </p>
 <ul>
 <li>调用了 Runtime 类的 exit 方法，并且安全管理器允许退出操作发生。 </li>
@@ -246,10 +246,13 @@
 <h2 id="synchronized同步方法"><a href="#synchronized同步方法" class="headerlink" title="synchronized同步方法"></a>synchronized同步方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">权限修饰 <span class="keyword">synchronized</span> 返回值 方法名(...)&#123;</span><br><span class="line">     临界代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="synchronized同步类"><a href="#synchronized同步类" class="headerlink" title="synchronized同步类"></a>synchronized同步类</h2><p>权限修饰 synchronized class 。。。</p>
 <h2 id="synchronized静态代码块"><a href="#synchronized静态代码块" class="headerlink" title="synchronized静态代码块"></a>synchronized静态代码块</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">权限修饰 返回值 方法名(...)&#123;</span><br><span class="line">    sychronized(RunnableImpl.class)&#123;</span><br><span class="line">     临界代码</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="Lock锁"><a href="#Lock锁" class="headerlink" title="Lock锁"></a>Lock锁</h1><p>用java.util.concurrent.locks包下ReentrantLock类，它实现了Lock接口</p>
+<h1 id="ReentrantLock锁"><a href="#ReentrantLock锁" class="headerlink" title="ReentrantLock锁"></a>ReentrantLock锁</h1><p>用java.util.concurrent.locks包下ReentrantLock类，它实现了Lock接口</p>
 <ul>
 <li>void lock()获取锁</li>
 <li>void unlock()释放锁</li>
+<li>lockInterruptibly()获得锁，但优先响应中断</li>
+<li>tryLock()尝试获得锁，成功返回true，失败返回false</li>
+<li>tryLock(long time, TimeUnit unit)在给定时间尝试获得锁</li>
 </ul>
 <p><strong><em>好处：无论程序是否有异常都能释放锁</em></strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Lock lock = <span class="keyword">new</span> ReentrantLock();</span><br><span class="line">lock.lock();</span><br><span class="line">...</span><br><span class="line">lock.unlock();</span><br></pre></td></tr></table></figure></p>
 <h1 id="什么是intrinsic-lock-内在锁-和monitor-lock-监视器锁"><a href="#什么是intrinsic-lock-内在锁-和monitor-lock-监视器锁" class="headerlink" title="什么是intrinsic lock(内在锁)和monitor lock(监视器锁)"></a>什么是intrinsic lock(内在锁)和monitor lock(监视器锁)</h1><p>在JVM中，每个对象和类在逻辑上都是和一个监视器相关联的，为了实现监视器的排他性监视能力，JVM为每一个对象和类都关联一个锁，锁住了一个对象，就是获得对象相关联的监视器。</p>
@@ -264,7 +267,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-04-21T16:01:12.323Z" itemprop="dateUpdated">2019-04-22 00:01:12</time>
+    最后更新时间：<time datetime="2019-05-04T06:00:37.797Z" itemprop="dateUpdated">2019-05-04 14:00:37</time>
 </span><br>
 
 

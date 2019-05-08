@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="while(live){coding}">
 <meta property="og:description" content="1. 什么是流流是从支持数据处理操作的源生的一系列元素。流利用内部迭代，中间操作会返回一个流并且可以链接在一起，可以用来设置一条流水线不生成任何结果。流中的元素的按需计算的，类似于Python中的生成器，都是惰性计算，需要的时候产生结果。个人认为有了流，操作起数据来方便程度跟python有得一拼。12345678910111213141516171819List&amp;lt;String&amp;gt; lis">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-01T07:30:19.661Z">
+<meta property="og:updated_time" content="2019-05-03T02:16:22.552Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="流式操作，让操作集合跟Python一样简单">
 <meta name="twitter:description" content="1. 什么是流流是从支持数据处理操作的源生的一系列元素。流利用内部迭代，中间操作会返回一个流并且可以链接在一起，可以用来设置一条流水线不生成任何结果。流中的元素的按需计算的，类似于Python中的生成器，都是惰性计算，需要的时候产生结果。个人认为有了流，操作起数据来方便程度跟python有得一拼。12345678910111213141516171819List&amp;lt;String&amp;gt; lis">
@@ -154,7 +154,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-什么是流"><span class="post-toc-text">1. 什么是流</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-中间操作"><span class="post-toc-text">2. 中间操作</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-终端操作"><span class="post-toc-text">3. 终端操作</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4-筛选-filter"><span class="post-toc-text">4. 筛选(filter)</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#5-映射-map"><span class="post-toc-text">5. 映射(map)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#例1："><span class="post-toc-text">例1：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#例2："><span class="post-toc-text">例2：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#解1"><span class="post-toc-text">解1</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#解2"><span class="post-toc-text">解2</span></a></li></ol></li></ol></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#6-合并流-flatMap"><span class="post-toc-text">6. 合并流(flatMap)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#解例2"><span class="post-toc-text">解例2</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#例3"><span class="post-toc-text">例3</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#7-查找和匹配"><span class="post-toc-text">7. 查找和匹配</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-1-匹配任意一个-anyMatch"><span class="post-toc-text">7.1 匹配任意一个(anyMatch)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-2-匹配所有-allMatch"><span class="post-toc-text">7.2 匹配所有(allMatch)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-3-没有任何匹配-noneMatch"><span class="post-toc-text">7.3 没有任何匹配(noneMatch)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-4-查找任意一元素-findAny"><span class="post-toc-text">7.4 查找任意一元素(findAny)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-5-查找第一个元素-findFirst"><span class="post-toc-text">7.5 查找第一个元素(findFirst)</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#8-归约"><span class="post-toc-text">8. 归约</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-1-reduce"><span class="post-toc-text">8.1 reduce</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-2-reduce的优势"><span class="post-toc-text">8.2 reduce的优势</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#并行流-parallelStream"><span class="post-toc-text">并行流(parallelStream())</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#有状态和无状态"><span class="post-toc-text">有状态和无状态</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#扩展阅读"><span class="post-toc-text">扩展阅读</span></a></li>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-什么是流"><span class="post-toc-text">1. 什么是流</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-中间操作"><span class="post-toc-text">2. 中间操作</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-终端操作"><span class="post-toc-text">3. 终端操作</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4-筛选-filter"><span class="post-toc-text">4. 筛选(filter)</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#5-映射-map"><span class="post-toc-text">5. 映射(map)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#例1："><span class="post-toc-text">例1：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#例2："><span class="post-toc-text">例2：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#解1"><span class="post-toc-text">解1</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#解2"><span class="post-toc-text">解2</span></a></li></ol></li></ol></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#6-合并流-flatMap"><span class="post-toc-text">6. 合并流(flatMap)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#解例2"><span class="post-toc-text">解例2</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#例3"><span class="post-toc-text">例3</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#7-查找和匹配"><span class="post-toc-text">7. 查找和匹配</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-1-匹配任意一个-anyMatch"><span class="post-toc-text">7.1 匹配任意一个(anyMatch)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-2-匹配所有-allMatch"><span class="post-toc-text">7.2 匹配所有(allMatch)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-3-没有任何匹配-noneMatch"><span class="post-toc-text">7.3 没有任何匹配(noneMatch)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-4-查找任意一元素-findAny"><span class="post-toc-text">7.4 查找任意一元素(findAny)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-5-查找第一个元素-findFirst"><span class="post-toc-text">7.5 查找第一个元素(findFirst)</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#8-归约"><span class="post-toc-text">8. 归约</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-1-reduce"><span class="post-toc-text">8.1 reduce</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-2-reduce的优势"><span class="post-toc-text">8.2 reduce的优势</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#并行流-parallelStream"><span class="post-toc-text">并行流(parallelStream())</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#有状态和无状态"><span class="post-toc-text">有状态和无状态</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数值流"><span class="post-toc-text">数值流</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#映射到数值流"><span class="post-toc-text">映射到数值流</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#转换回对象流"><span class="post-toc-text">转换回对象流</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#扩展阅读"><span class="post-toc-text">扩展阅读</span></a></li>
         </nav>
     </aside>
 
@@ -220,7 +220,7 @@
 </tr>
 <tr>
 <td>sorted</td>
-<td>中间</td>
+<td>中间(有状态-有界)</td>
 <td>Stream&lt;T></td>
 <td>Comparetor&lt;T></td>
 <td>(T, T) -&gt; int</td>
@@ -241,13 +241,6 @@
 <td>long</td>
 <td></td>
 <td>skip(n)跳过前n个元素</td>
-</tr>
-<tr>
-<td>sorted</td>
-<td>中间(有状态-有界)</td>
-<td>Stream&lt;T></td>
-<td>Comparator&lt;T></td>
-<td>(T,T)-&gt;int</td>
 </tr>
 <tr>
 <td>flatMap</td>
@@ -359,6 +352,12 @@
 <h1 id="有状态和无状态"><a href="#有状态和无状态" class="headerlink" title="有状态和无状态"></a>有状态和无状态</h1><p>像map，reduce之类的操作会从输入流中获取每一个元素，并且在输出流中得到0/1个结果，这种操作叫无状态。</p>
 <p>像reduce，sum，max操作需要内部状态积累结果，但是内部状态很小，不过内部状态是有界的。</p>
 <p>像sort，distinct需要把元素都放入缓冲区后才能在输出流加入元素，如果流很大，或者是无限的就会有问题。</p>
+<h1 id="数值流"><a href="#数值流" class="headerlink" title="数值流"></a>数值流</h1><p>可以将流转换为数值，减少自动装箱、拆箱的消耗。<br>例：求需要发的员工工资总和。<br>每个Integer都要拆箱成一个int原始类型求和。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> totalSalary = empl.stream()</span><br><span class="line">    .map(Emploee::getSalary)</span><br><span class="line">    .reduce(<span class="number">0</span>,Integer::sum);</span><br></pre></td></tr></table></figure></p>
+<p>java8用了三个原始类型特化流接口解决：IntStream、DoubleStream、LongStream，将对象流特化为对应的原始类型(数值流)。</p>
+<h2 id="映射到数值流"><a href="#映射到数值流" class="headerlink" title="映射到数值流"></a>映射到数值流</h2><p>流转换方法：mapToInt、mapToDouble、mapToLong，跟原始的map工作方式一样，只不过返回的是特化流而不是Stream&lt;T>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> totalSalary = empl.stream()</span><br><span class="line">    .mapToInt(Emploee::getSalary) <span class="comment">//mapToInt返回值是IntStream,不是Stream&lt;Integer&gt;</span></span><br><span class="line">    .sum();</span><br></pre></td></tr></table></figure>
+<h2 id="转换回对象流"><a href="#转换回对象流" class="headerlink" title="转换回对象流"></a>转换回对象流</h2><p>只需要使用boxed()装箱就行了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> totalSalary = empl.stream()</span><br><span class="line">    .map(Emploee::getSalary);</span><br><span class="line">Stream&lt;Integer&gt; s = totalSalary.boxed();</span><br></pre></td></tr></table></figure>
 <h1 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h1><p><a href="https://lw900925.github.io/java/java8-stream-api.html" target="_blank" rel="noopener">Java 8新特性（二）：Stream API</a></p>
 
         </div>
@@ -368,7 +367,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-05-01T07:30:19.661Z" itemprop="dateUpdated">2019-05-01 15:30:19</time>
+    最后更新时间：<time datetime="2019-05-03T02:16:22.552Z" itemprop="dateUpdated">2019-05-03 10:16:22</time>
 </span><br>
 
 
